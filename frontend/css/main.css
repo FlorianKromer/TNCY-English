@@ -8,3 +8,27 @@ body {
 .container > .jumbotron {
   margin-top: 4em;
 }
+.box-social-buttons .btn-twitter {
+  color: #1caff6;
+}
+.box-social-buttons .btn-twitter:hover {
+  background: #1caff6 !important;
+  color: #fff;
+  border-color: #1caff6;
+}
+.box-social-buttons .btn-fb {
+  color: #3b579d;
+}
+.box-social-buttons .btn-fb:hover {
+  background: #3b579d !important;
+  border-color: #3b579d;
+  color: #ffffff;
+}
+.box-social-buttons .btn-google {
+  color: #db4633;
+}
+.box-social-buttons .btn-google:hover {
+  background: #db4633 !important;
+  border-color: #db4633;
+  color: #ffffff;
+}
