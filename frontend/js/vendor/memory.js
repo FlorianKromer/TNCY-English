@@ -63,72 +63,88 @@
 
   Memory.prototype.options = {
     wrapperID : "container",
-    cards : [
-      {
-        id : 1,
-        img: "img/default/monsters-01.png"
-      },
-      {
-        id : 2,
-        img: "img/default/monsters-02.png"
-      },
-      {
-        id : 3,
-        img: "img/default/monsters-03.png"
-      },
-      {
-        id : 4,
-        img: "img/default/monsters-04.png"
-      },
-      {
-        id : 5,
-        img: "img/default/monsters-05.png"
-      },
-      {
-        id : 6,
-        img: "img/default/monsters-06.png"
-      },
-      {
-        id : 7,
-        img: "img/default/monsters-07.png"
-      },
-      {
-        id : 8,
-        img: "img/default/monsters-08.png"
-      },
-      {
-        id : 9,
-        img: "img/default/monsters-09.png"
-      },
-      {
-        id : 10,
-        img: "img/default/monsters-10.png"
-      },
-      {
-        id : 11,
-        img: "img/default/monsters-11.png"
-      },
-      {
-        id : 12,
-        img: "img/default/monsters-12.png"
-      },
-      {
-        id : 13,
-        img: "img/default/monsters-13.png"
-      },
-      {
-        id : 14,
-        img: "img/default/monsters-14.png"
-      },
-      {
-        id : 15,
-        img: "img/default/monsters-15.png"
-      },
-      {
-        id : 16,
-        img: "img/default/monsters-16.png"
-      }
-    ],
+      cards : [
+          {
+            id : 1,
+            img: "img/default/monsters-01.png",
+            name: "apple"
+          },
+          {
+            id : 2,
+            img: "img/default/monsters-02.png",
+            name:"boy"
+          },
+          {
+            id : 3,
+            img: "img/default/monsters-03.png",
+            name:"girl"
+          },
+          {
+            id : 4,
+            img: "img/default/monsters-04.png",
+            name:"computer"
+          },
+          {
+            id : 5,
+            img: "img/default/monsters-05.png",
+            name:"mouse"
+          },
+          {
+            id : 6,
+            img: "img/default/monsters-06.png",
+            name:"game"
+          },
+          {
+            id : 7,
+            img: "img/default/monsters-07.png",
+            name:"paper"
+          },
+          {
+            id : 8,
+            img: "img/default/monsters-08.png",
+            name:"pencil"
+          },
+          {
+            id : 9,
+            img: "img/default/monsters-09.png",
+            name:"bag"
+          },
+          {
+            id : 10,
+            img: "img/default/monsters-10.png",
+            name:"bedroom"
+          },
+          {
+            id : 11,
+            img: "img/default/monsters-11.png",
+            name:"meeting"
+          },
+          {
+            id : 12,
+            img: "img/default/monsters-12.png",
+            name:"cellphone"
+          },
+          {
+            id : 13,
+            img: "img/default/monsters-13.png",
+            name:"picture"
+          },
+          {
+            id : 14,
+            img: "img/default/monsters-14.png",
+            name:"duck"
+          },
+          {
+            id : 15,
+            img: "img/default/monsters-15.png",
+            name:"city"
+          },
+          {
+            id : 16,
+            img: "img/default/monsters-16.png",
+            name:"map"
+          }
+        ],
     onGameStart : function() { return false; },
     onGameEnd : function() { return false; }
   }
@@ -308,7 +324,7 @@
     for ( var i = 0; i < this.numTiles; i++  ) {
       var n = i + 1;
       this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
-        <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '">\
+        <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '" data-name="' + this.newCards[i]["name"] + '" >\
         <span class="mg__tile--outside"></span>\
         <span class="mg__tile--inside"><img src="' + this.newCards[i]["img"] + '"></span>\
         </div>\
@@ -356,6 +372,8 @@
           self.card1 = this;
           self.card1id = this.getAttribute("data-id");
           self.card1flipped = true;
+
+
         } else if( self.card1flipped === true && self.card2flipped === false ) {
           this.classList.add("flipped");
           self.card2 = this;
@@ -367,6 +385,8 @@
             self._gameCardsMismatch();
           }
         }
+                  //call text to speech
+          responsiveVoice.speak(this.getAttribute("data-name"));
       }
     });
   }

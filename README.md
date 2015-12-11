@@ -30,6 +30,7 @@ Rédigée en anglais est une présentation de l'outil et une sorte de mode d'emp
 
 # Credits
 * memory game https://github.com/callmenick/Memory
+* text to speech http://responsivevoice.org/
 * bootstrap https://github.com/twbs/bootstrap
 * bootstrap material design https://github.com/FezVrasta/bootstrap-material-design
 * 
