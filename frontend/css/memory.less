@@ -1,4 +1,4 @@
-#my-memory-game img {
+#my-memory-game img{
   display: block;
   height: auto;
   max-width: 100%;
@@ -15,6 +15,7 @@
 .mg {
   /* blank */
 }
+
 /**
  * Game meta
  *
@@ -26,18 +27,23 @@
   margin-bottom: 10px;
   color: #28aadc;
 }
+
 .mg__meta--item {
   display: inline-block;
 }
+
 .mg__meta--left {
   float: left;
 }
+
 .mg__meta--right {
   float: right;
 }
+
 .mg__meta--level {
   margin-right: 20px;
 }
+
 /**
  * Game start screen
  *
@@ -49,24 +55,27 @@
   text-align: center;
   padding: 80px 20px;
 }
+
 .mg__start-screen--heading {
   margin-bottom: 10px;
   color: #282a2f;
   font-size: 30px;
 }
+
 .mg__start-screen--sub-heading {
   font-size: 24px;
   margin-bottom: 10px;
   color: #28aadc;
 }
-.mg__start-screen--sub-heading::before,
-.mg__start-screen--sub-heading::after {
+.mg__start-screen--sub-heading::before, .mg__start-screen--sub-heading::after {
   margin: 0 5px;
   content: "-";
 }
+
 .mg__start-screen--text {
   margin-bottom: 20px;
 }
+
 .mg__start-screen--level-select {
   list-style: none;
   margin: 0;
@@ -80,6 +89,7 @@
 .mg__start-screen--level-select span:hover {
   color: #d50016;
 }
+
 /**
  * Game wrapper
  *
@@ -90,12 +100,14 @@
   margin: 0 auto;
   width: 100%;
 }
+
 .mg__contents {
   position: relative;
   padding-bottom: 50%;
   margin-left: -5px;
   margin-right: -5px;
 }
+
 /**
  * Game tiles
  *
@@ -108,11 +120,13 @@
   position: absolute;
   padding: 5px;
 }
+
 /* game__level-1 styles */
 .mg__level-1 .mg__tile {
   width: 25%;
   height: 50%;
 }
+
 .mg__level-1 .mg__tile-1 {
   top: 0%;
   left: 0%;
@@ -145,11 +159,13 @@
   top: 50%;
   left: 75%;
 }
+
 /* game__level-2 styles */
 .mg__level-2 .mg__tile {
   width: 16.66667%;
   height: 33.33333%;
 }
+
 .mg__level-2 .mg__tile-1 {
   top: 0%;
   left: 0%;
@@ -222,11 +238,13 @@
   top: 66.66667%;
   left: 83.33333%;
 }
+
 /* game__level-3 styles */
 .mg__level-3 .mg__tile {
   width: 12.5%;
   height: 25%;
 }
+
 .mg__level-3 .mg__tile-1 {
   top: 0%;
   left: 0%;
@@ -355,6 +373,7 @@
   top: 75%;
   left: 87.5%;
 }
+
 /**
  * The tile inside
  *
@@ -370,6 +389,7 @@
   height: 100%;
   cursor: pointer;
 }
+
 .mg__tile--outside,
 .mg__tile--inside {
   display: block;
@@ -379,34 +399,40 @@
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transition: -webkit-transform 0.3s, background 0.3s;
-  transition: transform 0.3s, background 0.3s;
+          transition: transform 0.3s, background 0.3s;
 }
+
 .mg__tile--outside {
   background: url("../img/default/logo-bw.png") 50% 50% no-repeat;
   background-color: #dcdee1;
   box-shadow: 0 0 0 1px #787a80;
 }
+
 .mg__tile--inside {
   background-color: #f8fafc;
   box-shadow: 0 0 0 1px #787a80;
   -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
 }
+
 /* some transforms for flipped cards */
 .mg__tile--inner.flipped .mg__tile--outside {
   -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
 }
+
 .mg__tile--inner.flipped .mg__tile--inside {
   -webkit-transform: rotateY(0);
-  transform: rotateY(0);
+          transform: rotateY(0);
 }
+
 /* some transitions for correct guesses - only needs to happen on card inside */
 .mg__tile--inner.flipped.correct .mg__tile--inside {
   background-color: #ffffdc;
 }
+
 /**
  * Game message
  *
@@ -419,14 +445,17 @@
   padding: 80px 20px;
   text-align: center;
 }
+
 .mg__onend--heading {
   margin-bottom: 10px;
   color: #28aadc;
   font-size: 30px;
 }
+
 .mg__onend--message {
   margin-bottom: 10px;
 }
+
 /**
  * Game buttons
  *
@@ -446,37 +475,4 @@
   box-shadow: none;
   cursor: pointer;
 }
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-/* Move down content because we have a fixed navbar that is 60px tall */
-body {
-  padding-top: 2.5em;
-}
-.container > .jumbotron {
-  margin-top: 4em;
-}
-.box-social-buttons .btn-twitter {
-  color: #1caff6;
-}
-.box-social-buttons .btn-twitter:hover {
-  background: #1caff6 !important;
-  color: #fff;
-  border-color: #1caff6;
-}
-.box-social-buttons .btn-fb {
-  color: #3b579d;
-}
-.box-social-buttons .btn-fb:hover {
-  background: #3b579d !important;
-  border-color: #3b579d;
-  color: #ffffff;
-}
-.box-social-buttons .btn-google {
-  color: #db4633;
-}
-.box-social-buttons .btn-google:hover {
-  background: #db4633 !important;
-  border-color: #db4633;
-  color: #ffffff;
-}
+

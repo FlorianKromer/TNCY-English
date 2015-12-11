@@ -27,3 +27,9 @@ Rédigée en anglais est une présentation de l'outil et une sorte de mode d'emp
 * intéret du logiciel
 * contenu du rapport
 * structure du rapport
+
+# Credits
+* memory game https://github.com/callmenick/Memory
+* bootstrap https://github.com/twbs/bootstrap
+* bootstrap material design https://github.com/FezVrasta/bootstrap-material-design
+* 
