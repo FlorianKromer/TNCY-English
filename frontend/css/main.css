@@ -383,6 +383,12 @@
   -webkit-transition: -webkit-transform 0.3s, background 0.3s;
   transition: transform 0.3s, background 0.3s;
 }
+.mg__tile--outside h6,
+.mg__tile--inside h6 {
+  font-size: 16px;
+  margin-top: 50%;
+  text-align: center;
+}
 .mg__tile--outside {
   background: url("../img/default/logo-bw.png") 50% 50% no-repeat;
   background-color: #dcdee1;
