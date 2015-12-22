@@ -1,0 +1,45 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true
+    
+    # Mail
+    
+    # Destinataire de tous les mails en mode DEV
+    mail_dev_delivery_address : webadmin@toto.fr
+
+    # Request Context Globally
+    router.request_context.host: example.org
+    router.request_context.scheme: http
+    router.request_context.base_url:
+    
+    # Memcache
+    session_host: 127.0.0.1  
+    session_port: 11211  
+    session_prefix: sess_  
+    session_lifetime: 86400  
+
+    #oauth
+    client_github_id: null
+    client_github_secret: null
+    client_google_id: null
+    client_google_secret: null
+    client_facebook_id: null
+    client_facebook_secret: null
+    client_twitter_id: null
+    client_twitter_secret: null

@@ -1,0 +1,17 @@
+#php app/console translation:extract --enable-extractor=jms_i18n_routing --bundle=TNCYSchoolBundle --domain=messages  -v en fr
+#php app/console translation:extract fr en --config=app --output-format=xliff --bundle=TNCYSchoolBundle
+
+jms_i18n_routing:
+    default_locale: fr
+    locales: [en, fr]
+    strategy: prefix_except_default
+
+jms_translation:
+    configs:
+        app:
+            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+            output_dir: %kernel.root_dir%/Resources/translations
+#            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
+            excluded_dirs: [cache, data, logs]
+#            extractors: [alias_of_the_extractor]

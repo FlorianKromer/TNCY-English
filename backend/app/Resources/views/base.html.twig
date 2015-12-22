@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ app.request.locale }}" {{ sonata_seo_html_attributes() }}>
+<head {{ sonata_seo_head_attributes() }}>
+
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {{ sonata_seo_link_canonical() }}
+    {{ sonata_seo_lang_alternates() }}
+
+    {%  block favicon %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    {%  endblock favicon %}
+
+
+    {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/main.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/print.css') }}">
+    {% endblock %}
+
+    {% block javascripts_header %}
+        <!-- Need to be in header -->
+        <script src="{{ asset('bundles/tncyschool/js/vendor/modernizr-2.8.0.min.js') }}"></script>
+
+        <!-- Respond.js IE8 support of media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+    {% endblock javascripts_header %}
+
+</head>
+<body {% block bodyattributes %}{% endblock bodyattributes %}>
+    <!--[if lt IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" title="upgrade your browser">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    {% block body_start %}{% endblock body_start %}
+
+    {% block body %}{% endblock body %}
+
+    {% block javascripts %}
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        {% javascripts
+            '@TNCYSchoolBundle/Resources/public/js/vendor/jquery.min.js'
+            '@TNCYSchoolBundle/Resources/public/js/vendor/bootstrap.min.js'
+            '@TNCYSchoolBundle/Resources/public/js/vendor/ripples.min.js'
+            '@TNCYSchoolBundle/Resources/public/js/vendor/material.min.js'
+            '@TNCYSchoolBundle/Resources/public/js/main.js'
+            output='js/compiled/main.js'
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    {% endblock javascripts %}
+
+    {% block analytics %}
+    {% endblock analytics %}
+
+    {% block body_end %}
+    {% endblock body_end %}
+</body>
+</html>

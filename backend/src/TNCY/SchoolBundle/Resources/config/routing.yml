@@ -1,0 +1,30 @@
+tncy_school_index:
+    path:     /
+    defaults: { _controller: TNCYSchoolBundle:Default:index }
+
+tncy_school_contact:
+    path:     /contact
+    defaults: { _controller: TNCYSchoolBundle:Default:contact }
+
+tncy_school_news:
+    path:     /news
+    defaults: { _controller: TNCYSchoolBundle:Default:contact }
+
+tncy_school_about:
+    path:     /about
+    defaults: { _controller: TNCYSchoolBundle:Default:about }
+
+#profile
+tncy_school_profile:
+    path:     /user/{id}
+    defaults: { _controller: TNCYSchoolBundle:Profile:user }
+tncy_school_github:
+    path:     /github/{id}
+    defaults: { _controller: TNCYSchoolBundle:Profile:githubUser }
+tncy_school_facebook:
+    path:     /facebook/{id}
+    defaults: { _controller: TNCYSchoolBundle:Profile:facebookUser }
+tncy_school_marks:
+    path:     /marks/{id}
+    defaults: { _controller: TNCYSchoolBundle:Profile:marks }
+

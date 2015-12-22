@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * This file is part of the <name> project.
+ *
+ * (c) <yourname> <youremail>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Application\Sonata\UserBundle\Entity;
+
+use Sonata\UserBundle\Entity\BaseUser as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+use TNCY\SchoolBundle\Entity\SchoolClass as SchoolClass;
+
+
+
+class User extends BaseUser
+{
+    /**
+     * @var integer $id
+     */
+    protected $id;
+
+    protected $github;
+
+    protected $schoolClass;
+
+    protected $avatar;
+
+    protected $background;
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    
+}

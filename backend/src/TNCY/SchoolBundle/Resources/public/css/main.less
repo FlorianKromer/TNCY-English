@@ -1,0 +1,299 @@
+@import "_normalize.less";
+@import "_ripples.min.less";
+@import "material/material-wfont.less";
+@import "_font-awesome.min.less";
+
+/*! Custom Boilerplate based on HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+   *,
+   *:before,
+   *:after {
+   	-webkit-box-sizing: border-box;
+   	-moz-box-sizing: border-box;
+   	box-sizing: border-box;
+   }
+
+   ::-moz-selection {
+   	background: #b3d4fc;
+   	text-shadow: none;
+   }
+
+   ::selection {
+   	background: #b3d4fc;
+   	text-shadow: none;
+   }
+
+   hr {
+   	display: block;
+   	height: 1px;
+   	border: 0;
+   	border-top: 1px solid #ccc;
+   	margin: 1em 0;
+   	padding: 0;
+   }
+
+   audio,
+   canvas,
+   img,
+   svg,
+   video {
+   	vertical-align: middle;
+   }
+
+   img,
+   table,
+   td,
+   blockquote,
+   code,
+   pre,
+   textarea,
+   input,
+   video {
+   	max-width: 100%;
+   }
+
+/*
+* Avoid top margins on first content element
+*/
+p:first-child,
+.p-like:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+blockquote:first-child,
+pre:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	margin-top: 0;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+   .browsehappy {
+   	margin: 0.2em 0;
+   	background: #ccc;
+   	color: #000;
+   	padding: 0.2em 0;
+   }
+
+
+/* ==========================================================================
+   Very basic layout
+   D.R.Y. and use this class if necessary.
+   ========================================================================== */
+   .left,
+   .start {
+   	float: left;
+   }
+
+   img.left,
+   img.start {
+   	margin-right: 1em;
+   }
+
+   .right,
+   .end {
+   	float: right;
+   }
+
+   img.right,
+   img.end {
+   	margin-left: 1em;
+   }
+
+   img.left,
+   img.right,
+   img.start,
+   img.end {
+   	margin-bottom: 0.5em;
+   }
+
+   .center {
+   	margin-left: auto;
+   	margin-right: auto;
+   }
+
+   .txtleft {
+   	text-align: left;
+   }
+
+   .txtright {
+   	text-align: right;
+   }
+
+   .txtcenter {
+   	text-align: center;
+   }
+
+
+
+
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+@primary: #008fd5;
+
+.repo .btn {
+   padding-right: 20px;
+   padding-left: 20px;
+}
+
+body  {
+  padding-top: 60px;
+}
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+.homepage__block{
+      position: relative;
+   text-align: center;
+   .homepage__block--title{
+      position: absolute;
+
+      h1{
+         color: white;
+      }
+   }
+}
+ 
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Unstyled list - remove margin, padding and list type
+ */
+ .unstyled-list {
+ 	margin:0;
+ 	padding:0;
+ 	list-style-type: none;
+ }
+
+/*
+ * Unstyled button - remove background, border
+ */
+ .unstyled-button {
+ 	border: 0;
+ 	background: transparent;
+ }
+
+
+/*
+ * Hide visually and from screen readers: h5bp.com/u
+ */
+ .hidden {
+ 	display: none !important;
+ 	visibility: hidden;
+ }
+
+/*
+ * Hide only visually, but have it available for screen readers: h5bp.com/v
+ */
+ .visuallyhidden {
+ 	border: 0;
+ 	clip: rect(0 0 0 0);
+ 	height: 1px;
+ 	margin: -1px;
+ 	overflow: hidden;
+ 	padding: 0;
+ 	position: absolute;
+ 	width: 1px;
+ }
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+ .visuallyhidden.focusable:active,
+ .visuallyhidden.focusable:focus {
+ 	clip: auto;
+ 	height: auto;
+ 	margin: 0;
+ 	overflow: visible;
+ 	position: static;
+ 	width: auto;
+ }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+ .invisible {
+ 	visibility: hidden;
+ }
+
+/*
+ * Clearfix: contain floats
+ */
+ .clearfix:before,
+ .clearfix:after {
+ 	content: " ";
+ 	display: table;
+ }
+
+ .clearfix:after {
+ 	clear: both;
+ }
+
+
+/* ==========================================================================
+   Media Queries sample
+   /!\ if you don't use them, don't forget to delete the code.
+   ========================================================================== */
+
+   @media only screen and (min-width: 35em) {
+   	/* Style adjustments for viewports that meet the condition */
+   	/* Use "em" for breakpoint - just add a comment to specify the value in PX */
+   }
+
+   @media print,
+   (-o-min-device-pixel-ratio: 5/4),
+   (-webkit-min-device-pixel-ratio: 1.25),
+   (min-resolution: 120dpi) {
+   	/* Style adjustments for high resolution devices */
+   }

@@ -1,0 +1,29 @@
+parameters:
+#    tncy_school.example.class: TNCY\SchoolBundle\Example
+
+services:
+#    tncy_school.example:
+#        class: %tncy_school.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    tncy_school.menu_builder:
+        class: TNCY\SchoolBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory","@translator","@security.context"]
+
+    tncy_school.menu.main:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: tncy_school.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
+
+    tncy_school.menu.profile:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: tncy_school.menu_builder
+        factory_method: createProfileMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: profile } # The alias is what is used to retrieve the menu

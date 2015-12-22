@@ -1,0 +1,29 @@
+{% extends 'TNCYSchoolBundle:Profile:profile.html.twig' %}
+{% block profile_container %}
+    {% for repo in repositories %}
+        <div class="col-md-4">
+            <div class="thumbnail repo">
+                <img src="{{ repo.owner.avatar_url }}" alt="avatar" height="50%" width="50%" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                <div class="caption">
+                    <h3><a href="{{repo.html_url}}">{{repo.name}}</a></h3>
+                    <p>{{ repo.description }}.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Propriétaire:</strong></span> <a href="{{repo.owner.html_url}}">{{ repo.owner.login }}</a></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Dernier changement:</strong></span> {{repo.updated_at }}</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Date de création:</strong></span> {{repo.created_at }}</li>
+                    </ul>
+                    <div class="btn-group" role="group" aria-label="github button">
+                        <a href="{{repo.html_url}}/issues" type="button" class="btn btn-default">Issues <span class="badge">{{repo.open_issues}}</span></a>
+                        <a href="{{repo.html_url}}/stargazers" type="button" class="btn btn-default">Star <span class="badge">{{repo.stargazers_count}}</span></a>
+                        <a href="{{repo.html_url}}/network" type="button" class="btn btn-default">Fork <span class="badge">{{repo.forks_count}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# <pre>{{ repo | json_encode( constant('JSON_PRETTY_PRINT')) | raw }}</pre> #}
+
+        <div id="push"></div>
+    {% endfor %}
+{% endblock %}
+

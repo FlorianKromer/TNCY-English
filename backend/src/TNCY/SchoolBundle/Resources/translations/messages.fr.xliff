@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2015-02-08T12:29:57Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="a8ff8fd207898612a41280ecd69fb6c8d6f6ad11" resname="Accueil">
+        <source>Accueil</source>
+        <target state="new">Accueil</target>
+        <jms:reference-file line="3">views/Default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bf663666c6d065c754e94ff0053a75aa18758d38" resname="Bienvenue !">
+        <source>Bienvenue !</source>
+        <target state="new">Bienvenue !</target>
+        <jms:reference-file line="17">views/Default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7ff20370c8e04428109a1801a67963668dd6d1d0" resname="Nom">
+        <source>Nom</source>
+        <target>Nom</target>
+        <jms:reference-file line="21">SchoolBundle/Admin/SchoolClassAdmin.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f68e7c844ed02ed80274522a7d810af0a4d50921" resname="Profil de ">
+        <source>Profil de </source>
+        <target state="new">Profil de </target>
+        <jms:reference-file line="2">views/Default/profile.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ca8642c10f0ce1f449d3d133c3bd5f5987966877" resname="Télécom Nancy, anciennement École supérieure d'informatique et applications de Lorraine ou ÉSIAL, est une école d’ingénieurs créée en 1990.">
+        <source>Télécom Nancy, anciennement École supérieure d'informatique et applications de Lorraine ou ÉSIAL, est une école d’ingénieurs créée en 1990.</source>
+        <target state="new">Télécom Nancy, anciennement École supérieure d'informatique et applications de Lorraine ou ÉSIAL, est une école d’ingénieurs créée en 1990.</target>
+        <jms:reference-file line="40">Resources/views/layout.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1f679dff112a16c87bbac7fa8de4060a698c8580" resname="Voir plus &amp;raquo;">
+        <source><![CDATA[Voir plus &raquo;]]></source>
+        <target state="new"><![CDATA[Voir plus &raquo;]]></target>
+        <jms:reference-file line="20">views/Default/index.html.twig</jms:reference-file>
+        <jms:reference-file line="25">views/Default/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9e6be8e73b57a51e0cd64e7889aa12d9eed9baf9" resname="affinity">
+        <source>affinity</source>
+        <target state="new">affinity</target>
+        <jms:reference-file line="23">SchoolBundle/Admin/SubjectAdmin.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="93a8018f99fa5bd70a93649584b1721492478520" resname="average">
+        <source>average</source>
+        <target state="new">average</target>
+        <jms:reference-file line="24">SchoolBundle/Admin/SubjectAdmin.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ae999552a0d2dca14d62e2bc8b764d377b1dd6c" resname="name">
+        <source>name</source>
+        <target state="new">name</target>
+        <jms:reference-file line="22">SchoolBundle/Admin/SubjectAdmin.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dc151a5a2b81059b41f6ee78dbae34c114ce1528" resname="theme">
+        <source>theme</source>
+        <target state="new">theme</target>
+        <jms:reference-file line="25">SchoolBundle/Admin/SubjectAdmin.php</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
