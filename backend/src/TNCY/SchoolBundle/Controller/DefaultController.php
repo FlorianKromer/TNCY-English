@@ -34,7 +34,7 @@ class DefaultController extends Controller
                 ->setSubject('Message de '. $contact->getName())
                 ->setFrom($contact->getMail())
                 ->setTo($this->container->getParameter('sendTo'))
-                ->setBody($this->renderView('BRSiteBundle:Default:mail.html.twig', array('contact' => $contact)),'text/html')
+                ->setBody($this->renderView('TNCYSchoolBundle:Default:mail.html.twig', array('contact' => $contact)),'text/html')
                 ;
                 $this->get('mailer')->send($message);
                 $this->get('session')->getFlashBag()->add('notice', 'Votre message a bien été envoyé');

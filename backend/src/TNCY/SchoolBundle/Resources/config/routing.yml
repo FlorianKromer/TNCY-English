@@ -8,7 +8,7 @@ tncy_school_contact:
 
 tncy_school_news:
     path:     /news
-    defaults: { _controller: TNCYSchoolBundle:Default:contact }
+    defaults: { _controller: TNCYSchoolBundle:Default:news }
 
 tncy_school_about:
     path:     /about
