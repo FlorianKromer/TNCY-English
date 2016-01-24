@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0df1a1ff2500a212bc32ea87100c95b5",
-    "content-hash": "cab3884b65c271fdad8551a6e29b157a",
+    "hash": "f50346625776828a29fb3264b5b525c1",
+    "content-hash": "a20a01e481a38d197668ad9eb3834214",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1157,7 +1157,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/86b5a876224b8a26707813aa94d3637886aa2041",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/6e404aa32537274fecfe39da981ffa50281cb7fd",
                 "reference": "86b5a876224b8a26707813aa94d3637886aa2041",
                 "shasum": ""
             },
@@ -2856,7 +2856,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d36d74e365b20b2cb933c3b8aaa93501ccbd6728",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/7958cd6e218d7434daa98876807a108d04bbceaf",
                 "reference": "d36d74e365b20b2cb933c3b8aaa93501ccbd6728",
                 "shasum": ""
             },
@@ -3141,7 +3141,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/61ea0dc5e1e0ab7a8c2aac4f2a747e8531c2a779",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/2a5aeeca95f93f04bda5356dfa3b0601a567a7ac",
                 "reference": "61ea0dc5e1e0ab7a8c2aac4f2a747e8531c2a779",
                 "shasum": ""
             },
@@ -3316,7 +3316,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/bd8fc14eba97a332fd70159f6f22cafdd5136876",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/546924e7d159289000ac1f29c87b7b2e5fd02ca4",
                 "reference": "bd8fc14eba97a332fd70159f6f22cafdd5136876",
                 "shasum": ""
             },
@@ -3561,7 +3561,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/6ba617ef740b496439b1bc84344963421174a78e",
+                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/93152592e62902f6852223c50bee712eabdf05f8",
                 "reference": "6ba617ef740b496439b1bc84344963421174a78e",
                 "shasum": ""
             },
@@ -3625,7 +3625,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/24b988f92272487b79fbb4ad10af7cdbe9254184",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/81b41e907df3ddf6a8b55fca1fc20ac64f3772bf",
                 "reference": "24b988f92272487b79fbb4ad10af7cdbe9254184",
                 "shasum": ""
             },
@@ -3861,7 +3861,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/3b41f386a0114457181f93dea37a08fb9464dff0",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/bc2cf98830b7301997a2605dd6370e60787d9aef",
                 "reference": "3b41f386a0114457181f93dea37a08fb9464dff0",
                 "shasum": ""
             },
@@ -4541,6 +4541,120 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "doctrine/data-fixtures",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/data-fixtures.git",
+                "reference": "bd44f6b6e40247b6530bc8abe802e4e4d914976a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/bd44f6b6e40247b6530bc8abe802e4e4d914976a",
+                "reference": "bd44f6b6e40247b6530bc8abe802e4e4d914976a",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.2",
+                "php": ">=5.3.2"
+            },
+            "conflict": {
+                "doctrine/orm": "< 2.4"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.4"
+            },
+            "suggest": {
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\DataFixtures": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Data Fixtures for all Doctrine Object Managers",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database"
+            ],
+            "time": "2015-03-30 12:14:13"
+        },
+        {
+            "name": "doctrine/doctrine-fixtures-bundle",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
+                "reference": "0f1a2f91b349e10f5c343f75ab71d23aace5b029"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/0f1a2f91b349e10f5c343f75ab71d23aace5b029",
+                "reference": "0f1a2f91b349e10f5c343f75ab71d23aace5b029",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "~1.0",
+                "doctrine/doctrine-bundle": "~1.0",
+                "php": ">=5.3.2",
+                "symfony/doctrine-bridge": "~2.3|~3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Bundle\\FixturesBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony DoctrineFixturesBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "Fixture",
+                "persistence"
+            ],
+            "time": "2015-11-04 21:23:23"
+        },
         {
             "name": "sensio/generator-bundle",
             "version": "v2.5.3",

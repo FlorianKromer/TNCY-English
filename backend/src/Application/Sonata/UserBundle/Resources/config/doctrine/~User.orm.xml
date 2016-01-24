@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Application\Sonata\UserBundle\Entity\User" table="fos_user_user"  inheritance-type="SINGLE_TABLE">
+<!--     	<change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+ -->        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <discriminator-column name="discr" type="string" />
+        <discriminator-map>
+		    <discriminator-mapping value="student" class="TNCY\SchoolBundle\Entity\Student" />
+		    <discriminator-mapping value="teacher" class="TNCY\SchoolBundle\Entity\Teacher" />
+		    <discriminator-mapping value="user" class="Application\Sonata\UserBundle\Entity\User" />
+		</discriminator-map>
+    </entity>
+
+</doctrine-mapping>

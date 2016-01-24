@@ -32,20 +32,56 @@ class MenuBuilder
      */
     public function createMainMenu(Request $request)
     {
+        // $user = $this->securityContext->getToken()->getUser();
+
+
+        $menu = $this->factory->createItem('root');
+        $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-left'));
+        $menu->addChild('Accueil', array('route' => 'tncy_school_index'));
+        $menu->addChild('Discussion', array('route' => 'tncy_school_news'));
+        $menu->addChild('Immersion', array('route' => 'tncy_school_about'));
+        $menu->addChild('Contact', array('route' => 'tncy_school_contact'));
+
+
+        return $menu;
+    }
+
+    /**
+     * @param Request $request
+     * @return \Knp\Menu\ItemInterface
+     */
+    public function createUserMenu(Request $request)
+    {
         $user = $this->securityContext->getToken()->getUser();
 
 
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-right'));
-        $menu->addChild('Accueil', array('route' => 'tncy_school_index'));
-        $menu->addChild('News', array('route' => 'tncy_school_news'));
-        $menu->addChild('À propos', array('route' => 'tncy_school_about'));
-        $menu->addChild('Contact', array('route' => 'tncy_school_contact'));
 
+        $menu->addChild('Language', array('label' => ''))
+                    ->setAttribute('dropdown', true)
+                    ->setAttribute('icon', 'fa fa-globe');
+        $menu['Language']->addChild('J\'apprends l\'anglais niveau 1', array('route' => 'tncy_school_about'))
+                    ->setAttribute('class', 'dropdown-header');
+        $menu['Language']->addChild('Ajouter un nouveau cours', array('route' => 'tncy_school_about'))
+                    ->setAttribute('icon', 'fa fa-plus');
+
+        $menu->addChild('User', array('label' => ''))
+                    ->setAttribute('dropdown', true)
+                    ->setAttribute('icon', 'fa fa-user');
+        $menu['User']->addChild('Dashboard', array('route' => 'tncy_school_dashboard'))
+                    ->setAttribute('icon', 'fa fa-user');
+        $menu['User']->addChild('Réglage', array('route' => 'tncy_school_about'))
+                    ->setAttribute('icon', 'fa fa-cog');
+        $menu['User']->addChild('Aide', array('route' => 'tncy_school_about'))
+                    ->setAttribute('icon', 'fa fa-question-circle');
+        $menu['User']->addChild('Raccourcis clavier', array('route' => 'tncy_school_about'))
+                    ->setAttribute('icon', 'fa fa-keyboard-o');
         if($this->securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
-            $menu->addChild($user->getUsername(), ['route' => 'tncy_school_profile','routeParameters' => array('id' => $user->getId())]);
+            $menu['User']->addChild($user->getUsername(), ['route' => 'tncy_school_profile','routeParameters' => array('id' => $user->getId())]);
         else
-            $menu->addChild('Connexion', array('route' => 'hwi_oauth_connect'));
+            $menu['User']->addChild('Connexion', array('route' => 'hwi_oauth_connect'))
+                    ->setAttribute('icon','fa fa-sign-in');
 
         return $menu;
     }

@@ -10,18 +10,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-	public function indexAction()
-	{
-		return $this->render('TNCYSchoolBundle:Default:index.html.twig');
-	}
+    public function indexAction()
+    {
+        return $this->render('TNCYSchoolBundle:Default:index.html.twig');
+    }
 
-	public function newsAction()
-	{
-		return $this->render('TNCYSchoolBundle:Default:index.html.twig');
-	}
+    public function newsAction()
+    {
+        return $this->render('TNCYSchoolBundle:Default:index.html.twig');
+    }
 
     public function contactAction(Request $request)
-	{
+    {
         $contact = new Contact();
         $form = $this->createForm(new ContactType(), $contact);
         if ($request->getMethod() == 'POST') {
@@ -43,10 +43,23 @@ class DefaultController extends Controller
         }
         return $this->render('TNCYSchoolBundle:Default:contact.html.twig',array('form' => $form->createView()));
 
-	}
+    }
 
-	public function aboutAction()
-	{
-		return $this->render('TNCYSchoolBundle:Default:contact.html.twig');
-	}
+    public function aboutAction()
+    {
+        return $this->render('TNCYSchoolBundle:Default:contact.html.twig');
+    }
+
+    public function dashboardAction()
+    {
+
+        $user = $this->securityContext->getToken()->getUser();
+        
+        if (!$user) {
+            return $this->render('TNCYSchoolBundle:Default:dashboard.html.twig');
+        }
+        else{
+            return $this->render('TNCYSchoolBundle:Default:dashboard-connected.html.twig');
+        }
+    }
 }

@@ -16,24 +16,24 @@ use Doctrine\ORM\Mapping as ORM;
 use TNCY\SchoolBundle\Entity\SchoolClass as SchoolClass;
 
 
-
+/** 
+ * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"student" = "TNCY\SchoolBundle\Entity\Student", "teacher" = "TNCY\SchoolBundle\Entity\Teacher", "user" = "User"})
+ * @ORM\Table(name="fos_user_user")
+ */
 class User extends BaseUser
 {
     /**
      * @var integer $id
+     *
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
-    protected $github;
-
-    protected $schoolClass;
-
-    protected $avatar;
-
-    protected $background;
-
-    protected $githubId;
-    
 
 
     public function __construct()
@@ -51,120 +51,5 @@ class User extends BaseUser
         return $this->id;
     }
 
-    /**
-     * Set github
-     *
-     * @param string $github
-     * @return User
-     */
-    public function setGithub($github)
-    {
-        $this->github = $github;
-
-        return $this;
-    }
-
-    /**
-     * Get github
-     *
-     * @return string 
-     */
-    public function getGithub()
-    {
-        return $this->github;
-    }
-
-    /**
-     * Set github
-     *
-     * @param string $github
-     * @return User
-     */
-    public function setGithubId($github)
-    {
-        $this->github = $github;
-
-        return $this;
-    }
-
-    /**
-     * Get github
-     *
-     * @return string 
-     */
-    public function getGithubId()
-    {
-        return $this->github;
-    }
-
-    /**
-     * Set schoolClass
-     *
-     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolClass
-     * @return User
-     */
-    public function setSchoolClass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolClass = null)
-    {
-        $this->schoolClass = $schoolClass;
-
-        return $this;
-    }
-
-    /**
-     * Get schoolClass
-     *
-     * @return \TNCY\SchoolBundle\Entity\SchoolClass 
-     */
-    public function getSchoolClass()
-    {
-        return $this->schoolClass;
-    }
-
-    /**
-     * Set avatar
-     *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $avatar
-     * @return User
-     */
-    public function setAvatar(\Application\Sonata\MediaBundle\Entity\Media $avatar = null)
-    {
-        $this->avatar = $avatar;
-
-        return $this;
-    }
-
-    /**
-     * Get avatar
-     *
-     * @return \Application\Sonata\MediaBundle\Entity\Media 
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
-
-    /**
-     * Set background
-     *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $background
-     * @return User
-     */
-    public function setBackground(\Application\Sonata\MediaBundle\Entity\Media $background = null)
-    {
-        $this->background = $background;
-
-        return $this;
-    }
-
-    /**
-     * Get background
-     *
-     * @return \Application\Sonata\MediaBundle\Entity\Media 
-     */
-    public function getBackground()
-    {
-        return $this->background;
-    }
-
-   
+    
 }

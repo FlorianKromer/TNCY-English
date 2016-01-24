@@ -124,28 +124,4 @@ class Subject
     }
 
 
-
-    /**
-     * Add schoolclass
-     *
-     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolclass
-     *
-     * @return Subject
-     */
-    public function addSchoolclass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolclass)
-    {
-        $this->schoolclasses[] = $schoolclass;
-
-        return $this;
-    }
-
-    /**
-     * Remove schoolclass
-     *
-     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolclass
-     */
-    public function removeSchoolclass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolclass)
-    {
-        $this->schoolclasses->removeElement($schoolclass);
-    }
 }

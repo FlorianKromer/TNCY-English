@@ -1,0 +1,143 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block container %}
+
+<main role="main" class="main profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-4">
+                <h1 class="page-header">Dashboard</h1>
+            </div>
+        </div>
+        <!-- sidebar -->
+        <aside class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Maîtrise de l'anglais</h4>
+                    <a href="" class="btn btn-success  btn-fab">7%</a>
+                    <button type="button" class="btn btn-lg btn-block btn-raised btn-primary">Certifie tes connaissances</button>
+                    <button type="button" class="btn btn-lg btn-block btn-raised btn-info">Ajouter au profil linkedin</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Objectif quotidien</h4>
+                    <p>
+                        Fixe-toi un objectif quotidien en termes de XP pour t'aider à rester motivé.
+                    </p>
+                    <canvas id="myChart" width="300" height="250"></canvas>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Fais la compétition avec tes amis</h4>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="row-picture">
+                                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">Hey toto </h4>
+
+                                <p class="list-group-item-text">Ajoute des amis pour faire la course avec eux !</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-lg btn-block btn-raised btn-primary">Trouver des amis sur Facebook</button>
+                    <button type="button" class="btn btn-raised btn-info">Inviter des amis</button>
+                    <button type="button" class="btn btn-raised btn-info">Chercher</button>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class=" box-social-buttons">
+                        <h4>Suivre Duolingo</h4>
+                        <div class=" list-social-buttons">
+                            <a target="_blank" href="http://twitter.com/duolingo" class="btn  btn-sm btn-twitter">Twitter </a>
+                            <a target="_blank" href="http://facebook.com/duolingo" class="btn   btn-sm btn-fb">Facebook </a>
+                            <a target="_blank" href="http://plus.google.com/+duolingo" class="btn  btn-sm btn-google">Google+ </a>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+        </aside>
+        <!-- dashboard -->
+        <div class="col-md-8">
+
+            <div class="row ">
+                <div class="col-xs-6 col-sm-3 ">
+                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Vocabulaire</h4>
+                    <span class="text-muted">2/10</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Grammaire</h4>
+                    <span class="text-muted">5/10</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Orthographe</h4>
+                    <span class="text-muted">2/10</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Culture</h4>
+                    <span class="text-muted">0/10</span>
+                </div>
+            </div>
+
+            <h2 class="">Section title</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-height-indicator"></div>
+                        <div class="card-content">
+                            <div class="card-image">
+                                <img src="http://lorempixel.com/200/200/" alt="Loading image...">
+                                <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            </div>
+                            <footer class="card-footer">
+                                <button class="btn btn-flat">Share</button>
+                                <button class="btn btn-flat btn-warning">Learn More</button>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-height-indicator"></div>
+                        <div class="card-content">
+                            <div class="card-image">
+                                <img src="http://lorempixel.com/200/200/" alt="Loading image...">
+                                <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            </div>
+                            <footer class="card-footer">
+                                <button class="btn btn-flat">Share</button>
+                                <button class="btn btn-flat btn-warning">Learn More</button>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+
+{% endblock %}

@@ -1,11 +1,11 @@
 <?php
-namespace Application\Sonata\UserBundle\Admin\Model;
+namespace TNCY\SchoolBundle\Admin;
 
 use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class UserAdmin extends SonataUserAdmin
+class StudentAdmin extends SonataUserAdmin
 {
     /**
     * {@inheritdoc}
@@ -27,7 +27,7 @@ class UserAdmin extends SonataUserAdmin
         ->end()
         ->tab('School')
             ->with('Profile', array('class' => 'col-md-6'))
-                // ->add('schoolClass', 'entity', array('required' => false, 'class' => 'TNCY\SchoolBundle\Entity\SchoolClass'))
+                ->add('schoolClass', 'entity', array('required' => false, 'class' => 'TNCY\SchoolBundle\Entity\SchoolClass'))
                 // ->add('background', 'sonata_type_model_list', array('required' => false, 'class' => 'TNCY\SchoolBundle\Entity\SchoolResults'), array())
 
             ->end()
@@ -56,5 +56,15 @@ class UserAdmin extends SonataUserAdmin
             'context'  => $this->getRequest()->get('context'),
         );
     }
+
+        /**
+     * {@inheritdoc}
+     */
+    public function preUpdate($user)
+    {
+        // $this->getUserManager()->updateCanonicalFields($user);
+        // $this->getUserManager()->updatePassword($user);
+    }
+
 
 }

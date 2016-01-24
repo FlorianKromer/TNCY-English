@@ -29,3 +29,34 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
+
+    sonata.user.admin.student:
+        class: TNCY\SchoolBundle\Admin\StudentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "School", label: "Student" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\Student
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+    sonata.user.admin.teacher:
+        class: TNCY\SchoolBundle\Admin\TeacherAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "School", label: "Teacher" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\Teacher
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+    sonata.admin.school:
+        class: TNCY\SchoolBundle\Admin\SchoolAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "School", label: "School" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\School
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]

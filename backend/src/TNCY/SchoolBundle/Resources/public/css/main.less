@@ -1,7 +1,8 @@
 @import "_normalize.less";
+@import "_font-awesome.min.less";
 @import "_ripples.min.less";
 @import "material/material-wfont.less";
-@import "_font-awesome.min.less";
+@import "memory.less";
 
 /*! Custom Boilerplate based on HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /* ==========================================================================
@@ -84,61 +85,6 @@ h6:first-child {
    }
 
 
-/* ==========================================================================
-   Very basic layout
-   D.R.Y. and use this class if necessary.
-   ========================================================================== */
-   .left,
-   .start {
-   	float: left;
-   }
-
-   img.left,
-   img.start {
-   	margin-right: 1em;
-   }
-
-   .right,
-   .end {
-   	float: right;
-   }
-
-   img.right,
-   img.end {
-   	margin-left: 1em;
-   }
-
-   img.left,
-   img.right,
-   img.start,
-   img.end {
-   	margin-bottom: 0.5em;
-   }
-
-   .center {
-   	margin-left: auto;
-   	margin-right: auto;
-   }
-
-   .txtleft {
-   	text-align: left;
-   }
-
-   .txtright {
-   	text-align: right;
-   }
-
-   .txtcenter {
-   	text-align: center;
-   }
-
-
-
-
-/* ==========================================================================
-   Custom styles
-   ========================================================================== */
-
 @primary: #008fd5;
 
 .repo .btn {
@@ -149,51 +95,39 @@ h6:first-child {
 body  {
   padding-top: 60px;
 }
-.homepage-hero-module {
-    border-right: none;
-    border-left: none;
-    position: relative;
-}
-.no-video .video-container video,
-.touch .video-container video {
-    display: none;
-}
-.no-video .video-container .poster,
-.touch .video-container .poster {
-    display: block !important;
-}
-.video-container {
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
-}
-.video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-}
-.video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-}
-.video-container video {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-}
-.video-container video.fillWidth {
-    width: 100%;
+.box-social-buttons {
+  .btn-twitter {
+    color:#1caff6;
+
+    &:hover {
+      background:#1caff6 !important;
+      color:#fff;
+      border-color:#1caff6
+    }
+  }
+  .btn-fb {
+    color:#3b579d;
+    &:hover {
+      background:#3b579d !important;
+      border-color:#3b579d;
+      color:#fff
+    }
+  }
+  .btn-google {
+    color:#db4633;
+    &:hover {
+      background:#db4633 !important;
+      border-color:#db4633;
+      color:#fff
+    }
+  }
+  
 }
 
+
 .homepage__block{
-      position: relative;
-   text-align: center;
+    position: relative;
+    text-align: center;
    .homepage__block--title{
       position: absolute;
 
@@ -203,97 +137,3 @@ body  {
    }
 }
  
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-/*
- * Unstyled list - remove margin, padding and list type
- */
- .unstyled-list {
- 	margin:0;
- 	padding:0;
- 	list-style-type: none;
- }
-
-/*
- * Unstyled button - remove background, border
- */
- .unstyled-button {
- 	border: 0;
- 	background: transparent;
- }
-
-
-/*
- * Hide visually and from screen readers: h5bp.com/u
- */
- .hidden {
- 	display: none !important;
- 	visibility: hidden;
- }
-
-/*
- * Hide only visually, but have it available for screen readers: h5bp.com/v
- */
- .visuallyhidden {
- 	border: 0;
- 	clip: rect(0 0 0 0);
- 	height: 1px;
- 	margin: -1px;
- 	overflow: hidden;
- 	padding: 0;
- 	position: absolute;
- 	width: 1px;
- }
-
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
- .visuallyhidden.focusable:active,
- .visuallyhidden.focusable:focus {
- 	clip: auto;
- 	height: auto;
- 	margin: 0;
- 	overflow: visible;
- 	position: static;
- 	width: auto;
- }
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
- .invisible {
- 	visibility: hidden;
- }
-
-/*
- * Clearfix: contain floats
- */
- .clearfix:before,
- .clearfix:after {
- 	content: " ";
- 	display: table;
- }
-
- .clearfix:after {
- 	clear: both;
- }
-
-
-/* ==========================================================================
-   Media Queries sample
-   /!\ if you don't use them, don't forget to delete the code.
-   ========================================================================== */
-
-   @media only screen and (min-width: 35em) {
-   	/* Style adjustments for viewports that meet the condition */
-   	/* Use "em" for breakpoint - just add a comment to specify the value in PX */
-   }
-
-   @media print,
-   (-o-min-device-pixel-ratio: 5/4),
-   (-webkit-min-device-pixel-ratio: 1.25),
-   (min-resolution: 120dpi) {
-   	/* Style adjustments for high resolution devices */
-   }

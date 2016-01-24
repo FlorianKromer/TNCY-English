@@ -8,7 +8,7 @@ bazinga_faker:
              custom_formatters:
                  name: { method: randomElement, parameters: [ ['SEHS','STIC','SFA']]}
                  name: { method: randomElement, parameters: [ ['Anglais','Base de Données Relationnelles','C-Shell','Compilation','Comptabilité  ','Initiation  à  Matlab','Introduction aux Applications de linformatique','Introduction aux Réseaux Locaux','Macroéconomie','Management des organisations','Mathématiques Appliquées  pour linformatique','Mathématiques Générales  (remise  à  niveau)','Mathématiques Numériques','Modèle des Systèmes à Evenements discrets','Principes Fondamentaux des Systèmes  ','Probabilités','Réseaux et Services Internet','Signal','Systèmes dExploitation','Techniques dExpression et Communication','Techniques et  Outils pour Programmer  ','Traitements Audio Numérique'] ] }
-        Application\Sonata\UserBundle\Entity\User:
+        Application\Sonata\UserBundle\Entity\Teacher:
             number: 5
             custom_formatters:
                 username:   { method: userName }
@@ -47,5 +47,44 @@ bazinga_faker:
                 gplusData : { method: null }
                 token : { method: null }
                 twoStepVerificationCode : { method: null }
-                github : { method: userName }
+                schoolClass_id : { method: null }
+        Application\Sonata\UserBundle\Entity\Student:
+            number: 5
+            custom_formatters:
+                username:   { method: userName }
+                usernameCanonical:   { method: userName }
+                email:   { method: email }
+                emailCanonical:   { method: email }
+                enabled:   { method: randomDigit , parameters: [ ['1','0'] ] }
+                firstname:   { method: firstNameMale }
+                lastname:   { method: lastName }
+                salt:   { method: md5 }
+                password:   { method: sha256 }
+                locked: { method: randomDigit , parameters: [ ['1','0'] ] }
+                expired: { method: randomDigit , parameters: [ ['1','0'] ] }
+                confirmationToken : { method: null }
+                passwordRequestedAt : { method: null }
+                roles : { method: null }
+                credentialsExpired : { method: randomDigit , parameters: [ ['1','0'] ] }
+                credentialsExpireAt : { method: null }
+                createdAt : { method: dateTimeThisDecade }
+                updatedAt : { method: dateTimeThisYear }
+                dateOfBirth : { method: dateTimeThisCentury }
+                website : { method: url }
+                biography : { method: realText }
+                gender : { method: randomElement, parameters: [ ['f', 'm'] ] }
+                locale : { method: locale }
+                timezone : { method: timezone }
+                phone : { method: phoneNumber }
+                facebookUid : { method: Uuid }
+                facebookName : { method: userName }
+                facebookData : { method: null }
+                twitterUid : { method: Uuid }
+                twitterName : { method: userName }
+                twitterData : { method: null }
+                gplusUid : { method: Uuid }
+                gplusName : { method: userName }
+                gplusData : { method: null }
+                token : { method: null }
+                twoStepVerificationCode : { method: null }
                 schoolClass_id : { method: null }

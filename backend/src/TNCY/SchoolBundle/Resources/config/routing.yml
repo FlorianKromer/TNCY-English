@@ -13,6 +13,9 @@ tncy_school_news:
 tncy_school_about:
     path:     /about
     defaults: { _controller: TNCYSchoolBundle:Default:about }
+tncy_school_dashboard:
+    path:     /dashboard
+    defaults: { _controller: TNCYSchoolBundle:Default:dashboard }
 
 #profile
 tncy_school_profile:
