@@ -1,0 +1,24 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block container %}
+
+
+<main class="container">
+	<div class="jumbotron">
+		<div class="container">
+			<div id="my-memory-game"></div>
+		</div>
+	</div>
+</main> <!-- /container -->       
+
+{% endblock %}
+{% block javascripts %}
+<script>
+    var assetsBaseDir = "{{ asset('bundles/tncyschool') }}"
+</script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src="{{ asset('bundles/tncyschool/js/vendor/memory.js') }}"></script>
+
+{{ parent() }}
+
+{% endblock %}

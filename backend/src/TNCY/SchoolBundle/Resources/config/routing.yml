@@ -17,6 +17,12 @@ tncy_school_dashboard:
     path:     /dashboard
     defaults: { _controller: TNCYSchoolBundle:Default:dashboard }
 
+#exercice
+tncy_school_memory:
+    path:     /exercice/memory
+    defaults: { _controller: TNCYSchoolBundle:Exercice:memory }
+
+
 #profile
 tncy_school_profile:
     path:     /user/{id}

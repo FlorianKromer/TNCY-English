@@ -53,7 +53,7 @@ class DefaultController extends Controller
     public function dashboardAction()
     {
 
-        $user = $this->securityContext->getToken()->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         
         if (!$user) {
             return $this->render('TNCYSchoolBundle:Default:dashboard.html.twig');
