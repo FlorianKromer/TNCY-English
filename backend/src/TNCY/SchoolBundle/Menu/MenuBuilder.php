@@ -80,7 +80,7 @@ class MenuBuilder
         if($this->securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
             $menu['User']->addChild($user->getUsername(), ['route' => 'tncy_school_profile','routeParameters' => array('id' => $user->getId())]);
         else
-            $menu['User']->addChild('Connexion', array('route' => 'hwi_oauth_connect'))
+            $menu['User']->addChild('Connexion', array('route' => 'sonata_user_security_login'))
                     ->setAttribute('icon','fa fa-sign-in');
 
         return $menu;

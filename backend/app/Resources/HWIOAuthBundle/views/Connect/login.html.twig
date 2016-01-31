@@ -1,0 +1,49 @@
+{% extends 'HWIOAuthBundle::layout.html.twig' %}
+{% block hwi_oauth_content %}
+    {% block fos_user_content %}
+        <div class="row">
+            <div class="col-md-12">
+                {% block sonata_user_login_error %}
+                    {% if error is defined and error %}
+                        <div class="alert alert-danger alert-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                    {% endif %}
+                {% endblock %}
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                {% render controller("SonataUserBundle:SecurityFOSUser1:login") %}
+            </div>
+            <div class="col-sm-6">
+
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Inscription</h3>
+                </div>
+                <div class="panel-body">
+                    Pour se connecter avec les réseaux sociaux:
+                    <div class="box-social-buttons">
+
+                        {% if error is defined and error %}
+                            <span>{{ error }}</span>
+                        {% endif %}
+                        <div class=" box-social-buttons">
+
+                            {% for owner in hwi_oauth_resource_owners() %}
+                                <a href="{{ hwi_oauth_login_url(owner) }}" class="btn btn-{{ owner }}">{{ owner | trans({}, 'HWIOAuthBundle') }}</a>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <p>Si vous n'êtes pas encore inscrit : <br>
+                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default">S'inscrire</a>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}
+
+{% endblock hwi_oauth_content %}

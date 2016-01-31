@@ -84,6 +84,7 @@ class Lesson
 
     function __construct($foo = null) {
         $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
     }
 
 
@@ -269,5 +270,29 @@ class Lesson
     public function getTopic()
     {
         return $this->topic;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     *
+     * @return Lesson
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
     }
 }

@@ -59,16 +59,26 @@ security:
             logout: true
             oauth:
                 resource_owners:
-                    github:             "/login/check-github"
+                    # github:             "/login/check-github"
                     google:             "/login/check-google"
                     facebook:           "/login/check-facebook"
-                    twitter:           "/login/check-twitter"
+                    # twitter:           "/login/check-twitter"
                 login_path:        /login
                 failure_path:      /login
 
                 # FOSUB integration
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.fosub_bridge
+
+        # login:
+        #     pattern:  ^/login$
+        #     security: false
+
+        #     remember_me:
+        #         key: "%secret%"
+        #         lifetime: 31536000 # 365 days in seconds
+        #         path: /
+        #         domain: ~ # Defaults to the current domain from $_SERVER
 
     access_control:
 
