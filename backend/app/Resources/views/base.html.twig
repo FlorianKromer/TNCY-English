@@ -13,9 +13,11 @@
 
 
     {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/main.css') }}">
-            <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/print.css') }}">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/tncyschool/css/print.css') }}">
     {% endblock %}
 
     {% block javascripts_header %}
@@ -47,8 +49,8 @@
     {% block javascripts %}
         {% javascripts
             '@TNCYSchoolBundle/Resources/public/js/vendor/bootstrap.min.js'
-            '@TNCYSchoolBundle/Resources/public/js/vendor/ripples.min.js'
             '@TNCYSchoolBundle/Resources/public/js/vendor/material.min.js'
+            '@TNCYSchoolBundle/Resources/public/js/vendor/ripples.min.js'
             '@TNCYSchoolBundle/Resources/public/js/main.js'
             output='js/compiled/main.js'
         %}

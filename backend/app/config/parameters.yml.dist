@@ -35,11 +35,11 @@ parameters:
     session_lifetime: 86400  
 
     #oauth
-    client_github_id: null
-    client_github_secret: null
-    client_google_id: null
-    client_google_secret: null
-    client_facebook_id: null
-    client_facebook_secret: null
-    client_twitter_id: null
-    client_twitter_secret: null
+    client_github_id: test
+    client_github_secret: test
+    client_google_id: test
+    client_google_secret: test
+    client_facebook_id: test
+    client_facebook_secret: test
+    client_twitter_id: test
+    client_twitter_secret: test

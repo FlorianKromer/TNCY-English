@@ -10,6 +10,7 @@ imports:
     - { resource: conf.d/translations.yml }
     - { resource: conf.d/classification.yml }
     - { resource: conf.d/media.yml }
+    - { resource: conf.d/formatter.yml }
     - { resource: conf.d/oauth.yml }
     - { resource: @TNCYSchoolBundle/Resources/config/admin.yml }
 

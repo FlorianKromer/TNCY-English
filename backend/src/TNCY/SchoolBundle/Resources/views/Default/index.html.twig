@@ -5,39 +5,17 @@
 
 <main id="fullpage" role="main" class="main">
 
-    <div class="homepage-hero-module">
-        <div class="video-container">
-            <div class="filter"></div>
-            <video autoplay loop class="fillWidth">
-                <source src="{{asset('bundles/tncyschool/videos/Hello-World.mp4') }}" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-                <source src="{{asset('bundles/tncyschool/videos/Hello-World.webm') }}" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-            </video>
-            <div class="poster hidden">
-                <img src="{{asset('bundles/tncyschool/videos/Hello-World.jpg') }}" alt="video de fond">
-            </div>
-            <div class="container homepage__block">
-                <div class="homepage__block--title">
-                    <img src="{{ asset('bundles/tncyschool/img/logo-large.png') }}" alt="logo"  srcset="{{ asset('bundles/tncyschool/img/logo-large.png') }} 1024w , {{ asset('bundles/tncyschool/img/logo-medium.png') }} 640w, {{ asset('bundles/tncyschool/img/logo-small.png') }} 320w">
-                    <h1>L' Association Charlemagne Informatique a pour but d'animer la vie étudiante au sein du département informatique de l’IUT Nancy Charlemagne.</h1>
-                    <a href="{{ path('tncy_school_about')}}" class="btn btn-primary btn-lg">Rejoingez nous</a>
-                    <a href="{{ path('tncy_school_about')}}" class="btn btn-primary btn-lg">Plus d'informations</a>
-                </div>
-            </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Bienvenue sur Duolingo !</h1>
+            <p>Je suis le hibou Duo, et je vais t'expliquer rapidement comment apprendre avec Duolingo.</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="#" role="button">Démarrer la visite</a>
+            </p>
         </div>
-    </div>
 
-    <!-- <div class="section " id="section0">
-        <div class="container">
-                <img src="{{ asset('bundles/tncyschool/img/logo-large.png') }}" alt="logo"  srcset="{{ asset('bundles/tncyschool/img/logo-small.png') }} 320w, {{ asset('bundles/tncyschool/img/logo-medium.png') }} 640w, {{ asset('bundles/tncyschool/img/logo-large.png') }} 1280w">
-                <h1>Hello.</h1>
-        </div>
-    </div>
-    <div class="section" id="section1">
-        <div class="slide" id="slide1"><h1>Slide Backgrounds</h1></div>
-        <div class="slide" id="slide2"><h1>Totally customizable</h1></div>
-    </div>
-    <div class="section" id="section2"><h1>Lovely images <br />for a lovely page</h1></div>
-    <div class="section" id="section3"><h1>One Image = One thousand words</h1></div> -->
+
+    </div> <!-- /container -->   
 
 </main>
 

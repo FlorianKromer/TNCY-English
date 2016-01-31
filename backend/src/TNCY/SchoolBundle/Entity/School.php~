@@ -67,6 +67,11 @@ class School
     }
 
 
+    function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * Get id
      *

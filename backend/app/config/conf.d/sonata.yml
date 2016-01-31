@@ -4,6 +4,7 @@ sonata_admin:
     templates:
         search:              SonataAdminBundle:Core:search.html.twig
         search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
+        layout:  SonataAdminBundle::layout.html.twig
     security:
         handler: sonata.admin.security.handler.acl
         # acl security information
@@ -25,18 +26,19 @@ sonata_admin:
                 icon: '<i class="fa fa-user"></i>'
                 items:
                     - sonata.user.admin.user
+                    - sonata.user.admin.student
+                    - sonata.user.admin.teacher
                     - sonata.user.admin.group
             tncyschool.admin.group.school:
                 label: School
                 label_catalogue: TNCYSchoolBundle
                 icon: '<i class="fa fa-briefcase"></i>'
                 items:
-                    - sonata.user.admin.student
-                    - sonata.user.admin.teacher
                     - sonata.admin.schoolclass
                     - sonata.admin.subject
                     - sonata.admin.schoolresult
                     - sonata.admin.school
+                    - sonata.admin.lesson
 
             tncyschool.admin.group.classification:
                 label: Classification

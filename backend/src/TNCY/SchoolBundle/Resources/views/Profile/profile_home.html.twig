@@ -9,7 +9,7 @@
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Age:</strong></span> {{ "now"|date('Y-m-d') - user.dateOfBirth|date('Y-m-d') }}</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Dernière connexion:</strong></span> {{user.lastLogin|date('d-m-Y H:i') }}</li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Vrai nom:</strong></span> {{user.firstname}} {{user.lastname}} </li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Classe: </strong></span> {{user.schoolClass}} </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Classe: </strong></span> {# {{user.schoolClass}} #} </li>
             </ul>
         </div>
     </div>

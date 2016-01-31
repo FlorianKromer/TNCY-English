@@ -4,7 +4,7 @@
 
     <main role="main" class="main profile">
         <div class="container target">
-            <div class="row" style="background-image:url('{{ media_public_url(user.background, 'reference') }}');">
+            <div class="row" {# style="background-image:url('{{ media_public_url(user.background, 'reference') }}'); "#} >
                 <div class="col-md-10">
                     <h1 class="">{{user.username}}</h1>
 
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md-2">
                     <a href="/users" class="pull-right">
-                        <img title="profile image" class="img-circle img-responsive" src="{{ media_public_url(user.avatar, 'reference') }}">
+                        {# <img title="profile image" class="img-circle img-responsive" src="{{ media_public_url(user.avatar, 'reference') }}"> #}
                     </a>
 
                 </div>

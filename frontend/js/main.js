@@ -30,3 +30,33 @@ if($('#my-memory-game').length>0){
       });
     })();
 }
+
+if($('.carousel').length>0){
+	// var form = $('#test');
+	var form = $('#exercice .active form');
+	$($('.alert')).alert();
+	$('.alert').hide();
+
+	form.submit(function( e ) {
+		e.preventDefault();
+		var value = form.find('.answer').val();
+		var answer = form.find('.answer').data('good-answer');
+		if ( value == answer ) {
+			$('.alert').addClass('alert-primary');
+			$('.alert').find('h4').text('Vrai');
+			$('.alert').find('p').text('Bonne réponse, passe à la question suivante!');
+		}
+		else {
+			$('.alert').addClass('alert-danger');
+			$('.alert').find('h4').text('Faux');
+			$('.alert').find('p').text('Mauvaise réponse, passe à la question suivante!');
+		}
+			$('.alert').show();
+		    return;
+	});
+	$('.next-question').click(function (e) {
+		e.preventDefault();
+		$('.carousel').carousel('next');
+
+	});
+}

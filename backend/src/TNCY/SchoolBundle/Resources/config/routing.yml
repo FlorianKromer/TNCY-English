@@ -13,6 +13,12 @@ tncy_school_news:
 tncy_school_about:
     path:     /about
     defaults: { _controller: TNCYSchoolBundle:Default:about }
+
+tncy_school_lessons:
+    path:     /lessons
+    defaults: { _controller: TNCYSchoolBundle:Default:lessons }
+
+
 tncy_school_dashboard:
     path:     /dashboard
     defaults: { _controller: TNCYSchoolBundle:Default:dashboard }
@@ -27,6 +33,10 @@ tncy_school_memory_data:
     defaults: { _controller: TNCYSchoolBundle:Exercice:memoryData }
     options:
         expose: true
+
+tncy_school_song:
+    path:     /exercice/song
+    defaults: { _controller: TNCYSchoolBundle:Exercice:song }
 
 
 #profile
