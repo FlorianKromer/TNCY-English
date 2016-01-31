@@ -22,6 +22,12 @@ tncy_school_memory:
     path:     /exercice/memory
     defaults: { _controller: TNCYSchoolBundle:Exercice:memory }
 
+tncy_school_memory_data:
+    pattern: /exercice/memory-data
+    defaults: { _controller: TNCYSchoolBundle:Exercice:memoryData }
+    options:
+        expose: true
+
 
 #profile
 tncy_school_profile:

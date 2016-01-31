@@ -1,7 +1,8 @@
 <?php
 namespace TNCY\SchoolBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use TNCY\SchoolBundle\Entity\School;
 

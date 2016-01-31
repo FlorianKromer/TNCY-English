@@ -21,12 +21,17 @@
     {% block javascripts_header %}
         <!-- Need to be in header -->
         <script src="{{ asset('bundles/tncyschool/js/vendor/modernizr-2.8.0.min.js') }}"></script>
+        <script src="{{ asset('bundles/tncyschool/js/vendor/jquery.min.js') }}"></script>
 
         <!-- Respond.js IE8 support of media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="js/vendor/respond.min.js"></script>
         <![endif]-->
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
     {% endblock javascripts_header %}
 
 </head>
@@ -40,9 +45,7 @@
     {% block body %}{% endblock body %}
 
     {% block javascripts %}
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         {% javascripts
-            '@TNCYSchoolBundle/Resources/public/js/vendor/jquery.min.js'
             '@TNCYSchoolBundle/Resources/public/js/vendor/bootstrap.min.js'
             '@TNCYSchoolBundle/Resources/public/js/vendor/ripples.min.js'
             '@TNCYSchoolBundle/Resources/public/js/vendor/material.min.js'
@@ -52,8 +55,7 @@
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
     {% endblock javascripts %}
 
     {% block analytics %}
