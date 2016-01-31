@@ -43,14 +43,12 @@
    * Memory constructor
    *
    */
- 	var c = [];
   function Memory( options ) {
 	this.options = extend( {}, this.options );
 	extend( this.options, options );
 	this._init();
 
 
-	console.log(c[1]);
   }
 
   /**
@@ -74,7 +72,7 @@
 		$.each( response, function( key, val ) {
 			items.push( val);
 		});
-		this.cards =  items;
+		Memory.prototype.options.cards =  items;
 	}),
 	 //  [
 		//   {
@@ -333,12 +331,18 @@ Memory.prototype._renderTiles = function() {
 	// $.getJSON(Routing.generate('tncy_school_memory_data'), function(response){
 	// 	var items = [];
 	// 	$.each( response, function( key, val ) {
+	// 		var val = Object.keys(val).map(function (key) {return val[key]});
+
 	// 		items.push( val);
 	// 	});
-	// 	c=  items;
+	// 	c =  items;
+	// console.log(items[0]);
+	// console.log(c[0]);
+
 	// });
 	// this.cards = c;
 	// console.log(c[0]);
+	// console.log(this.cards[0]);
 	for ( var i = 0; i < this.halfNumTiles; i++ ) {
 		this.newCards.push(this.cards[i], this.cards[i]);
 	}
