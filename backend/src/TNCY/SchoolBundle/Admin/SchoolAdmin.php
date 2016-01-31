@@ -19,7 +19,10 @@ class SchoolAdmin extends Admin
     {
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
-            ->add('address', 'text', array('label' => 'Address'))
+            ->add('address', 'sonata_simple_formatter_type', array(
+                'format' => 'richhtml',
+                'label' => 'Adresse'
+            ))
             ->add('city', 'text', array('label' => 'City'))
             ->add('zipCode', 'text', array('label' => 'ZipCode'))
             ->add('email', 'text', array('label' => 'Email'))

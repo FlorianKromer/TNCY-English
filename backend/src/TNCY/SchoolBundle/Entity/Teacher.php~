@@ -72,4 +72,38 @@ class Teacher extends BaseUser
     }
 
    
+
+    /**
+     * Add schoolClass
+     *
+     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolClass
+     *
+     * @return Teacher
+     */
+    public function addSchoolClass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolClass)
+    {
+        $this->schoolClasses[] = $schoolClass;
+
+        return $this;
+    }
+
+    /**
+     * Remove schoolClass
+     *
+     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolClass
+     */
+    public function removeSchoolClass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolClass)
+    {
+        $this->schoolClasses->removeElement($schoolClass);
+    }
+
+    /**
+     * Get schoolClasses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSchoolClasses()
+    {
+        return $this->schoolClasses;
+    }
 }

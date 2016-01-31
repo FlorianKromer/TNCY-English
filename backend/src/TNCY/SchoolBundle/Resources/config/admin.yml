@@ -60,3 +60,15 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
+
+    sonata.admin.lesson:
+        class: TNCY\SchoolBundle\Admin\LessonAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "School", label: "Lesson" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\Lesson
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+            - [ setSecurityContext , [@security.context]]

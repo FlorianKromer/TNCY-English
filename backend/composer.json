@@ -30,13 +30,15 @@
         "jms/i18n-routing-bundle": "dev-master",
         "jms/translation-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",
+        "sonata-project/formatter-bundle": "dev-master",
         "jms/serializer-bundle": "0.13.*",
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "knplabs/knp-menu": "~2.0",
         "knplabs/knp-menu-bundle": "~2.0",
         "willdurand/faker-bundle": "@stable",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "facebook/php-sdk-v4" : "4.0.*"
+        "facebook/php-sdk-v4" : "4.0.*",
+        "knplabs/knp-paginator-bundle": "^2.5"
 
     },
     "require-dev": {

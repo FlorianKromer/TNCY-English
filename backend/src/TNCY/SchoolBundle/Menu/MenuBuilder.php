@@ -39,7 +39,7 @@ class MenuBuilder
         $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-left'));
         $menu->addChild('Accueil', array('route' => 'tncy_school_index'));
         $menu->addChild('Discussion', array('route' => 'tncy_school_news'));
-        $menu->addChild('Immersion', array('route' => 'tncy_school_about'));
+        $menu->addChild('Leçons', array('route' => 'tncy_school_lessons'));
         $menu->addChild('Contact', array('route' => 'tncy_school_contact'));
 
 
