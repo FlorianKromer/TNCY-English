@@ -1,7 +1,6 @@
 <?php
 namespace TNCY\SchoolBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -21,14 +20,14 @@ class LoadSchoolData extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($school);
         $manager->flush();
 
-        $this->addReference('school', $school);
 
+        $this->addReference('school', $school);
     }
 
     public function getOrder()
     {
         // the order in which fixtures will be loaded
         // the lower the number, the sooner that this fixture is loaded
-        return 2;
+        return 6;
     }
 }

@@ -28,6 +28,14 @@ class SchoolClass
      */
     private $name;
 
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=20)
+     */
+    private $code;
+
     /**
      * @ORM\ManyToMany(targetEntity="Subject", mappedBy="schoolclasses")
      **/
@@ -150,5 +158,29 @@ class SchoolClass
     public function getSchool()
     {
         return $this->school;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return SchoolClass
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

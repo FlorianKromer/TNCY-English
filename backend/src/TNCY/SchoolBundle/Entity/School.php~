@@ -66,7 +66,6 @@ class School
         $this->subjects = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     function __toString()
     {
         return $this->name;

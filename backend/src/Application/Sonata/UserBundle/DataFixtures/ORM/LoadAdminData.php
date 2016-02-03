@@ -10,7 +10,7 @@ use Application\Sonata\UserBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadAdminData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ContainerInterface
@@ -75,28 +75,28 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
         $this->addReference('user.admin', $user);
 
-        $faker = \Faker\Factory::create();
+        // $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 10; $i++)
-        {
-            /** @var $user \Application\Sonata\UserBundle\Entity\User */
-            $user = $manager->createUser();
+        // for ($i = 0; $i < 10; $i++)
+        // {
+        //     /** @var $user \Application\Sonata\UserBundle\Entity\User */
+        //     $user = $manager->createUser();
 
-            $user->setUsername($faker->userName);
-            $user->setPlainPassword($test_password);
-            $user->setEmail($faker->safeEmail);
-            $user->setFirstname($faker->firstName);
-            $user->setLastname($faker->lastName);
-            $user->setRoles(array('ROLE_USER'));
-            $user->setEnabled(true);
-            $encoder = $factory->getEncoder($user);
-            $password = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
-            $user->setPassword($password);
+        //     $user->setUsername($faker->userName);
+        //     $user->setPlainPassword($test_password);
+        //     $user->setEmail($faker->safeEmail);
+        //     $user->setFirstname($faker->firstName);
+        //     $user->setLastname($faker->lastName);
+        //     $user->setRoles(array('ROLE_USER'));
+        //     $user->setEnabled(true);
+        //     $encoder = $factory->getEncoder($user);
+        //     $password = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
+        //     $user->setPassword($password);
 
-            $manager->updateUser($user);
+        //     $manager->updateUser($user);
 
-            $this->addReference('user.demo_'.$i, $user);
-        }
+        //     $this->addReference('user.demo_'.$i, $user);
+        // }
     }
 
     /**

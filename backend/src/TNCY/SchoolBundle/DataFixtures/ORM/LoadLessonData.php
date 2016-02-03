@@ -6,9 +6,24 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use TNCY\SchoolBundle\Entity\Lesson;
 
-class LoadVocData extends AbstractFixture implements OrderedFixtureInterface
+class LoadLessonData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
+    {
+        
+        $cook = $this->loadCooking($manager);
+
+
+        $manager->persist($cook);
+        $manager->flush();
+
+
+
+
+    }
+
+
+    public function loadCooking($manager)
     {
         $topic = new Lesson();
         $topic->setName('à table');
@@ -70,18 +85,13 @@ Let&rsquo;s consider first all the facts before making any judgments. <img class
 '
 
             );
+        $topic->setSummary('Ensemble des mots de vocabulaire concernant la cuisine');
+        $topic->setTopic(Lesson::$CONST_TOPIC['VOCABULARY']);
+        $author = $this->getReference('user.super_admin');
+        $topic->setAuthor($author);
 
-        $manager->persist($topic);
-        $manager->flush();
-
-
-        $this->loadCooking($manager, $topic);
-
-
+        return $topic;
     }
-
-
-    
 
 
     public function getOrder()

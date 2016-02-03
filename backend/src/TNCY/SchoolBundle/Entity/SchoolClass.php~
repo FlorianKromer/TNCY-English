@@ -28,6 +28,14 @@ class SchoolClass
      */
     private $name;
 
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=20)
+     */
+    private $code;
+
     /**
      * @ORM\ManyToMany(targetEntity="Subject", mappedBy="schoolclasses")
      **/
