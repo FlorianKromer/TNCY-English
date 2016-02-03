@@ -9,6 +9,13 @@ use TNCY\SchoolBundle\Form\ContactType;
 use TNCY\SchoolBundle\Form\LessonType;
 use Symfony\Component\HttpFoundation\Request;
 
+use Facebook\Facebook;
+use Facebook\FacebookRequest;
+use Facebook\GraphUser;
+use Facebook\FacebookRequestException;
+use Facebook\FacebookSession;
+use Facebook\FacebookRedirectLoginHelper;
+
 
 class DefaultController extends Controller
 {
@@ -19,7 +26,20 @@ class DefaultController extends Controller
 
     public function newsAction()
     {
-        return $this->render('TNCYSchoolBundle:Default:index.html.twig');
+        FacebookSession::setDefaultApplication($this->container->getParameter('client_facebook_id'), $this->container->getParameter('client_facebook_secret'));
+
+
+        $session = new FacebookSession($this->container->getParameter('client_facebook_id').'|'.$this->container->getParameter('client_facebook_secret'));
+        if($session) {
+
+            $request = new FacebookRequest($session, 'GET', '/onexposure/?fields=posts{message,picture,created_time,from,link}');
+            $response = $request->execute();
+            $graphObject = $response->getGraphObject();
+            $posts = json_decode($response->getRawResponse(),true);
+            // var_dump($posts['posts']['data']);
+        }
+
+        return $this->render('TNCYSchoolBundle:Default:news.html.twig',array('posts'=>$posts['posts']['data']));
     }
 
     public function contactAction(Request $request)
@@ -56,7 +76,7 @@ class DefaultController extends Controller
     {
 
         $user = $this->get('security.context')->getToken()->getUser();
-        
+
         if (!$user) {
             return $this->render('TNCYSchoolBundle:Default:dashboard.html.twig');
         }
@@ -79,7 +99,7 @@ class DefaultController extends Controller
                 $parameters = array(
                     'name' => $lesson->name, 
                     'topic' => $lesson->topic, 
-                );
+                    );
 
                 $em    = $this->get('doctrine.orm.entity_manager');
                 $dql   = "SELECT l FROM TNCYSchoolBundle:Lesson l WHERE name LIKE :name AND topic=:topic";
@@ -87,10 +107,10 @@ class DefaultController extends Controller
 
                 $paginator  = $this->get('knp_paginator');
                 $pagination = $paginator->paginate(
-                $query, /* query NOT result */
-                $request->query->getInt('page', 1)/*page number*/,
-                10/*limit per page*/
-                );
+                    $query, /* query NOT result */
+                    $request->query->getInt('page', 1)/*page number*/,
+                    10/*limit per page*/
+                    );
 
                 return $this->render('TNCYSchoolBundle:Default:lessons.html.twig',array('form' => $form->createView(),'pagination' => $pagination));
             }
@@ -101,10 +121,10 @@ class DefaultController extends Controller
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-        $query, /* query NOT result */
-        $request->query->getInt('page', 1)/*page number*/,
-        10/*limit per page*/
-        );
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+            );
 
         return $this->render('TNCYSchoolBundle:Default:lessons.html.twig',array('form' => $form->createView(),'pagination' => $pagination));
     }

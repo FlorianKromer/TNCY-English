@@ -74,88 +74,6 @@
 		});
 		Memory.prototype.options.cards =  items;
 	}),
-	 //  [
-		//   {
-		// 	id : 1,
-		// 	img: "img/default/monsters-01.png",
-		// 	name: "apple"
-		//   },
-		//   {
-		// 	id : 2,
-		// 	img: "img/default/monsters-02.png",
-		// 	name:"boy"
-		//   },
-		//   {
-		// 	id : 3,
-		// 	img: "img/default/monsters-03.png",
-		// 	name:"girl"
-		//   },
-		//   {
-		// 	id : 4,
-		// 	img: "img/default/monsters-04.png",
-		// 	name:"computer"
-		//   },
-		//   {
-		// 	id : 5,
-		// 	img: "img/default/monsters-05.png",
-		// 	name:"mouse"
-		//   },
-		//   {
-		// 	id : 6,
-		// 	img: "img/default/monsters-06.png",
-		// 	name:"game"
-		//   },
-		//   {
-		// 	id : 7,
-		// 	img: "img/default/monsters-07.png",
-		// 	name:"paper"
-		//   },
-		//   {
-		// 	id : 8,
-		// 	img: "img/default/monsters-08.png",
-		// 	name:"pencil"
-		//   },
-		//   {
-		// 	id : 9,
-		// 	img: "img/default/monsters-09.png",
-		// 	name:"bag"
-		//   },
-		//   {
-		// 	id : 10,
-		// 	img: "img/default/monsters-10.png",
-		// 	name:"bedroom"
-		//   },
-		//   {
-		// 	id : 11,
-		// 	img: "img/default/monsters-11.png",
-		// 	name:"meeting"
-		//   },
-		//   {
-		// 	id : 12,
-		// 	img: "img/default/monsters-12.png",
-		// 	name:"cellphone"
-		//   },
-		//   {
-		// 	id : 13,
-		// 	img: "img/default/monsters-13.png",
-		// 	name:"picture"
-		//   },
-		//   {
-		// 	id : 14,
-		// 	img: "img/default/monsters-14.png",
-		// 	name:"duck"
-		//   },
-		//   {
-		// 	id : 15,
-		// 	img: "img/default/monsters-15.png",
-		// 	name:"city"
-		//   },
-		//   {
-		// 	id : 16,
-		// 	img: "img/default/monsters-16.png",
-		// 	name:"map"
-		//   }
-		// ],
 	onGameStart : function() { return false; },
 	onGameEnd : function() { return false; }
   }
@@ -327,26 +245,9 @@ Memory.prototype._renderTiles = function() {
 	this.numTiles = this.gridX * this.gridY;
 	this.halfNumTiles = this.numTiles/2;
 	this.newCards = [];
-	// var c = [];
-	// $.getJSON(Routing.generate('tncy_school_memory_data'), function(response){
-	// 	var items = [];
-	// 	$.each( response, function( key, val ) {
-	// 		var val = Object.keys(val).map(function (key) {return val[key]});
-
-	// 		items.push( val);
-	// 	});
-	// 	c =  items;
-	// console.log(items[0]);
-	// console.log(c[0]);
-
-	// });
-	// this.cards = c;
-	// console.log(c[0]);
-	// console.log(this.cards[0]);
 	for ( var i = 0; i < this.halfNumTiles; i++ ) {
 		this.newCards.push(this.cards[i], this.cards[i]);
 	}
-	console.log(this.newCards);
 	this.newCards = shuffle(this.newCards);
 	this.tilesHTML = '';
 	this.addedIds = [];

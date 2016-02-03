@@ -1,0 +1,33 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+
+{% block title %}{{ "Contact"| trans}} {{ parent() }}  {% endblock %}
+{% block container %}
+
+<main role="main" class="main contact">
+	<!-- Content goes here -->
+	<div class="container ">
+	{% for post in posts %}
+	    
+		<div class="row">
+			<div class="col-md-10 blogShort">
+				<h1>{{post.from.name}}</h1>
+				{% if post.picture is defined %}
+				<img src="{{post.picture}}" alt="post img" class="pull-left img-responsive  img-thumbnail">
+				{% endif %}
+
+				<em>{{post.created_time}}</em>
+				<article><p>
+					{{post.message}}    
+				</p>
+				</article>
+								{% if post.link is defined %}
+
+				<a class="btn btn-blog pull-right " href="{{post.link}}">Voir plus</a> 
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+</main>
+
+{% endblock  %}
