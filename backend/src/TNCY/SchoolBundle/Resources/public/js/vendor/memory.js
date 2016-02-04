@@ -46,9 +46,6 @@
   function Memory( options ) {
 	this.options = extend( {}, this.options );
 	extend( this.options, options );
-	this._init();
-
-
   }
 
   /**
@@ -66,13 +63,14 @@
 
 
   Memory.prototype.options = {
-	wrapperID : "container",
+	wrapperID : "my-memory-game",
   	cards :  	$.getJSON(Routing.generate('tncy_school_memory_data'), function(response){
 		var items = [];
 		$.each( response, function( key, val ) {
 			items.push( val);
 		});
 		Memory.prototype.options.cards =  items;
+		Memory.prototype._init();
 	}),
 	onGameStart : function() { return false; },
 	onGameEnd : function() { return false; }
