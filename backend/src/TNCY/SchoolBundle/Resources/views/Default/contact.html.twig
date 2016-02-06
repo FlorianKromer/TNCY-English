@@ -1,11 +1,39 @@
 {% extends 'TNCYSchoolBundle::layout.html.twig' %}
 
 {% block title %}{{ "Contact"| trans}} {{ parent() }}  {% endblock %}
-    {% block container %}
-
-        <main role="main" class="main contact">
-            <!-- Content goes here -->
-            <div class="jumbotron">
+{% block container %}
+    <main role="main" class="main contact">
+        <section class="contact__img">
+            <div class="container">
+                
+            <div class="row ">
+                <div class="col-md-6 col-md-offset-6 col-xs-10 col-xs-offset-6 contact__img--hook" >
+                    <div class="row">
+                        <div class="col-md-12">
+                    <h1>Quartier général</h1>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li>183 avenue Paul Muller</li>
+                                <li>54000 Nancy</li>
+                                <li>France <i class="fa fa-heart"></i></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-phone"></i> (+33 89 75 42 75)</li>
+                                <li><i class="fa fa-envelope"></i> contact.enjoylearning@gmail.com</li>
+                            </ul>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section> <!-- /container -->   
                 <div class="container ">
                     <div class="row">
                         <div class="col-md-12">
@@ -58,7 +86,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
 
     {% endblock %}

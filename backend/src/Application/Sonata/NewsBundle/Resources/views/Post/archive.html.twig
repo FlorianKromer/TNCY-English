@@ -1,0 +1,43 @@
+{% extends 'ApplicationSonataNewsBundle::layout.html.twig' %}
+{% block title %}{{ "News"| trans}} {{ parent() }}  {% endblock %}
+
+{% block container %}
+    <main role="main" class="main contact">
+        <!-- Content goes here -->
+        <div class="container ">
+
+            <h1>{{ "News"| trans}}</h1>
+
+            <div class="sonata-blog-post-list">
+                {% for post in pager.getResults() %}
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+
+                               <h3 >{{ post.title }} <small><span class="sonata-blog-post-author">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</span> |
+                                <i class="fa fa-calendar"></i>
+                                {{ post.publicationDateStart | format_date }} |
+
+                                <i class="fa fa-comment"></i>
+                                <span class="sonata-blog-post-comments-count">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span></small></h3>
+
+                        </div>
+                        <div class="panel-body">
+                            {% media post.image, 'small' with {'class': 'pull-left img-responsive thumb img-thumbnail'} %}
+                            <p>{{ post.abstract }}</p>
+                            <a class="btn btn-primary btn-success pull-right" href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">READ MORE</a> 
+                        </div>                      
+                    </div>
+
+                    <hr />
+                {% else %}
+                    {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
+                {% endfor %}
+
+                <ul class="pager">
+                    <li{% if pager.page == pager.lastPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}" title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
+                    <li{% if pager.page == pager.firstPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.previouspage})) }}" title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+{% endblock %}

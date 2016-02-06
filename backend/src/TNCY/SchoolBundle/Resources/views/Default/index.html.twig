@@ -3,22 +3,125 @@
 {% block title %}{{ "Accueil"| trans}} {{ parent() }}  {% endblock %}
 {% block container %}
 
-<main id="fullpage" role="main" class="main">
+<main id="fullpage" role="main" class="main homepage">
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Bienvenue sur EnjoyLearning !</h1>
-            <p>Je suis le hibou Duo, et je vais t'expliquer rapidement comment apprendre avec EnjoyLearning.</p>
-            <p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Démarrer la visite</a>
-            </p>
+    <section class="container">
+        <div class="col-md-8 col-xs-12 homepage__hook">
+            <h1>Apprends l'anglais maintenant! </h1>
+            <h3>EnjoyLearning est une plateforme d'apprentissage de l'anglais à destination des élèves.<br>
+            Vous pourrez retrouver différents module pour apprendre</h3>
+            
+            <a class="btn btn-lg btn-default btn-raised" href="#" role="button">Démarrer la visite</a>
+            
+        </div>
+        <div class="col-md-4 hidden-xs">
+            <br>
+            <img src="{{ asset('bundles/tncyschool/img/marker.png') }}" alt="image de la page d'accueil">
+        </div>
+    </section> <!-- /container -->   
+
+    <section class="container-fluid homepage__img">
+        <div class="container">
+            
+            <div class="row">
+                <h1>Découvrez le monde au travers des langues étrangères</h1>
+                <h3>Parler une autre langue élargit vos possibilités. <br>
+                Apprendre une nouvelle langue avec <strong>EnjoyLearning</strong> <br>
+                est simple, interactif et efficace.</h3>
+            </div>
+        </div>
+    </section> <!-- /container -->   
+
+    <section class="container-fluid homepage_working">
+        <div class="container">
+            <h2 class="text-center">EnjoyLearning, une méthode simple et efficace !</h2><br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="media">
+                        <span class="media-left"><!-- <i class="fa fa-3x fa-laptop"></i> --></span>
+                        <div class="media-body">
+                            <h4 class="media-heading">Comment cela fonctionne</h4>
+                            <p>EnjoyLearning vous donne tous les outils nécessaires pour parler, écrire et comprendre une nouvelle langue. Personnalisez votre apprentissage. Étudiez ce que vous voulez, quand vous voulez et où vous voulez.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="media">
+                        <span class="media-left"><!-- <i class="fa fa-3x fa-mobile"></i> --></span>
+                        <div class="media-body">
+                            <h4 class="media-heading">Mobile : partout et tout le temps</h4>
+                            <p>Emportez EnjoyLearning partout avec vous. Le système enregistre et synchronise votre progression, et vous pouvez étudier quand l’envie vous en prend : sur votre ordinateur, votre tablette ou votre smartphone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="media">
+                        <span class="media-left"><!-- <i class="fa fa-3x fa-graduation-cap"></i> --></span>
+                        <div class="media-body">
+                        <h4 class="media-heading">Apprendre avec EnjoyLearning</h4>
+                        <p>Tout est très facile avec EnjoyLearning : Choisissez simplement les cours qui vous intéressent et commencez à élargir votre vocabulaire. Et si la grammaire vous fait peur, ne vous en faites pas. Vous l’apprendrez de manière intuitive et presque sans vous en rendre compte.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="media">
+                        <span class="media-left"><!-- <i class="fa fa-3x fa-briefcase"></i> --></span>
+                        <div class="media-body">
+                            <h4 class="media-heading">Parlez dès la première leçon</h4>
+                            <p>Durant les leçons, la fonction de reconnaissance vocale de EnjoyLearning vous permet d’améliorer votre prononciation. Le parfait outil pour apprendre et progresser rapidement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-
-    </div> <!-- /container -->   
+    </section>
 
 </main>
+<footer>
+    <div class="container">
 
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-unstyled list-inline ">
+                    <li>
+                        <a target="_blank" href="#">Qui sommes-nous ?</a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">Presse</a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">Blog</a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">Aide/FAQ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <ul class="list-unstyled list-inline text-right">
+                    <li>
+                        <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#"><i class="fa fa-youtube"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</footer>
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}

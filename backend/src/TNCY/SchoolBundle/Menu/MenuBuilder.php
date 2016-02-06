@@ -36,9 +36,9 @@ class MenuBuilder
 
 
         $menu = $this->factory->createItem('root');
-        $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-left'));
+        $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-left menu__list'));
         $menu->addChild('Accueil', array('route' => 'tncy_school_index'));
-        $menu->addChild('Discussion', array('route' => 'tncy_school_news'));
+        $menu->addChild('News', array('route' => 'sonata_news_archive'));
         $menu->addChild('Leçons', array('route' => 'tncy_school_lessons'));
         $menu->addChild('Contact', array('route' => 'tncy_school_contact'));
 
@@ -63,7 +63,9 @@ class MenuBuilder
                     ->setAttribute('icon', 'fa fa-globe');
         $menu['Language']->addChild('J\'apprends l\'anglais niveau 1', array('route' => 'tncy_school_about'))
                     ->setAttribute('class', 'dropdown-header');
-        $menu['Language']->addChild('Ajouter un nouveau cours', array('route' => 'tncy_school_about'))
+        $menu['Language']->addChild('Exercice: Song', array('route' => 'tncy_school_song'))
+                    ->setAttribute('icon', 'fa fa-plus');
+        $menu['Language']->addChild('Exercice: Memory', array('route' => 'tncy_school_memory'))
                     ->setAttribute('icon', 'fa fa-plus');
 
         $menu->addChild('User', array('label' => ''))

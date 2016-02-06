@@ -5415,8 +5415,8 @@ hr.on-light {
 }
 /*! Custom Boilerplate based on HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+Base styles: opinionated defaults
+========================================================================== */
 *,
 *:before,
 *:after {
@@ -5477,20 +5477,17 @@ h6:first-child {
   margin-top: 0;
 }
 /* ==========================================================================
-   Browse Happy prompt
-   ========================================================================== */
+Browse Happy prompt
+========================================================================== */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
 }
-.repo .btn {
-  padding-right: 20px;
-  padding-left: 20px;
-}
 body {
   padding-top: 65px;
+  background-color: #fff;
 }
 .box-social-buttons .btn-twitter {
   color: #1caff6;
@@ -5516,13 +5513,58 @@ body {
   border-color: #db4633;
   color: #ffffff;
 }
-.homepage__block {
-  position: relative;
-  text-align: center;
+.homepage {
+  background: #fff;
 }
-.homepage__block .homepage__block--title {
-  position: absolute;
+.homepage .homepage__hook {
+  margin: 5em 0 8em 0;
 }
-.homepage__block .homepage__block--title h1 {
-  color: white;
+.homepage .homepage__hook .btn {
+  background-color: #fb7941;
+  color: #fff;
+}
+.homepage .homepage__hook .btn.btn-raised:hover:not(.btn-link) {
+  background-color: rgba(251, 121, 65, 0.6);
+}
+.homepage .homepage__img {
+  border-top: 3px solid #fb7941;
+  border-bottom: 3px solid #fb7941;
+  min-width: 100%;
+  background: url(../img/homepage1.jpg) no-repeat;
+  background-size: cover;
+  height: 35em;
+}
+.homepage .homepage__img .row {
+  color: #fff;
+  padding: 8em 0 5em 0;
+}
+.homepage .homepage_working {
+  padding: 4em 0 2em 0;
+}
+.contact {
+  margin-top: 0;
+}
+.contact .contact__img {
+  border-bottom: 3px solid #fb7941;
+  min-width: 100%;
+  background: url(../img/contactpage1.jpg) no-repeat;
+  background-size: cover;
+  height: 35em;
+}
+.contact .contact__img .contact__img--hook {
+  margin-top: 3em;
+  color: #fff;
+  padding: 1em 0 1em 1em;
+  background-color: #000000;
+  border-left: 3px solid #fb7941;
+}
+footer {
+  padding: 2em 0 2em 0;
+  background-color: #008fd5;
+}
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: #fb7941;
 }

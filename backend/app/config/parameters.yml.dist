@@ -19,7 +19,6 @@ parameters:
     use_assetic_controller: true
     
     # Mail
-    
     # Destinataire de tous les mails en mode DEV
     mail_dev_delivery_address : webadmin@toto.fr
 
@@ -43,3 +42,7 @@ parameters:
     client_facebook_secret: test
     client_twitter_id: test
     client_twitter_secret: test
+
+
+    # Sonata Media options
+    sonata_media.cdn.host:   '/TNCY-English//backend/web/uploads/media'

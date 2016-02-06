@@ -1,25 +1,37 @@
-# Backend
+# TNCY-English
+Projet de fin d'année en anglais.
 
-This project contains:
+Developpement en binomes d'un outil informatique qui permet de travailler l'anglais.
+Cet outil peut permettre, par exemple, de réviser un point de grammaire, voir un aspect de civilisation, observer un fait de langue, faire un exercice de compréhension (écrire ou orale).
 
-* Sonata admin [https://github.com/sonata-project/SonataAdminBundle]
-* Knp menu [https://github.com/KnpLabs/KnpMenu]
-* JMStranslation [https://github.com/schmittjoh/JMSTranslationBundle]
+# Installation
 
-# Frontend
+```bash
+composer install
+php app/console doctrine:database:create (pour créer la base de données)
+php app/console doctrine:schema:update --force (pour créer les tables)
+php app/console doctrine:fixture:load (pour charger des données de tests)
+php app/console sonata:news:sync-comments-count (pour syncho les commentaires avec les news)
+sh bin/build.sh (pour recopier les assets)
+```
 
-* Bootstrap [http://getbootstrap.com/]
-* Material design [https://github.com/FezVrasta/bootstrap-material-design]
+# Credits
 
-# Configuration
+## PHP
+* [Symfony 2.6.*](https://symfony.com/)
+* [Sonata-admin ](https://sonata-project.org/)
+* [soundcloud api](https://developers.soundcloud.com/)
+* [musixmatch api](https://developer.musixmatch.com/)
 
-In order to configure the project:
+## Js
+* [memory game](https://github.com/callmenick/Memory)
+* [text to speech](http://responsivevoice.org/)
 
-	edit parameters.yml with yours
-	composer install -v (to get vendors)
-	sh bin/build.sh (to create symlinks)
-	php app/console doctrine:database:create
-	php app/console doctrine:schema:update --force
-	php app/console fos:user:create 
-	php app/console fos:user:promote (set the admin role :"ROLE_SUPER_ADMIN")
-	php app/console faker:populate (for dev env)
+
+## Css
+* [bootstrap v3](https://github.com/twbs/bootstrap)
+* [bootstrap material design](https://github.com/FezVrasta/bootstrap-material-design)
+
+## Pictures
+* https://www.flickr.com/photos/chrisyarzab/5777829523/in/photostream/
+

@@ -11,6 +11,7 @@ imports:
     - { resource: conf.d/classification.yml }
     - { resource: conf.d/media.yml }
     - { resource: conf.d/formatter.yml }
+    - { resource: conf.d/news.yml }
     - { resource: conf.d/oauth.yml }
     - { resource: @TNCYSchoolBundle/Resources/config/admin.yml }
 
@@ -83,6 +84,12 @@ doctrine:
                     SonataUserBundle: ~
                     FOSUserBundle: ~
                     TNCYSchoolBundle: ~
+                    ApplicationSonataNewsBundle: ~
+                    SonataNewsBundle: ~
+                    ApplicationSonataMediaBundle: ~
+                    SonataMediaBundle: ~
+                    ApplicationSonataClassificationBundle: ~
+                    SonataClassificationBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:

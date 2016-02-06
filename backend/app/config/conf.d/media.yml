@@ -66,7 +66,7 @@ sonata_media:
 
     cdn:
         server:
-            path:      /SchoolManager/web/uploads/media # http://media.sonata-project.org
+            path:      %sonata_media.cdn.host% # http://media.sonata-project.org
 
         panther:
             path:       http://domain.pantherportal.com/uploads/media
@@ -81,7 +81,7 @@ sonata_media:
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
-            create:     false
+            create:     true
 
         ftp:
             directory:

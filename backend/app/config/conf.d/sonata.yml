@@ -35,11 +35,19 @@ sonata_admin:
                 icon: '<i class="fa fa-briefcase"></i>'
                 items:
                     - sonata.admin.schoolclass
-                    - sonata.admin.subject
-                    - sonata.admin.schoolresult
+                    # - sonata.admin.subject
+                    # - sonata.admin.schoolresult
                     - sonata.admin.school
                     - sonata.admin.lesson
-
+            sonata.admin.group.content:
+                label:           Blog
+                label_catalogue: TNCYSchoolBundle
+                icon:            '<i class="fa fa-th"></i>'
+                items:
+                    - sonata.news.admin.comment
+                    - sonata.news.admin.post
+                    - sonata.media.admin.media
+                    - sonata.media.admin.gallery
             # tncyschool.admin.group.classification:
             #     label: Classification
             #     label_catalogue: TNCYSchoolBundle

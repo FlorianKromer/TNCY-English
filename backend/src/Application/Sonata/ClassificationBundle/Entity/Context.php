@@ -50,4 +50,9 @@ class Context extends BaseContext
 
         return $this;
     }
+
+    function __toString()
+    {
+        return 'Context';
+    }
 }

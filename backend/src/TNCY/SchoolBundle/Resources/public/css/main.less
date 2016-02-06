@@ -7,54 +7,54 @@
 
 /*! Custom Boilerplate based on HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-   *,
-   *:before,
-   *:after {
-   	-webkit-box-sizing: border-box;
-   	-moz-box-sizing: border-box;
-   	box-sizing: border-box;
-   }
+Base styles: opinionated defaults
+========================================================================== */
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-   ::-moz-selection {
-   	background: #b3d4fc;
-   	text-shadow: none;
-   }
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
 
-   ::selection {
-   	background: #b3d4fc;
-   	text-shadow: none;
-   }
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
 
-   hr {
-   	display: block;
-   	height: 1px;
-   	border: 0;
-   	border-top: 1px solid #ccc;
-   	margin: 1em 0;
-   	padding: 0;
-   }
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
 
-   audio,
-   canvas,
-   img,
-   svg,
-   video {
-   	vertical-align: middle;
-   }
+audio,
+canvas,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
 
-   img,
-   table,
-   td,
-   blockquote,
-   code,
-   pre,
-   textarea,
-   input,
-   video {
-   	max-width: 100%;
-   }
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+video {
+    max-width: 100%;
+}
 
 /*
 * Avoid top margins on first content element
@@ -72,69 +72,120 @@ h3:first-child,
 h4:first-child,
 h5:first-child,
 h6:first-child {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 /* ==========================================================================
-   Browse Happy prompt
-   ========================================================================== */
-   .browsehappy {
-   	margin: 0.2em 0;
-   	background: #ccc;
-   	color: #000;
-   	padding: 0.2em 0;
-   }
+Browse Happy prompt
+========================================================================== */
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
 
 
 @primary: #008fd5;
+@secondary: #fb7941;
 
-.repo .btn {
-   padding-right: 20px;
-   padding-left: 20px;
-}
+// .repo .btn {
+//     padding-right: 20px;
+//     padding-left: 20px;
+// }
 
 body  {
-  padding-top: 65px;
+    padding-top: 65px;
+    background-color: #fff;
 }
 .box-social-buttons {
-  .btn-twitter {
-    color:#1caff6;
+    .btn-twitter {
+        color:#1caff6;
 
-    &:hover {
-      background:#1caff6 !important;
-      color:#fff;
-      border-color:#1caff6
+        &:hover {
+            background:#1caff6 !important;
+            color:#fff;
+            border-color:#1caff6
+        }
     }
-  }
-  .btn-facebook {
-    color:#3b579d;
-    &:hover {
-      background:#3b579d !important;
-      border-color:#3b579d;
-      color:#fff
+    .btn-facebook {
+        color:#3b579d;
+        &:hover {
+            background:#3b579d !important;
+            border-color:#3b579d;
+            color:#fff
+        }
     }
-  }
-  .btn-google {
-    color:#db4633;
-    &:hover {
-      background:#db4633 !important;
-      border-color:#db4633;
-      color:#fff
+    .btn-google {
+        color:#db4633;
+        &:hover {
+            background:#db4633 !important;
+            border-color:#db4633;
+            color:#fff
+        }
     }
-  }
-  
+
 }
 
 
-.homepage__block{
-    position: relative;
-    text-align: center;
-   .homepage__block--title{
-      position: absolute;
+.homepage{
+    background: #fff;
+    .homepage__hook{
+        margin: 5em 0 8em 0;
+        .btn{
+            background-color: @secondary;
+            color: #fff;
+            &.btn-raised:hover:not(.btn-link){
+                background-color: fade(@secondary, 60%);
+            }
+        }
+    }
+    .homepage__img{
+        border-top: 3px solid @secondary;
+        border-bottom: 3px solid @secondary;
+        min-width: 100%;
+        background: url(../img/homepage1.jpg)   no-repeat;
+        background-size:cover; 
+        height: 35em;
+        .row{
+            color: #fff;
+            padding: 8em 0 5em 0;
+        }
 
-      h1{
-         color: white;
-      }
-   }
+    }
+    .homepage_working{
+        padding: 4em 0 2em 0;
+    }
 }
- 
+.contact{
+    margin-top: 0;
+    .contact__img{
+        border-bottom: 3px solid @secondary;
+        min-width: 100%;
+        background: url(../img/contactpage1.jpg)   no-repeat;
+        background-size:cover; 
+        height: 35em;
+        .contact__img--hook{
+            margin-top: 3em;
+            color: #fff;
+            padding: 1em 0 1em 1em;
+            background-color: @black;
+            border-left: 3px solid @secondary;
+        }
+
+    }
+}
+footer{
+    padding: 2em 0 2em 0;
+
+    background-color: @primary;
+    a{      
+
+        color: #fff;
+        &:hover{
+            color: @secondary;
+        }
+    }
+}
+
+

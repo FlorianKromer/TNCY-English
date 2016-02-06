@@ -21,13 +21,17 @@ class AppKernel extends Kernel
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-                    new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+
+            //news
+            new Sonata\NewsBundle\SonataNewsBundle(),
+            new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
 
             //formatter
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
@@ -54,7 +58,7 @@ class AppKernel extends Kernel
             // Routing JS
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
-            //api
+            //oauth
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
 
             new TNCY\SchoolBundle\TNCYSchoolBundle()

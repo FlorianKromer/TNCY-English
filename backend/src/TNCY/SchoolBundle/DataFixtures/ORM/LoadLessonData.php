@@ -11,7 +11,7 @@ class LoadLessonData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         
-        $cook = $this->loadCooking($manager);
+        $cook = $this->loadOpinion($manager);
 
 
         $manager->persist($cook);
@@ -23,10 +23,10 @@ class LoadLessonData extends AbstractFixture implements OrderedFixtureInterface
     }
 
 
-    public function loadCooking($manager)
+    public function loadOpinion($manager)
     {
         $topic = new Lesson();
-        $topic->setName('à table');
+        $topic->setName('opinion');
         $topic->setContent('
 <h1>Expressions pour exprimer son opinion</h1>
 
@@ -85,7 +85,7 @@ Let&rsquo;s consider first all the facts before making any judgments. <img class
 '
 
             );
-        $topic->setSummary('Ensemble des mots de vocabulaire concernant la cuisine');
+        $topic->setSummary('Expressions pour exprimer son opinion');
         $topic->setTopic(Lesson::$CONST_TOPIC['VOCABULARY']);
         $author = $this->getReference('user.super_admin');
         $topic->setAuthor($author);

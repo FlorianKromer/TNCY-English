@@ -27,6 +27,8 @@
         "sonata-project/classification-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
         "sonata-project/intl-bundle": "dev-master",
+        "sonata-project/news-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
         "jms/i18n-routing-bundle": "dev-master",
         "jms/translation-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",

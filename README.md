@@ -13,8 +13,7 @@ composer install
 php app/console doctrine:database:create (pour créer la base de données)
 php app/console doctrine:schema:update --force (pour créer les tables)
 php app/console doctrine:fixture:load (pour charger des données de tests)
-php app/console fos:user:create  (pour créer un utilisateur)
-php app/console fos:user:promote (avec pour role SUPER_ADMIN)
+php app/console sonata:news:sync-comments-count (pour syncho les commentaires avec les news)
 sh bin/build.sh (pour recopier les assets)
 ```
 
@@ -35,5 +34,6 @@ sh bin/build.sh (pour recopier les assets)
 * [bootstrap v3](https://github.com/twbs/bootstrap)
 * [bootstrap material design](https://github.com/FezVrasta/bootstrap-material-design)
 
-
+## Pictures
+* https://www.flickr.com/photos/chrisyarzab/5777829523/in/photostream/
 
