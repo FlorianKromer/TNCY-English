@@ -4,6 +4,8 @@ Projet de fin d'année en anglais.
 Developpement en binomes d'un outil informatique qui permet de travailler l'anglais.
 Cet outil peut permettre, par exemple, de réviser un point de grammaire, voir un aspect de civilisation, observer un fait de langue, faire un exercice de compréhension (écrire ou orale).
 
+![Aperçu](http://img15.hostingpics.net/pics/373258Capture.png)
+
 # Installation
 
 ```bash
