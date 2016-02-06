@@ -4,9 +4,12 @@ namespace TNCY\SchoolBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 use TNCY\SchoolBundle\Entity\Lesson;
 
-class LoadLessonData extends AbstractFixture implements OrderedFixtureInterface
+class LoadLessonData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -17,11 +20,30 @@ class LoadLessonData extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($cook);
         $manager->flush();
 
-
+        $this->loadRandom($manager);
 
 
     }
 
+    public function loadRandom($manager)
+    {
+        $faker = $this->getFaker();
+
+        for ($i=0; $i < 10; $i++) { 
+            # code...
+            $topic = new Lesson();
+            $topic->setName($faker->sentence(6));
+            $topic->setContent($faker->text(1000));
+            $topic->setSummary($faker->sentence(30));
+            $topic->setTopic(Lesson::$CONST_TOPIC['VOCABULARY']);
+            $author = $this->getReference('user.super_admin');
+            $topic->setAuthor($author);
+            $manager->persist($topic);
+            $manager->flush();
+        }
+
+        return $topic;
+    }
 
     public function loadOpinion($manager)
     {
@@ -99,5 +121,16 @@ Let&rsquo;s consider first all the facts before making any judgments. <img class
         // the order in which fixtures will be loaded
         // the lower the number, the sooner that this fixture is loaded
         return 30;
+    }
+        public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+        /**
+     * @return \Faker\Generator
+     */
+    public function getFaker()
+    {
+        return $this->container->get('faker.generator');
     }
 }

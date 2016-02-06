@@ -49,6 +49,7 @@ class LessonAdmin extends Admin
             ->add('author')
             ->add('created_at')
             ->add('updated_at')
+            ->add('topic')
             ->add('draft')
         ;
     }

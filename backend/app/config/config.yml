@@ -13,6 +13,7 @@ imports:
     - { resource: conf.d/formatter.yml }
     - { resource: conf.d/news.yml }
     - { resource: conf.d/oauth.yml }
+    - { resource: conf.d/paginator.yml }
     - { resource: @TNCYSchoolBundle/Resources/config/admin.yml }
 
 framework:

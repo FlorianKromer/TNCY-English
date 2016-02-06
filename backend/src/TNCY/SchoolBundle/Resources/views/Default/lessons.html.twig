@@ -25,29 +25,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row grid">
-                        {% for lesson in pagination %}
-                            <div class="col-md-4">
-                                <figure class="effect-oscar">
-                                    <img src="{{ asset('bundles/tncyschool/img/lessons/'~ lesson.topic|lower  ~'.jpg') }}" alt="img09">
-                                    <figcaption>
-                                        <h2>{{ lesson.name }}</h2>
-                                        <p>Mis à jour le {{ lesson.createdAt | date('Y-m-d') }}</p>
-                                        <a href="#">Voir</a>
-                                    </figcaption>           
-                                </figure>
-                            </div>
-                            {% if loop.index is divisible by(3) %}
-                            </div>
-                            <div class="row">
-                            {% endif %}
-                        {% endfor %}
+                    <div class="grid">
+                        
+                        <div class="row ">
+                            {% for lesson in pagination %}
+                                <div class="col-md-4 ">
+                                    <figure class="effect-oscar">
+                                        <img src="{{ asset('bundles/tncyschool/img/lessons/'~ lesson.topic|lower  ~'.jpg') }}" alt="img09">
+                                        <figcaption>
+                                            <h2>{{ lesson.name }}</h2>
+                                            <p>Mis à jour le {{ lesson.createdAt | date('Y-m-d') }}</p>
+                                            <a href="#">Voir</a>
+                                        </figcaption>           
+                                    </figure>
+                                </div>
+                                {% if loop.index is divisible by(3) %}
+                                </div>
+                                <div class="row">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-
+                    
                     {# display navigation #}
-                    <div class="navigation">
+                    <nav>
                         {{ knp_pagination_render(pagination) }}
-                    </div>
+                    </nav>
             </div>
             <div class="tab-pane fade" id="search">
                 <div class="row">
@@ -99,5 +102,6 @@
     <script type="text/javascript">
         $(".select").dropdown();
     </script>
+
 
 {% endblock %}
