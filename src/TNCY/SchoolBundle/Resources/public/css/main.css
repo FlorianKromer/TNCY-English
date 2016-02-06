@@ -1,3 +1,4 @@
+@import "_animate.min.css";
 /*!
  *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -1889,6 +1890,744 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
 }
 .dropdownjs > ul > li:h > .close:hover:before {
   opacity: .9;
+}
+#my-memory-game img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+/* =============================================================================
+  MEMORY GAME (mg)
+============================================================================= */
+/**
+ * Game container
+ *
+ * This is the overall container for the game. Different things get addead and
+ * removed from this container depending on the game state.
+ */
+.mg {
+  /* blank */
+}
+/**
+ * Game meta
+ *
+ * The game meta is the section that displays the level and moves. It's appended
+ * to the game container at the start, and shows the level the user selected
+ * and the number of moves the user has played.
+ */
+.mg__meta {
+  margin-bottom: 10px;
+  color: #28aadc;
+}
+.mg__meta--item {
+  display: inline-block;
+}
+.mg__meta--left {
+  float: left;
+}
+.mg__meta--right {
+  float: right;
+}
+.mg__meta--level {
+  margin-right: 20px;
+}
+/**
+ * Game start screen
+ *
+ * The game start screen shows the "welcome" message and also a list for the
+ * user to choose a level. It's appended to the game container at the start,
+ * and once the user selects a level, it is removed from the container
+ */
+.mg__start-screen {
+  text-align: center;
+  padding: 80px 20px;
+}
+.mg__start-screen--heading {
+  margin-bottom: 10px;
+  color: #282a2f;
+  font-size: 30px;
+}
+.mg__start-screen--sub-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #28aadc;
+}
+.mg__start-screen--sub-heading::before,
+.mg__start-screen--sub-heading::after {
+  margin: 0 5px;
+  content: "-";
+}
+.mg__start-screen--text {
+  margin-bottom: 20px;
+}
+.mg__start-screen--level-select {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mg__start-screen--level-select span {
+  color: #ff3c50;
+  font-size: 18px;
+  cursor: pointer;
+}
+.mg__start-screen--level-select span:hover {
+  color: #d50016;
+}
+/**
+ * Game wrapper
+ *
+ * The game wrapper is where the actual game resides. Inside here, all the
+ * memory tiles get arranged and ready for game play.
+ */
+.mg__wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+.mg__contents {
+  position: relative;
+  padding-bottom: 50%;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+/**
+ * Game tiles
+ *
+ * The game tiles are the tiles that are laid down on the memory game board.
+ * These tiles are the ones that the user clicks on to flip and reveal some
+ * images. The level the user selects determines the position and size of
+ * the tiles.
+ */
+.mg__tile {
+  position: absolute;
+  padding: 5px;
+}
+/* game__level-1 styles */
+.mg__level-1 .mg__tile {
+  width: 25%;
+  height: 50%;
+}
+.mg__level-1 .mg__tile-1 {
+  top: 0%;
+  left: 0%;
+}
+.mg__level-1 .mg__tile-2 {
+  top: 0%;
+  left: 25%;
+}
+.mg__level-1 .mg__tile-3 {
+  top: 0%;
+  left: 50%;
+}
+.mg__level-1 .mg__tile-4 {
+  top: 0%;
+  left: 75%;
+}
+.mg__level-1 .mg__tile-5 {
+  top: 50%;
+  left: 0%;
+}
+.mg__level-1 .mg__tile-6 {
+  top: 50%;
+  left: 25%;
+}
+.mg__level-1 .mg__tile-7 {
+  top: 50%;
+  left: 50%;
+}
+.mg__level-1 .mg__tile-8 {
+  top: 50%;
+  left: 75%;
+}
+/* game__level-2 styles */
+.mg__level-2 .mg__tile {
+  width: 16.66667%;
+  height: 33.33333%;
+}
+.mg__level-2 .mg__tile-1 {
+  top: 0%;
+  left: 0%;
+}
+.mg__level-2 .mg__tile-2 {
+  top: 0%;
+  left: 16.66667%;
+}
+.mg__level-2 .mg__tile-3 {
+  top: 0%;
+  left: 33.33333%;
+}
+.mg__level-2 .mg__tile-4 {
+  top: 0%;
+  left: 50%;
+}
+.mg__level-2 .mg__tile-5 {
+  top: 0%;
+  left: 66.66667%;
+}
+.mg__level-2 .mg__tile-6 {
+  top: 0%;
+  left: 83.33333%;
+}
+.mg__level-2 .mg__tile-7 {
+  top: 33.33333%;
+  left: 0%;
+}
+.mg__level-2 .mg__tile-8 {
+  top: 33.33333%;
+  left: 16.66667%;
+}
+.mg__level-2 .mg__tile-9 {
+  top: 33.33333%;
+  left: 33.33333%;
+}
+.mg__level-2 .mg__tile-10 {
+  top: 33.33333%;
+  left: 50%;
+}
+.mg__level-2 .mg__tile-11 {
+  top: 33.33333%;
+  left: 66.66667%;
+}
+.mg__level-2 .mg__tile-12 {
+  top: 33.33333%;
+  left: 83.33333%;
+}
+.mg__level-2 .mg__tile-13 {
+  top: 66.66667%;
+  left: 0%;
+}
+.mg__level-2 .mg__tile-14 {
+  top: 66.66667%;
+  left: 16.66667%;
+}
+.mg__level-2 .mg__tile-15 {
+  top: 66.66667%;
+  left: 33.33333%;
+}
+.mg__level-2 .mg__tile-16 {
+  top: 66.66667%;
+  left: 50%;
+}
+.mg__level-2 .mg__tile-17 {
+  top: 66.66667%;
+  left: 66.66667%;
+}
+.mg__level-2 .mg__tile-18 {
+  top: 66.66667%;
+  left: 83.33333%;
+}
+/* game__level-3 styles */
+.mg__level-3 .mg__tile {
+  width: 12.5%;
+  height: 25%;
+}
+.mg__level-3 .mg__tile-1 {
+  top: 0%;
+  left: 0%;
+}
+.mg__level-3 .mg__tile-2 {
+  top: 0%;
+  left: 12.5%;
+}
+.mg__level-3 .mg__tile-3 {
+  top: 0%;
+  left: 25%;
+}
+.mg__level-3 .mg__tile-4 {
+  top: 0%;
+  left: 37.5%;
+}
+.mg__level-3 .mg__tile-5 {
+  top: 0%;
+  left: 50%;
+}
+.mg__level-3 .mg__tile-6 {
+  top: 0%;
+  left: 62.5%;
+}
+.mg__level-3 .mg__tile-7 {
+  top: 0%;
+  left: 75%;
+}
+.mg__level-3 .mg__tile-8 {
+  top: 0%;
+  left: 87.5%;
+}
+.mg__level-3 .mg__tile-9 {
+  top: 25%;
+  left: 0%;
+}
+.mg__level-3 .mg__tile-10 {
+  top: 25%;
+  left: 12.5%;
+}
+.mg__level-3 .mg__tile-11 {
+  top: 25%;
+  left: 25%;
+}
+.mg__level-3 .mg__tile-12 {
+  top: 25%;
+  left: 37.5%;
+}
+.mg__level-3 .mg__tile-13 {
+  top: 25%;
+  left: 50%;
+}
+.mg__level-3 .mg__tile-14 {
+  top: 25%;
+  left: 62.5%;
+}
+.mg__level-3 .mg__tile-15 {
+  top: 25%;
+  left: 75%;
+}
+.mg__level-3 .mg__tile-16 {
+  top: 25%;
+  left: 87.5%;
+}
+.mg__level-3 .mg__tile-17 {
+  top: 50%;
+  left: 0%;
+}
+.mg__level-3 .mg__tile-18 {
+  top: 50%;
+  left: 12.5%;
+}
+.mg__level-3 .mg__tile-19 {
+  top: 50%;
+  left: 25%;
+}
+.mg__level-3 .mg__tile-20 {
+  top: 50%;
+  left: 37.5%;
+}
+.mg__level-3 .mg__tile-21 {
+  top: 50%;
+  left: 50%;
+}
+.mg__level-3 .mg__tile-22 {
+  top: 50%;
+  left: 62.5%;
+}
+.mg__level-3 .mg__tile-23 {
+  top: 50%;
+  left: 75%;
+}
+.mg__level-3 .mg__tile-24 {
+  top: 50%;
+  left: 87.5%;
+}
+.mg__level-3 .mg__tile-25 {
+  top: 75%;
+  left: 0%;
+}
+.mg__level-3 .mg__tile-26 {
+  top: 75%;
+  left: 12.5%;
+}
+.mg__level-3 .mg__tile-27 {
+  top: 75%;
+  left: 25%;
+}
+.mg__level-3 .mg__tile-28 {
+  top: 75%;
+  left: 37.5%;
+}
+.mg__level-3 .mg__tile-29 {
+  top: 75%;
+  left: 50%;
+}
+.mg__level-3 .mg__tile-30 {
+  top: 75%;
+  left: 62.5%;
+}
+.mg__level-3 .mg__tile-31 {
+  top: 75%;
+  left: 75%;
+}
+.mg__level-3 .mg__tile-32 {
+  top: 75%;
+  left: 87.5%;
+}
+/**
+ * The tile inside
+ *
+ * The "tile inner" is the part of the tile that serves as the card. Inside
+ * this part, there's an outside and inside part. The outside of the card
+ * is the part that has the logo or the pattern or whatever...basically the
+ * part that doesn't show the content to be matched. The inside part has the
+ * actual images / info to be matched.
+ */
+.mg__tile--inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.mg__tile--outside,
+.mg__tile--inside {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s;
+}
+.mg__tile--outside h6,
+.mg__tile--inside h6 {
+  font-size: 16px;
+  margin-top: 50%;
+  text-align: center;
+}
+.mg__tile--outside {
+  background: url("../img/memory/logo-bw.png") 50% 50% no-repeat;
+  background-color: #dcdee1;
+  box-shadow: 0 0 0 1px #787a80;
+}
+.mg__tile--inside {
+  background-color: #f8fafc;
+  box-shadow: 0 0 0 1px #787a80;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+/* some transforms for flipped cards */
+.mg__tile--inner.flipped .mg__tile--outside {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.mg__tile--inner.flipped .mg__tile--inside {
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}
+/* some transitions for correct guesses - only needs to happen on card inside */
+.mg__tile--inner.flipped.correct .mg__tile--inside {
+  background-color: #ffffdc;
+}
+/**
+ * Game message
+ *
+ * The game message area is an area to display game messages. It's used in the
+ * default set up where no callback is set in the JS. If a callback is set up,
+ * then this message area likely won't display. Unless you decide to display it
+ * in your own custom callback though!
+ */
+.mg__onend {
+  padding: 80px 20px;
+  text-align: center;
+}
+.mg__onend--heading {
+  margin-bottom: 10px;
+  color: #28aadc;
+  font-size: 30px;
+}
+.mg__onend--message {
+  margin-bottom: 10px;
+}
+/**
+ * Game buttons
+ *
+ * A simple helper class for game buttons. Edit at your will.
+ */
+.mg__button {
+  margin: 0;
+  display: inline-block;
+  padding: 5px;
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+  appearance: none;
+  background: #ff3c50;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  cursor: pointer;
+}
+.loading {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('../img/cube.gif') center no-repeat #ffffff;
+}
+/* Grid overrule */
+#posts .col-md-1,
+#posts .col-md-2,
+#posts .col-md-3,
+#posts .col-md-4,
+#posts .col-md-5,
+#posts .col-md-6,
+#posts .col-md-7,
+#posts .col-md-8,
+#posts .col-md-9,
+#posts .col-md-10,
+#posts .col-md-11,
+#posts .col-md-12 {
+  padding: 0;
+}
+#posts .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#posts {
+  margin: 40px auto;
+}
+#posts .post,
+#posts .quote,
+#slideshow .post {
+  background: #fff;
+  margin: 20px;
+  height: auto;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+}
+#posts .about,
+#posts .popular-posts,
+#posts .tags {
+  background: #fff;
+  text-align: center;
+  margin: 20px;
+  padding: 10px 0;
+  -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+}
+#posts .about p {
+  margin: 20px;
+}
+#posts .tags {
+  padding-bottom: 20px;
+}
+#posts .popular-posts {
+  padding: 10px 30px;
+}
+#posts .popular-posts a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  margin: 10px auto;
+}
+@media (min-width: 992px) {
+  #posts .post,
+  #posts .quote {
+    height: 340px;
+  }
+  #posts .post.featured,
+  #posts .post.big {
+    height: auto;
+  }
+  #posts .post.big .caption,
+  #posts .post.featured .caption {
+    margin: 50px auto;
+    padding: 40px 40px 0;
+  }
+}
+.media {
+  margin-top: 0;
+}
+#posts .post .caption {
+  padding: 20px 24px;
+}
+.post .post-thumb {
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  margin-right: 16px;
+}
+.post .post-tag {
+  color: #FF7C26;
+  display: block;
+  font-size: 15px;
+  text-transform: lowercase;
+  margin: 5px 0;
+}
+.post .post-title {
+  color: #000;
+  font-size: 22px;
+  text-decoration: none;
+}
+.post.featured .post-title {
+  font-size: 30px;
+}
+.post.featured p {
+  font-size: 1.1em;
+  line-height: 24px;
+}
+.post .post-date {
+  color: #727272;
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.post .post-description {
+  margin: 14px auto;
+}
+/*#posts .quote {
+  position: relative;
+  padding: 58px 32px;
+}
+
+#posts .quote .quote-face {
+  width: 92px;
+  border-radius: 50%;
+}
+
+#posts .quote .quote-left,
+#posts .quote .quote-right {
+  position: absolute;
+  color: #E5E5E5;
+  font-size: 60px;
+}
+
+#posts .quote .quote-left {
+  top: 20px;
+  left: 20px;
+}
+
+#posts .quote .quote-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+#posts .quote blockquote {
+    padding: 20px;
+    margin: 0;
+    font-size: 17.5px;
+    border-left: none;
+}
+
+*/
+.grid {
+  position: relative;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+}
+/* Common style */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  max-width: 480px;
+  max-height: 360px;
+  width: 100%;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+}
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+.grid figure h2 {
+  font-weight: 300;
+  font-size: 1.2em;
+}
+.grid figure h2 span {
+  font-weight: 800;
+}
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+figure.effect-oscar {
+  background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+  background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+}
+figure.effect-oscar img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.effect-oscar figcaption {
+  padding: 3em;
+  background-color: rgba(58, 52, 42, 0.7);
+  -webkit-transition: background-color 0.35s;
+  transition: background-color 0.35s;
+}
+figure.effect-oscar figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  content: '';
+}
+figure.effect-oscar h2 {
+  margin: 0% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+figure.effect-oscar figcaption::before,
+figure.effect-oscar p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+figure.effect-oscar:hover h2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+figure.effect-oscar:hover figcaption::before,
+figure.effect-oscar:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+figure.effect-oscar:hover figcaption {
+  background-color: rgba(58, 52, 42, 0);
+}
+figure.effect-oscar:hover img {
+  opacity: 0.4;
 }
 .withripple {
   position: relative;
@@ -4959,460 +5698,6 @@ hr.on-light {
   pointer-events: none;
   color: #757575;
 }
-#my-memory-game img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-/* =============================================================================
-  MEMORY GAME (mg)
-============================================================================= */
-/**
- * Game container
- *
- * This is the overall container for the game. Different things get addead and
- * removed from this container depending on the game state.
- */
-.mg {
-  /* blank */
-}
-/**
- * Game meta
- *
- * The game meta is the section that displays the level and moves. It's appended
- * to the game container at the start, and shows the level the user selected
- * and the number of moves the user has played.
- */
-.mg__meta {
-  margin-bottom: 10px;
-  color: #28aadc;
-}
-.mg__meta--item {
-  display: inline-block;
-}
-.mg__meta--left {
-  float: left;
-}
-.mg__meta--right {
-  float: right;
-}
-.mg__meta--level {
-  margin-right: 20px;
-}
-/**
- * Game start screen
- *
- * The game start screen shows the "welcome" message and also a list for the
- * user to choose a level. It's appended to the game container at the start,
- * and once the user selects a level, it is removed from the container
- */
-.mg__start-screen {
-  text-align: center;
-  padding: 80px 20px;
-}
-.mg__start-screen--heading {
-  margin-bottom: 10px;
-  color: #282a2f;
-  font-size: 30px;
-}
-.mg__start-screen--sub-heading {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #28aadc;
-}
-.mg__start-screen--sub-heading::before,
-.mg__start-screen--sub-heading::after {
-  margin: 0 5px;
-  content: "-";
-}
-.mg__start-screen--text {
-  margin-bottom: 20px;
-}
-.mg__start-screen--level-select {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.mg__start-screen--level-select span {
-  color: #ff3c50;
-  font-size: 18px;
-  cursor: pointer;
-}
-.mg__start-screen--level-select span:hover {
-  color: #d50016;
-}
-/**
- * Game wrapper
- *
- * The game wrapper is where the actual game resides. Inside here, all the
- * memory tiles get arranged and ready for game play.
- */
-.mg__wrapper {
-  margin: 0 auto;
-  width: 100%;
-}
-.mg__contents {
-  position: relative;
-  padding-bottom: 50%;
-  margin-left: -5px;
-  margin-right: -5px;
-}
-/**
- * Game tiles
- *
- * The game tiles are the tiles that are laid down on the memory game board.
- * These tiles are the ones that the user clicks on to flip and reveal some
- * images. The level the user selects determines the position and size of
- * the tiles.
- */
-.mg__tile {
-  position: absolute;
-  padding: 5px;
-}
-/* game__level-1 styles */
-.mg__level-1 .mg__tile {
-  width: 25%;
-  height: 50%;
-}
-.mg__level-1 .mg__tile-1 {
-  top: 0%;
-  left: 0%;
-}
-.mg__level-1 .mg__tile-2 {
-  top: 0%;
-  left: 25%;
-}
-.mg__level-1 .mg__tile-3 {
-  top: 0%;
-  left: 50%;
-}
-.mg__level-1 .mg__tile-4 {
-  top: 0%;
-  left: 75%;
-}
-.mg__level-1 .mg__tile-5 {
-  top: 50%;
-  left: 0%;
-}
-.mg__level-1 .mg__tile-6 {
-  top: 50%;
-  left: 25%;
-}
-.mg__level-1 .mg__tile-7 {
-  top: 50%;
-  left: 50%;
-}
-.mg__level-1 .mg__tile-8 {
-  top: 50%;
-  left: 75%;
-}
-/* game__level-2 styles */
-.mg__level-2 .mg__tile {
-  width: 16.66667%;
-  height: 33.33333%;
-}
-.mg__level-2 .mg__tile-1 {
-  top: 0%;
-  left: 0%;
-}
-.mg__level-2 .mg__tile-2 {
-  top: 0%;
-  left: 16.66667%;
-}
-.mg__level-2 .mg__tile-3 {
-  top: 0%;
-  left: 33.33333%;
-}
-.mg__level-2 .mg__tile-4 {
-  top: 0%;
-  left: 50%;
-}
-.mg__level-2 .mg__tile-5 {
-  top: 0%;
-  left: 66.66667%;
-}
-.mg__level-2 .mg__tile-6 {
-  top: 0%;
-  left: 83.33333%;
-}
-.mg__level-2 .mg__tile-7 {
-  top: 33.33333%;
-  left: 0%;
-}
-.mg__level-2 .mg__tile-8 {
-  top: 33.33333%;
-  left: 16.66667%;
-}
-.mg__level-2 .mg__tile-9 {
-  top: 33.33333%;
-  left: 33.33333%;
-}
-.mg__level-2 .mg__tile-10 {
-  top: 33.33333%;
-  left: 50%;
-}
-.mg__level-2 .mg__tile-11 {
-  top: 33.33333%;
-  left: 66.66667%;
-}
-.mg__level-2 .mg__tile-12 {
-  top: 33.33333%;
-  left: 83.33333%;
-}
-.mg__level-2 .mg__tile-13 {
-  top: 66.66667%;
-  left: 0%;
-}
-.mg__level-2 .mg__tile-14 {
-  top: 66.66667%;
-  left: 16.66667%;
-}
-.mg__level-2 .mg__tile-15 {
-  top: 66.66667%;
-  left: 33.33333%;
-}
-.mg__level-2 .mg__tile-16 {
-  top: 66.66667%;
-  left: 50%;
-}
-.mg__level-2 .mg__tile-17 {
-  top: 66.66667%;
-  left: 66.66667%;
-}
-.mg__level-2 .mg__tile-18 {
-  top: 66.66667%;
-  left: 83.33333%;
-}
-/* game__level-3 styles */
-.mg__level-3 .mg__tile {
-  width: 12.5%;
-  height: 25%;
-}
-.mg__level-3 .mg__tile-1 {
-  top: 0%;
-  left: 0%;
-}
-.mg__level-3 .mg__tile-2 {
-  top: 0%;
-  left: 12.5%;
-}
-.mg__level-3 .mg__tile-3 {
-  top: 0%;
-  left: 25%;
-}
-.mg__level-3 .mg__tile-4 {
-  top: 0%;
-  left: 37.5%;
-}
-.mg__level-3 .mg__tile-5 {
-  top: 0%;
-  left: 50%;
-}
-.mg__level-3 .mg__tile-6 {
-  top: 0%;
-  left: 62.5%;
-}
-.mg__level-3 .mg__tile-7 {
-  top: 0%;
-  left: 75%;
-}
-.mg__level-3 .mg__tile-8 {
-  top: 0%;
-  left: 87.5%;
-}
-.mg__level-3 .mg__tile-9 {
-  top: 25%;
-  left: 0%;
-}
-.mg__level-3 .mg__tile-10 {
-  top: 25%;
-  left: 12.5%;
-}
-.mg__level-3 .mg__tile-11 {
-  top: 25%;
-  left: 25%;
-}
-.mg__level-3 .mg__tile-12 {
-  top: 25%;
-  left: 37.5%;
-}
-.mg__level-3 .mg__tile-13 {
-  top: 25%;
-  left: 50%;
-}
-.mg__level-3 .mg__tile-14 {
-  top: 25%;
-  left: 62.5%;
-}
-.mg__level-3 .mg__tile-15 {
-  top: 25%;
-  left: 75%;
-}
-.mg__level-3 .mg__tile-16 {
-  top: 25%;
-  left: 87.5%;
-}
-.mg__level-3 .mg__tile-17 {
-  top: 50%;
-  left: 0%;
-}
-.mg__level-3 .mg__tile-18 {
-  top: 50%;
-  left: 12.5%;
-}
-.mg__level-3 .mg__tile-19 {
-  top: 50%;
-  left: 25%;
-}
-.mg__level-3 .mg__tile-20 {
-  top: 50%;
-  left: 37.5%;
-}
-.mg__level-3 .mg__tile-21 {
-  top: 50%;
-  left: 50%;
-}
-.mg__level-3 .mg__tile-22 {
-  top: 50%;
-  left: 62.5%;
-}
-.mg__level-3 .mg__tile-23 {
-  top: 50%;
-  left: 75%;
-}
-.mg__level-3 .mg__tile-24 {
-  top: 50%;
-  left: 87.5%;
-}
-.mg__level-3 .mg__tile-25 {
-  top: 75%;
-  left: 0%;
-}
-.mg__level-3 .mg__tile-26 {
-  top: 75%;
-  left: 12.5%;
-}
-.mg__level-3 .mg__tile-27 {
-  top: 75%;
-  left: 25%;
-}
-.mg__level-3 .mg__tile-28 {
-  top: 75%;
-  left: 37.5%;
-}
-.mg__level-3 .mg__tile-29 {
-  top: 75%;
-  left: 50%;
-}
-.mg__level-3 .mg__tile-30 {
-  top: 75%;
-  left: 62.5%;
-}
-.mg__level-3 .mg__tile-31 {
-  top: 75%;
-  left: 75%;
-}
-.mg__level-3 .mg__tile-32 {
-  top: 75%;
-  left: 87.5%;
-}
-/**
- * The tile inside
- *
- * The "tile inner" is the part of the tile that serves as the card. Inside
- * this part, there's an outside and inside part. The outside of the card
- * is the part that has the logo or the pattern or whatever...basically the
- * part that doesn't show the content to be matched. The inside part has the
- * actual images / info to be matched.
- */
-.mg__tile--inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-.mg__tile--outside,
-.mg__tile--inside {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.3s, background 0.3s;
-  transition: transform 0.3s, background 0.3s;
-}
-.mg__tile--outside h6,
-.mg__tile--inside h6 {
-  font-size: 16px;
-  margin-top: 50%;
-  text-align: center;
-}
-.mg__tile--outside {
-  background: url("../img/memory/logo-bw.png") 50% 50% no-repeat;
-  background-color: #dcdee1;
-  box-shadow: 0 0 0 1px #787a80;
-}
-.mg__tile--inside {
-  background-color: #f8fafc;
-  box-shadow: 0 0 0 1px #787a80;
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-}
-/* some transforms for flipped cards */
-.mg__tile--inner.flipped .mg__tile--outside {
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-}
-.mg__tile--inner.flipped .mg__tile--inside {
-  -webkit-transform: rotateY(0);
-  transform: rotateY(0);
-}
-/* some transitions for correct guesses - only needs to happen on card inside */
-.mg__tile--inner.flipped.correct .mg__tile--inside {
-  background-color: #ffffdc;
-}
-/**
- * Game message
- *
- * The game message area is an area to display game messages. It's used in the
- * default set up where no callback is set in the JS. If a callback is set up,
- * then this message area likely won't display. Unless you decide to display it
- * in your own custom callback though!
- */
-.mg__onend {
-  padding: 80px 20px;
-  text-align: center;
-}
-.mg__onend--heading {
-  margin-bottom: 10px;
-  color: #28aadc;
-  font-size: 30px;
-}
-.mg__onend--message {
-  margin-bottom: 10px;
-}
-/**
- * Game buttons
- *
- * A simple helper class for game buttons. Edit at your will.
- */
-.mg__button {
-  margin: 0;
-  display: inline-block;
-  padding: 5px;
-  color: #fff;
-  font-family: "Roboto Slab", serif;
-  font-size: 14px;
-  appearance: none;
-  background: #ff3c50;
-  border: none;
-  border-radius: 3px;
-  box-shadow: none;
-  cursor: pointer;
-}
 /*! Custom Boilerplate based on HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /* ==========================================================================
 Base styles: opinionated defaults
@@ -5563,6 +5848,9 @@ body {
   min-height: 45em;
   max-height: 100%;
 }
+.news {
+  background-color: #9e9e9e;
+}
 footer {
   padding: 2em 0 2em 0;
   background-color: #008fd5;
@@ -5572,128 +5860,4 @@ footer a {
 }
 footer a:hover {
   color: #fb7941;
-}
-.grid {
-  position: relative;
-  margin: 0 auto;
-  list-style: none;
-  text-align: center;
-}
-/* Common style */
-.grid figure {
-  position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 10px 1%;
-  max-width: 480px;
-  max-height: 360px;
-  width: 100%;
-  background: #3085a3;
-  text-align: center;
-  cursor: pointer;
-}
-.grid figure img {
-  position: relative;
-  display: block;
-  min-height: 100%;
-  max-width: 100%;
-  opacity: 0.8;
-}
-.grid figure figcaption {
-  padding: 2em;
-  color: #fff;
-  font-size: 1.25em;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.grid figure figcaption::before,
-.grid figure figcaption::after {
-  pointer-events: none;
-}
-.grid figure figcaption,
-.grid figure figcaption > a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-/* Anchor will cover the whole item by default */
-/* For some effects it will show as a button */
-.grid figure figcaption > a {
-  z-index: 1000;
-  text-indent: 200%;
-  white-space: nowrap;
-  font-size: 0;
-  opacity: 0;
-}
-.grid figure h2 {
-  font-weight: 300;
-  font-size: 1.2em;
-}
-.grid figure h2 span {
-  font-weight: 800;
-}
-.grid figure h2,
-.grid figure p {
-  margin: 0;
-}
-.grid figure p {
-  letter-spacing: 1px;
-  font-size: 68.5%;
-}
-figure.effect-oscar {
-  background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
-  background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
-}
-figure.effect-oscar img {
-  opacity: 0.9;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
-}
-figure.effect-oscar figcaption {
-  padding: 3em;
-  background-color: rgba(58, 52, 42, 0.7);
-  -webkit-transition: background-color 0.35s;
-  transition: background-color 0.35s;
-}
-figure.effect-oscar figcaption::before {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 30px;
-  border: 1px solid #fff;
-  content: '';
-}
-figure.effect-oscar h2 {
-  margin: 0% 0 10px 0;
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-}
-figure.effect-oscar figcaption::before,
-figure.effect-oscar p {
-  opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-}
-figure.effect-oscar:hover h2 {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-figure.effect-oscar:hover figcaption::before,
-figure.effect-oscar:hover p {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-figure.effect-oscar:hover figcaption {
-  background-color: rgba(58, 52, 42, 0);
-}
-figure.effect-oscar:hover img {
-  opacity: 0.4;
 }

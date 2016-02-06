@@ -48,7 +48,7 @@ class LoadLessonData extends AbstractFixture implements ContainerAwareInterface,
     public function loadOpinion($manager)
     {
         $topic = new Lesson();
-        $topic->setName('opinion');
+        $topic->setName('Exprimer son opinion');
         $topic->setContent('
 <h1>Expressions pour exprimer son opinion</h1>
 

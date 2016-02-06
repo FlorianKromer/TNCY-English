@@ -1,43 +1,163 @@
 {% extends 'ApplicationSonataNewsBundle::layout.html.twig' %}
 {% block title %}{{ "News"| trans}} {{ parent() }}  {% endblock %}
+{% block body_start %}<div class="loading"></div>{% endblock body_start %}
 
 {% block container %}
-    <main role="main" class="main contact">
-        <!-- Content goes here -->
-        <div class="container ">
+<main role="main" class="main news">
+    <!-- Content goes here -->
+    <div class="container ">
 
-            <h1>{{ "News"| trans}}</h1>
+        <h1>{{ "News"| trans}}</h1>
+        <div id="posts" class="container">
 
-            <div class="sonata-blog-post-list">
-                {% for post in pager.getResults() %}
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-
-                               <h3 >{{ post.title }} <small><span class="sonata-blog-post-author">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</span> |
-                                <i class="fa fa-calendar"></i>
-                                {{ post.publicationDateStart | format_date }} |
-
-                                <i class="fa fa-comment"></i>
-                                <span class="sonata-blog-post-comments-count">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span></small></h3>
-
+            <section class="col-md-8 wow fadeIn" >
+                <div class="post">
+                    <div class="row">
+                        <div class="col-md-6 media">
+                            {% if  pager.getResults()[0].image is defined and pager.getResults()[0].image is not empty %}
+                                {% media pager.getResults()[0].image, 'reference' with {'class': 'img-responsive'} %}
+                            {% else %}
+                                <img src="{{ asset('bundles/tncyschool/img/default.jpg') }}" alt="image de remplacement">
+                            {% endif %}
                         </div>
-                        <div class="panel-body">
-                            {% media post.image, 'small' with {'class': 'pull-left img-responsive thumb img-thumbnail'} %}
-                            <p>{{ post.abstract }}</p>
-                            <a class="btn btn-primary btn-success pull-right" href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">READ MORE</a> 
-                        </div>                      
+                        <div class="col-md-6 caption">
+                            <span class="post-tag">
+                                {% for tag in pager.getResults()[0].tags %}
+                                <a href="{{ url('sonata_news_tag', { 'tag': tag.slug } ) }}"><span>#{{ tag.name }}</span></a>
+                                {% endfor %}
+                            </span>
+                            <a href="post-image.html" class="post-title">{{pager.getResults()[0].title}}</a>
+                            <span class="post-date">{{ pager.getResults()[0].publicationDateStart | format_date }}</span>
+                            <p class="post-description">{{ pager.getResults()[0].abstract }}</p>
+                            <a class="btn btn-primary btn-success " href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(pager.getResults()[0]) }) }}">READ MORE</a> 
+                        </div>
                     </div>
+                </div>
+            </section>
 
-                    <hr />
+            <section class="col-md-4 wow fadeIn" >
+                <div class="post">
+                    <div class="media">
+                            {% if  pager.getResults()[1].image is defined and pager.getResults()[1].image is not empty  %}
+                                {% media pager.getResults()[1].image, 'reference' with {'class': 'img-responsive'} %}
+                            {% else %}
+                                <img src="{{ asset('bundles/tncyschool/img/default.jpg') }}" alt="image de remplacement">
+                            {% endif %}              
+                    </div>
+                    <div class="caption text-center">
+                        <a href="post-image.html" class="post-title">{{pager.getResults()[1].title}}</a>
+                        <span class="post-date">{{ pager.getResults()[1].publicationDateStart | format_date }}</span>
+                    </div>
+                </div>
+            </section>
+            <!-- != -->
+
+            {% for post in pager.getResults()|slice(2,pager.getResults()|length) %}
+                {% if loop.index is divisibleby(2) %}
+                <section class="col-md-4 wow fadeIn" >
+                    <div class="post">
+                        <div class="caption">
+                            <div class="post-thumb">
+                                {% if  post.image is defined and post.image is not empty %}
+                                    {% media post.image, 'small' with {'class': 'img-responsive'} %}
+                                {% else %}
+                                    <img src="{{ asset('bundles/tncyschool/img/default.jpg') }}" alt="image de remplacement">
+                                {% endif %}   
+                            </div>
+                            <a href="post-image.html" class="post-title">{{post.title}}</a>
+                            <span class="post-tag">
+                                {% for tag in post.tags %}
+                                <a href="{{ url('sonata_news_tag', { 'tag': tag.slug } ) }}"><span>#{{ tag.name }}</span></a>
+                                {% endfor %}
+                            </span>
+                            <p class="post-description">{{ post.abstract }}</p>
+                            <span class="post-date">{{ post.publicationDateStart | format_date }}</span>
+                        </div>
+                    </div>
+                </section>
+
                 {% else %}
-                    {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
-                {% endfor %}
+                <section class="col-md-4 wow fadeIn">
+                    <div class="post">
+                        <div class="media">
+                                {% if  post.image is defined and post.image is not empty %}
+                                    {% media post.image, 'reference' with {'class': 'img-responsive'} %}
+                                {% else %}
+                                    <img src="{{ asset('bundles/tncyschool/img/default.jpg') }}" alt="image de remplacement">
+                                {% endif %}   
+                        </div>
+                        <div class="caption text-center">
+                            <a href="post-image.html" class="post-title">{{post.title}}</a>
+                            <span class="post-date">{{ post.publicationDateStart | format_date }}</span>
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
 
-                <ul class="pager">
-                    <li{% if pager.page == pager.lastPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}" title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
-                    <li{% if pager.page == pager.firstPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.previouspage})) }}" title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}</a></li>
-                </ul>
+            {% else %}
+                {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
+            {% endfor %}
+
+
+            <div class="col-md-12">
+                <div class="text-center">
+                    <ul class="pager">
+                        <li{% if pager.page == pager.lastPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}" title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
+                        <li{% if pager.page == pager.firstPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.previouspage})) }}" title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </main>
+
+</div><!-- 
+<div class="sonata-blog-post-list">
+{% for post in pager.getResults() %}
+<div class="panel panel-info">
+<div class="panel-heading">
+
+<h3 >{{ post.title }} <small><span class="sonata-blog-post-author">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</span> |
+<i class="fa fa-calendar"></i>
+{{ post.publicationDateStart | format_date }} |
+
+<i class="fa fa-comment"></i>
+<span class="sonata-blog-post-comments-count">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span></small></h3>
+
+</div>
+<div class="panel-body">
+{% media post.image, 'small' with {'class': 'img-responsive'} %}
+<p>{{ post.abstract }}</p>
+<a class="btn btn-primary btn-success pull-right" href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">READ MORE</a> 
+</div>                      
+</div>
+
+<hr />
+{% else %}
+{{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
+{% endfor %}
+
+<ul class="pager">
+<li{% if pager.page == pager.lastPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}" title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
+<li{% if pager.page == pager.firstPage %} class="disabled"{% endif %}><a href="{{ url(route, route_parameters|merge({'page': pager.previouspage})) }}" title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}</a></li>
+</ul>
+</div> -->
+</div>
+</main>
 {% endblock %}
+{% block javascripts %}
+
+<script src="{{ asset('bundles/tncyschool/js/vendor/wow.min.js') }}"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        setTimeout(function () {
+            $(".loading").fadeOut("slow");
+        },250);
+    });
+
+    new WOW().init();
+</script>
+{{ parent() }}
+
+
+
+{% endblock %}
+
+
