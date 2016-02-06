@@ -1,5 +1,5 @@
-# TNCY-English
-Projet de fin d'année en anglais.
+# EnjoyLearning
+Projet de fin d'année en anglais dans le cadre de notre formation d'ingénieur à l'école Telecom Nancy.
 
 Developpement en binomes d'un outil informatique qui permet de travailler l'anglais.
 Cet outil peut permettre, par exemple, de réviser un point de grammaire, voir un aspect de civilisation, observer un fait de langue, faire un exercice de compréhension (écrire ou orale).
@@ -36,4 +36,5 @@ sh bin/build.sh (pour recopier les assets)
 
 ## Pictures
 * https://www.flickr.com/photos/chrisyarzab/5777829523/in/photostream/
+* https://unsplash.com/photos/SpVHcbuKi6E
 

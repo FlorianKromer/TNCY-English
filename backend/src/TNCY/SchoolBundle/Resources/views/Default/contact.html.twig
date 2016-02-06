@@ -5,93 +5,121 @@
     <main role="main" class="main contact">
         <section class="contact__img">
             <div class="container">
-                
-            <div class="row ">
-                <div class="col-md-6 col-md-offset-6 col-xs-10 col-xs-offset-6 contact__img--hook" >
-                    <div class="row">
-                        <div class="col-md-12">
-                    <h1>Quartier général</h1>
-                            
+                <div class="row ">
+                    <div class="col-md-6 col-xs-12  contact__img--hook" >
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>Contact</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li>183 avenue Paul Muller</li>
-                                <li>54000 Nancy</li>
-                                <li>France <i class="fa fa-heart"></i></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><i class="fa fa-phone"></i> (+33 89 75 42 75)</li>
-                                <li><i class="fa fa-envelope"></i> contact.enjoylearning@gmail.com</li>
-                            </ul>                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li>183 avenue Paul Muller</li>
+                                    <li>54000 Nancy</li>
+                                    <li>France</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-phone"></i> (+33 89 75 42 75)</li>
+                                    <li><i class="fa fa-envelope"></i> contact.enjoylearning@gmail.com</li>
+                                </ul>                        
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section> <!-- /container -->   
-                <div class="container ">
-                    <div class="row">
-                        <div class="col-md-12">
-                            {% for flashMessage in app.session.flashbag.get('notice') %}
-                                <div class="alert alert-dismissable alert-success">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
-                                    {{ flashMessage }}
-                                </div>
-                            {% endfor %}
-                            <h1>{{ "Formulaire de contact"| trans}}</h1>
-                            <p>{{ "Pour toute demande d'information, merci de nous envoyer ce formulaire."| trans}}</p>
-                            {{ form_start(form, {'attr': {'class': 'form-horizontal','role': 'form'} }) }}
-                            <div class="form-group">
-                                {{ form_errors(form) }}
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(form.name, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
-                                <div class="col-lg-10">
-                                    {{ form_widget(form.name)}}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(form.mail, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
-                                <div class="col-lg-10">
-                                    {{ form_widget(form.mail)}}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(form.subject, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
-                                <div class="col-lg-10">
-                                    {{ form_widget(form.subject)}}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(form.content, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
-                                <div class="col-lg-10">
-                                    {{ form_widget(form.content)}}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    {{ form_widget(form.submit)}}
-                                </div>
-                            </div>
-                            {{ form_widget(form) }}
-                            {{ form_end(form) }}
-                            <p>
-                                {{ "Conformément à la loi \"Informatique et Libertés\" relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès, de modification, de rectification et de suppression des données qui vous concernent."| trans}}
-                            </p>
+        <section class="container ">
+            <div class="row">
+                <div class="col-md-7">
+                    {% for flashMessage in app.session.flashbag.get('notice') %}
+                        <div class="alert alert-dismissable alert-success">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+                    <br>
+                    <h2>{{ "Pour toute demande d'information,<br> merci de nous envoyer ce formulaire."| trans |raw}}</h2>
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal','role': 'form'} }) }}
+                    <div class="form-group">
+                        {{ form_errors(form) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.name, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.name)}}
                         </div>
                     </div>
+                    <div class="form-group">
+                        {{ form_label(form.mail, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.mail)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.subject, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.subject)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.content, null, {'label_attr': {'class': 'col-lg-2 control-label'}}) }}
+                        <div class="col-lg-10">
+                            {{ form_widget(form.content)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            {{ form_widget(form.submit)}}
+                        </div>
+                    </div>
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                    <p>
+                        {{ "Conformément à la loi \"Informatique et Libertés\" relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès, de modification, de rectification et de suppression des données qui vous concernent."| trans}}
+                    </p>
                 </div>
-        </main>
+                <div class="col-md-5">
+                        <div id="map"></div>
+
+                </div>
+            </div>
+        </section>
+    </main>
 
     {% endblock %}
 {% block javascripts %}
 
-    {{ parent() }}
+{{ parent() }}
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARhBFKOncYufiJwCnVrHsrV4vmXlA83Sc&callback=initMap">
+</script>
 
+<script type="text/javascript">
+
+    var style = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}];
+
+    function initMap() {
+
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+        styles: style,
+        center: {lat: 48.669111, lng: 6.155275},
+        scrollwheel: false,
+        zoom: 8
+    });
+    var var_marker = new google.maps.Marker({
+        position: new google.maps.LatLng(48.669111, 6.155275),
+        map: map,
+        title:"Notre QG"
+    });
+
+    var_marker.setMap(map); 
+}
+
+
+</script>
 
 {% endblock %}

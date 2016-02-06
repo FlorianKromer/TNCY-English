@@ -1,47 +1,57 @@
 {% extends 'TNCYSchoolBundle::layout.html.twig' %}
 
-{% block title %}{{ "Contact"| trans}} {{ parent() }}  {% endblock %}
+{% block title %}{{ "Leçons"| trans}} {{ parent() }}  {% endblock %}
     {% block container %}
 
-        <main role="main" class="main contact">
+        <main role="main" class="main">
             <!-- Content goes here -->
             <div class="container ">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h1>Nos leçons</h1>
-                        {# total items count #}
-                        <div class="count">
-                            Nombre de leçons : {{ pagination.getTotalItemCount }}
-                        </div>
+                    <h1>Apprenez une nouvelle leçon</h1>
 
-                        <div class="row">
-                            {% for lesson in pagination %}
-                                <div class="col-md-4">
-                                    <div class="panel panel-default">
-                                        <div class="page-header">
-                                            <h3>{{ lesson.name }}</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            {{ lesson.summary  | raw }}
-                                        </div>
-                                        <div class="panel-footer">
-                                            Mis à jour le {{ lesson.createdAt | date('Y-m-d') }}
-                                        </div>
-                                    </div>
-                                </div>
-                                {% if loop.index is divisible by(3) %}
-                                </div>
-                                <div class="row">
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-
-                        {# display navigation #}
-                        <div class="navigation">
-                            {{ knp_pagination_render(pagination) }}
+        <div class="bs-component">
+          <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+            <li class="active"><a aria-expanded="true" href="#lessons" data-toggle="tab">Dernières leçons<div class="ripple-container"></div></a></li>
+            <li class=""><a aria-expanded="false" href="#search" data-toggle="tab">Rechercher<div class="ripple-container"></div></a></li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="lessons">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <h2>Les dernieres leçons</h2>
+                            {# total items count #}
+                            <div class="count">
+                                Nombre de leçons : {{ pagination.getTotalItemCount }}
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="row grid">
+                        {% for lesson in pagination %}
+                            <div class="col-md-4">
+                                <figure class="effect-oscar">
+                                    <img src="{{ asset('bundles/tncyschool/img/lessons/'~ lesson.topic|lower  ~'.jpg') }}" alt="img09">
+                                    <figcaption>
+                                        <h2>{{ lesson.name }}</h2>
+                                        <p>Mis à jour le {{ lesson.createdAt | date('Y-m-d') }}</p>
+                                        <a href="#">Voir</a>
+                                    </figcaption>           
+                                </figure>
+                            </div>
+                            {% if loop.index is divisible by(3) %}
+                            </div>
+                            <div class="row">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    {# display navigation #}
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+            </div>
+            <div class="tab-pane fade" id="search">
+                <div class="row">
+                    <div class="col-md-12">
 
                         <h2>{{ "Formulaire de recherche de leçon"| trans}}</h2>
                         {{ form_start(form, {'attr': {'class': 'form-horizontal','role': 'form'} }) }}
@@ -70,8 +80,13 @@
                         {{ form_widget(form) }}
                         {{ form_end(form) }}   
                     </div>
-
                 </div>
+            </div>
+          </div>
+        <div style="display: none;" id="source-button" class="btn btn-primary btn-xs">&lt; &gt;</div>
+        </div>
+                
+
             </div>
         </div>
     </main>

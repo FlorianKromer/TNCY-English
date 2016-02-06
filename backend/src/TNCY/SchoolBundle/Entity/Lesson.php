@@ -80,7 +80,7 @@ class Lesson
     */
     private $author;
 
-    public static  $CONST_TOPIC = array('GRAMMAR'=>'GRAMMAR','ORTHOGRAPH'=>'ORTHOGRAPH','VOCABULARY'=>'VOCABULARY','CONJUGAISON'=>'CONJUGATION');
+    public static  $CONST_TOPIC = array('GRAMMAR'=>'GRAMMAR','ORTHOGRAPH'=>'ORTHOGRAPH','VOCABULARY'=>'VOCABULARY','CONJUGATION'=>'CONJUGATION');
 
     function __construct($foo = null) {
         $this->created_at = new \DateTime();
