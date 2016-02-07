@@ -35,7 +35,6 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $test_password = 'azerty';
 
         $factory = $this->container->get('security.encoder_factory');
 
@@ -44,19 +43,40 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
         $manager = $this->container->get('fos_user.user_manager');
 
 
-        $rows = $this->parseCSV();
+        $this->load1A($manager);
+        $this->load2A_A($manager);
+
+
+
+    }
+
+
+    public function load2A_A($manager)
+    {
+        $test_password = 'azerty';
+        $factory = $this->container->get('security.encoder_factory');
+
+        $finder = new Finder();
+
+
+        $finder = Finder::create()
+            ->name('liste_apprentis_2a_2015-2016.csv')
+            ->in(__DIR__.'/../data/files');
+
+        $rows = $this->parseCSV($finder);
 
         foreach ($rows as $key => $student) {
             
             /** @var $user \Application\Sonata\UserBundle\Entity\User */
             $user = new Student();
-            $user->setSchoolClass($this->getReference('schoolClass.demo_1A_'.mb_strtoupper($student[4])));
+            $user->setSchoolClass($this->getReference('schoolClass.2A_A'));
             $user->setUsername($student[1].'.'.$student[2]);
             $user->setPlainPassword($test_password);
-            $user->setEmail($student[5]);
+            $user->setEmail($student[4]);
             $user->setFirstname($student[1]);
             $user->setLastname($student[2]);
-            $user->setRoles(array('ROLE_USER'));
+            // $user->setRoles(array('ROLE_USER'));
+            $user->addGroup($this->getReference('schoolClass.2A_A'));
             $user->setEnabled(true);
             $encoder = $factory->getEncoder($user);
             $password = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
@@ -64,23 +84,49 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 
             $manager->updateUser($user);
         }
-
-
     }
 
-    private function parseCSV()
-
+    public function load1A($manager)
     {
-
-        $ignoreFirstLine = false;
-
-
+        $test_password = 'azerty';
+        $factory = $this->container->get('security.encoder_factory');
         $finder = new Finder();
 
 
         $finder = Finder::create()
             ->name('liste_1a_2015-2016.csv')
             ->in(__DIR__.'/../data/files');
+
+        $rows = $this->parseCSV($finder);
+
+        foreach ($rows as $key => $student) {
+            
+            /** @var $user \Application\Sonata\UserBundle\Entity\User */
+            $user = new Student();
+            $user->setSchoolClass($this->getReference('schoolClass.1A_'.mb_strtoupper($student[4])));
+            $user->setUsername($student[1].'.'.$student[2]);
+            $user->setPlainPassword($test_password);
+            $user->setEmail($student[5]);
+            $user->setFirstname($student[1]);
+            $user->setLastname($student[2]);
+            // $user->setRoles(array('ROLE_USER'));
+            $user->addGroup($this->getReference('schoolClass.1A_'.mb_strtoupper($student[4])));
+            $user->setEnabled(true);
+            $encoder = $factory->getEncoder($user);
+            $password = $encoder->encodePassword($user->getPlainPassword(), $user->getSalt());
+            $user->setPassword($password);
+
+            $manager->updateUser($user);
+        }
+    }
+
+    private function parseCSV($finder)
+
+    {
+
+        $ignoreFirstLine = false;
+
+
 
         foreach ($finder as $file) { $csv = $file; }
 
@@ -120,6 +166,6 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
      */
     function getOrder()
     {
-        return 8;
+        return 14;
     }
 }

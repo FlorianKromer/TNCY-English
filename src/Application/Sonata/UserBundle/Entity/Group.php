@@ -16,6 +16,9 @@ use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 
 /**
  * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"student" = "TNCY\SchoolBundle\Entity\SchoolClass","group" = "Group"})
  * @ORM\Table(name="fos_user_group")
  */
 class Group extends BaseGroup

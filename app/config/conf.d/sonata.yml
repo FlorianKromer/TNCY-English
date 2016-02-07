@@ -6,7 +6,7 @@ sonata_admin:
         search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
         layout:  SonataAdminBundle::layout.html.twig
     security:
-        handler: sonata.admin.security.handler.acl
+        handler: sonata.admin.security.handler.role
         # acl security information
         information:
             GUEST:    [VIEW, LIST]

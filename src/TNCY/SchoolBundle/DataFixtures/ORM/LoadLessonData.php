@@ -11,6 +11,13 @@ use TNCY\SchoolBundle\Entity\Lesson;
 
 class LoadLessonData extends AbstractFixture implements ContainerAwareInterface, OrderedFixtureInterface
 {
+    public function getOrder()
+    {
+        // the order in which fixtures will be loaded
+        // the lower the number, the sooner that this fixture is loaded
+        return 40;
+    }
+
     public function load(ObjectManager $manager)
     {
         
@@ -116,12 +123,7 @@ Let&rsquo;s consider first all the facts before making any judgments. <img class
     }
 
 
-    public function getOrder()
-    {
-        // the order in which fixtures will be loaded
-        // the lower the number, the sooner that this fixture is loaded
-        return 30;
-    }
+
         public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;

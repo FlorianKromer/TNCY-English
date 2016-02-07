@@ -5,6 +5,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use TNCY\SchoolBundle\Entity\SchoolClass;
+use Application\Sonata\UserBundle\Entity\Group;
 
 class LoadSchoolClassData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -15,23 +16,30 @@ class LoadSchoolClassData extends AbstractFixture implements OrderedFixtureInter
 
         for ($i=0; $i < count($groupes); $i++) { 
             
-            $school = new SchoolClass();
-            $school->setSchool($this->getReference('school'));
-            $school->setName($groupes[$i]);
-            $school->setCode($codes[$i]);
+            $schoolClass = new SchoolClass();
+            $schoolClass->setSchool($this->getReference('school'));
+            $schoolClass->setName($groupes[$i]);
+            $schoolClass->setCode($codes[$i]);
+            $schoolClass->setRoles(['ROLE_SONATA_USER_ADMIN_STUDENT_GUEST','ROLE_USER']);
 
-            $this->addReference('schoolClass.demo_'.$codes[$i], $school);
-            $manager->persist($school);
+            $this->addReference('schoolClass.'.$codes[$i], $schoolClass);
+            $manager->persist($schoolClass);
             $manager->flush();
         }
 
-
+        //add a goup for teacher
+        $teachGroup='Teacher';
+        $code = 'T';
+        $group = new Group($teachGroup,['ROLE_SONATA_USER_ADMIN_TEACHER_EDITOR','ROLE_USER','ROLE_SONATA_ADMIN']);
+        $this->addReference('schoolClass.'.$code, $group);
+        $manager->persist($group);
+        $manager->flush();
     }
 
     public function getOrder()
     {
         // the order in which fixtures will be loaded
         // the lower the number, the sooner that this fixture is loaded
-        return 7;
+        return 12;
     }
 }

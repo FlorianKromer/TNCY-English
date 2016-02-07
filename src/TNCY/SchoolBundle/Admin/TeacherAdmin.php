@@ -4,9 +4,8 @@ namespace TNCY\SchoolBundle\Admin;
 use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\AdminBundle\Admin\Admin;
 
-class TeacherAdmin extends Admin
+class TeacherAdmin extends SonataUserAdmin
 {
     /**
     * {@inheritdoc}
