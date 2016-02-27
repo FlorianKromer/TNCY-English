@@ -34,19 +34,40 @@ class ExerciceController extends Controller
     {
 
     	if ($request->getMethod() == 'GET') {
-			$soundCloundTrackId = 230155983;
-			$musixmatch = $this->get_musixmatch_lyrics("ADELE","hello","32f205fed3341ff325396c97340e50dd");
+
+            $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('TNCYSchoolBundle:Song')
+            ;
+
+            $listSong = $repository->findAll();
+            $random = array_rand($listSong, 1);
+            $song = $listSong[$random];
+            // var_dump($song);
+			$soundCloundTrackEmbed = $song->getSoundCloundTrackEmbed();
+			$musixmatch = $this->get_musixmatch_lyrics($song->getArtist(),$song->getName(),"32f205fed3341ff325396c97340e50dd");
 			$musixmatch = json_decode($musixmatch);
-			$lyrics = $musixmatch->message->body->lyrics->lyrics_body;
-			$lyrics = str_replace("\n", '<br>', $lyrics);
-			$gaps = ['wondering','California'];
+            // var_dump($musixmatch);
+            if ($musixmatch->message->header->status_code == 200) {
+                $lyrics = $musixmatch->message->body->lyrics->lyrics_body;
+                $lyrics = str_replace("\n", '<br>', $lyrics);
+                $gaps = $song->getGaps();
 
-			foreach ($gaps as $key => $word) {
-			    $lyrics = str_replace($word, '<input type="text" name="word-'.$key.'" data-answer="'.$word.'">', $lyrics);
+                foreach ($gaps as $key => $word) {
+                    $htmlContent = '
+                     <input type="text" name="word-'.$key.'" data-answer="'.$word.'" >';
+                    $lyrics = str_replace($word, $htmlContent, $lyrics);
 
-			}
+                }
+            }
+            else{
+                $lyrics = "Error: Any lyrics was found for ".$song->getArtist()." : ".$song->getName();
+                $soundCloundTrackEmbed = "";
+            }
 
-			return $this->render('TNCYSchoolBundle:Exercice:song.html.twig',array('lyrics'=>$lyrics,'soundCloundTrackId'=>$soundCloundTrackId));    	}
+
+			return $this->render('TNCYSchoolBundle:Exercice:song.html.twig',array('lyrics'=>$lyrics,'soundCloundTrackEmbed'=>$soundCloundTrackEmbed));    	}
     	else{
     		//à voir si validation php ou javascript
     	}

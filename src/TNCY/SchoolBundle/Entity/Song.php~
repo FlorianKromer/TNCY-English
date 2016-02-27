@@ -38,9 +38,9 @@ class Song
     /**
      * @var string
      *
-     * @ORM\Column(name="soundCloundTrackId", type="string", length=255)
+     * @ORM\Column(name="soundCloundTrackEmbed", type="text")
      */
-    private $soundCloundTrackId;
+    private $soundCloundTrackEmbed;
 
     /**
      * @var array
@@ -49,114 +49,26 @@ class Song
      */
     private $gaps;
 
-
-
-
-
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $created_at;
 
     /**
-     * Get id
+     * @var datetime
      *
-     * @return integer
+     * @ORM\Column(name="updated_at", type="datetime")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    private $updated_at;
+    
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Song
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
+    * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $author;
 
-        return $this;
-    }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
-    /**
-     * Set artist
-     *
-     * @param string $artist
-     *
-     * @return Song
-     */
-    public function setArtist($artist)
-    {
-        $this->artist = $artist;
-
-        return $this;
-    }
-
-    /**
-     * Get artist
-     *
-     * @return string
-     */
-    public function getArtist()
-    {
-        return $this->artist;
-    }
-
-    /**
-     * Set soundCloundTrackId
-     *
-     * @param string $soundCloundTrackId
-     *
-     * @return Song
-     */
-    public function setSoundCloundTrackId($soundCloundTrackId)
-    {
-        $this->soundCloundTrackId = $soundCloundTrackId;
-
-        return $this;
-    }
-
-    /**
-     * Get soundCloundTrackId
-     *
-     * @return string
-     */
-    public function getSoundCloundTrackId()
-    {
-        return $this->soundCloundTrackId;
-    }
-
-    /**
-     * Set gaps
-     *
-     * @param array $gaps
-     *
-     * @return Song
-     */
-    public function setGaps($gaps)
-    {
-        $this->gaps = $gaps;
-
-        return $this;
-    }
-
-    /**
-     * Get gaps
-     *
-     * @return array
-     */
-    public function getGaps()
-    {
-        return $this->gaps;
-    }
 }

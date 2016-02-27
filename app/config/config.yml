@@ -3,15 +3,15 @@ imports:
     - { resource: parameters.php }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: conf.d/sonata.yml }
-    - { resource: conf.d/user.yml }
+    - { resource: conf.d/sonata_admin.yml }
+    - { resource: conf.d/sonata_user.yml }
     - { resource: conf.d/security.yml }
-    - { resource: conf.d/seo.yml }
+    - { resource: conf.d/sonata_seo.yml }
     - { resource: conf.d/translations.yml }
-    - { resource: conf.d/classification.yml }
-    - { resource: conf.d/media.yml }
-    - { resource: conf.d/formatter.yml }
-    - { resource: conf.d/news.yml }
+    - { resource: conf.d/sonata_classification.yml }
+    - { resource: conf.d/sonata_media.yml }
+    - { resource: conf.d/sonata_formatter.yml }
+    - { resource: conf.d/sonata_news.yml }
     - { resource: conf.d/oauth.yml }
     - { resource: conf.d/paginator.yml }
     - { resource: @TNCYSchoolBundle/Resources/config/admin.yml }

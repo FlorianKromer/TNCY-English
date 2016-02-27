@@ -38,9 +38,9 @@ class Song
     /**
      * @var string
      *
-     * @ORM\Column(name="soundCloundTrackId", type="string", length=255)
+     * @ORM\Column(name="soundCloundTrackEmbed", type="text")
      */
-    private $soundCloundTrackId;
+    private $soundCloundTrackEmbed;
 
     /**
      * @var array
@@ -49,10 +49,31 @@ class Song
      */
     private $gaps;
 
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updated_at;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $author;
 
 
-
-
+    function __toString()
+    {
+        return $this->name.' by '.$this->artist;
+    }
 
     /**
      * Get id
@@ -113,27 +134,27 @@ class Song
     }
 
     /**
-     * Set soundCloundTrackId
+     * Set soundCloundTrackEmbed
      *
-     * @param string $soundCloundTrackId
+     * @param string $soundCloundTrackEmbed
      *
      * @return Song
      */
-    public function setSoundCloundTrackId($soundCloundTrackId)
+    public function setSoundCloundTrackEmbed($soundCloundTrackEmbed)
     {
-        $this->soundCloundTrackId = $soundCloundTrackId;
+        $this->soundCloundTrackEmbed = $soundCloundTrackEmbed;
 
         return $this;
     }
 
     /**
-     * Get soundCloundTrackId
+     * Get soundCloundTrackEmbed
      *
      * @return string
      */
-    public function getSoundCloundTrackId()
+    public function getSoundCloundTrackEmbed()
     {
-        return $this->soundCloundTrackId;
+        return $this->soundCloundTrackEmbed;
     }
 
     /**
@@ -158,5 +179,77 @@ class Song
     public function getGaps()
     {
         return $this->gaps;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Song
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Song
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Application\Sonata\UserBundle\Entity\User $author
+     *
+     * @return Song
+     */
+    public function setAuthor(\Application\Sonata\UserBundle\Entity\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Application\Sonata\UserBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

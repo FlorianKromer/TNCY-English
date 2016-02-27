@@ -13,9 +13,10 @@ class LoadSongData extends AbstractFixture implements OrderedFixtureInterface
         $song = new Song();
         $song->setName('hello');
         $song->setArtist('ADELE');
-        $song->setSoundCloundTrackId(230155983);
+        $song->soundCloundTrackEmbed('<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230155983&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>');
         $song->setGaps(['wondering','California']);
-
+        $author = $this->getReference('user.super_admin');
+        $topic->setAuthor($author);
         $manager->persist($song);
         $manager->flush();
 
