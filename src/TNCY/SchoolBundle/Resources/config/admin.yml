@@ -84,3 +84,4 @@ services:
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
             - [ setSecurityContext , [@security.context]]
+            - [ setContainer, [@service_container]]

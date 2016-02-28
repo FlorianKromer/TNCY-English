@@ -44,14 +44,9 @@ class ExerciceController extends Controller
             $listSong = $repository->findAll();
             $random = array_rand($listSong, 1);
             $song = $listSong[$random];
-            // var_dump($song);
 			$soundCloundTrackEmbed = $song->getSoundCloundTrackEmbed();
-			$musixmatch = $this->get_musixmatch_lyrics($song->getArtist(),$song->getName(),"32f205fed3341ff325396c97340e50dd");
-			$musixmatch = json_decode($musixmatch);
-            // var_dump($musixmatch);
-            if ($musixmatch->message->header->status_code == 200) {
-                $lyrics = $musixmatch->message->body->lyrics->lyrics_body;
-                $lyrics = str_replace("\n", '<br>', $lyrics);
+            if (! empty($song->getLyrics())) {
+                $lyrics = str_replace("\n", '<br>', $song->getLyrics());
                 $gaps = $song->getGaps();
 
                 foreach ($gaps as $key => $word) {
@@ -77,22 +72,6 @@ class ExerciceController extends Controller
     	
     }
 
-    function get_musixmatch_lyrics($artist,$song,$apikey){
-        $artist = str_replace(' ', '%20', $artist);
-        $song = str_replace(' ', '%20', $song);
-        $url = ("http://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=".$song."&q_artist=".$artist."&apikey=".$apikey);
-        $ch = curl_init();
-        //config curl
-        curl_setopt($ch, CURLOPT_URL,$url);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-        $result = curl_exec($ch);
-        curl_close($ch);
-        return str_replace("******* This Lyrics is NOT for Commercial use *******","",$result); 
-    }
     
 }

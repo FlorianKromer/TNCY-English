@@ -50,6 +50,15 @@ class Song
     private $gaps;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="lyrics", type="text")
+     */
+    private $lyrics;
+
+
+
+    /**
      * @var datetime
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -68,7 +77,6 @@ class Song
     * @ORM\JoinColumn(nullable=false)
     */
     private $author;
-
 
     function __toString()
     {
@@ -251,5 +259,29 @@ class Song
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set lyrics
+     *
+     * @param string $lyrics
+     *
+     * @return Song
+     */
+    public function setLyrics($lyrics)
+    {
+        $this->lyrics = $lyrics;
+
+        return $this;
+    }
+
+    /**
+     * Get lyrics
+     *
+     * @return string
+     */
+    public function getLyrics()
+    {
+        return $this->lyrics;
     }
 }
