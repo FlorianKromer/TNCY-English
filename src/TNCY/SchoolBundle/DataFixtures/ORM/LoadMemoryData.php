@@ -5,24 +5,36 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use TNCY\SchoolBundle\Entity\Memory;
+use TNCY\SchoolBundle\Entity\MemoryItem;
 
 class LoadMemoryData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $names = ['apple', 'bag', 'bedroom', 'boy', 'cellphone', 'city', 'computer', 'duck', 'game', 'girl', 'map', 'meeting', 'mouse', 'paper', 'pencil', 'picture' ];
-        $img = ['monsters-01.png', 'monsters-02.png', 'monsters-03.png', 'monsters-04.png', 'monsters-05.png', 'monsters-06.png', 'monsters-07.png', 'monsters-08.png', 'monsters-09.png', 'monsters-10.png', 'monsters-11.png', 'monsters-12.png', 'monsters-13.png', 'monsters-14.png', 'monsters-15.png', 'monsters-16.png', ];
-    
-        foreach ($names as $key => $value) {
-            $memory = new Memory();
-            $memory->setName($names[$key]);
-            $memory->setImg($img[$key]);
-            $manager->persist($memory);
-            $manager->flush();
-        }
+        $this->loadFruits($manager);
 
     }
 
+    public function loadFruits($manager)
+    {
+        $names = ['apple', 'apricot', 'banana', 'blackberry', 'cassis', 'cherry', 'red grapes', 'green grapes', 'lemon', 'orange', 'yellow pear', 'green pear', 'plum', 'raspberry', 'strawberry', 'watermelon' ];
+
+        $img = ['apple.jpg', 'apricot.jpg', 'banana.jpg', 'blackberry.jpg', 'cassis.jpg', 'cherry.jpg', 'red-grapes.jpg', 'green-grapes.jpg', 'lemon.jpg', 'orange.jpg', 'yellow-pear.jpg', 'green-pear.jpg', 'plum.jpg', 'raspberry.jpg', 'strawberry.jpg', 'watermelon.jpg', ];
+        
+        $memory = new Memory();
+        $memory->setTopic("fruits");
+        $memory->setDescription("discover our fruits");
+        $manager->persist($memory);
+        $manager->flush();
+        foreach ($names as $key => $value) {
+            $memoryItem = new MemoryItem();
+            $memoryItem->setName($names[$key]);
+            $memoryItem->setImg($img[$key]);
+            $memoryItem->setTopic($memory);
+            $manager->persist($memoryItem);
+            $manager->flush();
+        }
+    }
     public function getOrder()
     {
         // the order in which fixtures will be loaded

@@ -21,15 +21,9 @@ class LoadLessonData extends AbstractFixture implements ContainerAwareInterface,
     public function load(ObjectManager $manager)
     {
         
-        $cook = $this->loadOpinion($manager);
-
-
-        $manager->persist($cook);
-        $manager->flush();
+        $this->loadOpinion($manager);
 
         $this->loadRandom($manager);
-
-
     }
 
     public function loadRandom($manager)
@@ -49,7 +43,6 @@ class LoadLessonData extends AbstractFixture implements ContainerAwareInterface,
             $manager->flush();
         }
 
-        return $topic;
     }
 
     public function loadOpinion($manager)
@@ -118,8 +111,9 @@ Let&rsquo;s consider first all the facts before making any judgments. <img class
         $topic->setTopic(Lesson::$CONST_TOPIC['VOCABULARY']);
         $author = $this->getReference('user.super_admin');
         $topic->setAuthor($author);
+        $manager->persist($topic);
+        $manager->flush();
 
-        return $topic;
     }
 
 
