@@ -57,7 +57,7 @@ class ExerciceController extends Controller
                 foreach ($gaps as $key => $word) {
                     $htmlContent = '
                      <input type="text" name="word-'.$key.'" data-answer="'.$word.'" >';
-                    $lyrics = str_replace($word, $htmlContent, $lyrics);
+                    $lyrics = str_ireplace($word, $htmlContent, $lyrics);
 
                 }
             }
@@ -78,6 +78,8 @@ class ExerciceController extends Controller
     }
 
     function get_musixmatch_lyrics($artist,$song,$apikey){
+        $artist = str_replace(' ', '%20', $artist);
+        $song = str_replace(' ', '%20', $song);
         $url = ("http://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=".$song."&q_artist=".$artist."&apikey=".$apikey);
         $ch = curl_init();
         //config curl
