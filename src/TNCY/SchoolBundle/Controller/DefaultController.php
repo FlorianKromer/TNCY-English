@@ -128,4 +128,15 @@ class DefaultController extends Controller
 
         return $this->render('TNCYSchoolBundle:Default:lessons.html.twig',array('form' => $form->createView(),'pagination' => $pagination));
     }
+
+    public function detailLessonAction($id){
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('TNCYSchoolBundle:Lesson')
+        ;
+
+        $lesson = $repository->find($id);
+        return $this->render('TNCYSchoolBundle:Default:lessondetail.html.twig',array('lesson' => $lesson));
+    }
 }

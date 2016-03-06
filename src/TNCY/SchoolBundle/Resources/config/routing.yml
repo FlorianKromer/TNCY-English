@@ -18,6 +18,9 @@ tncy_school_lessons:
     path:     /lessons
     defaults: { _controller: TNCYSchoolBundle:Default:lessons }
 
+tncy_school_lessondetail:
+    path:     /lesson/{id}
+    defaults: { _controller: TNCYSchoolBundle:Default:detailLesson }
 
 tncy_school_dashboard:
     path:     /dashboard
