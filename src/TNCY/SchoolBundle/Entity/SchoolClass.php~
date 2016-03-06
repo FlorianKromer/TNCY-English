@@ -41,6 +41,11 @@ class SchoolClass extends BaseGroup
         $this->subjects = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * @return mixed
      */
@@ -56,15 +61,6 @@ class SchoolClass extends BaseGroup
     {
         $this->subjects = $subjects;
     }
-
-
-    function __toString()
-    {
-        return $this->name;
-    }
-
-
-
 
     /**
      * Add subject

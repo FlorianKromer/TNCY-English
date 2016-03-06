@@ -37,4 +37,5 @@ sh bin/build.sh (pour recopier les assets)
 ## Pictures
 * https://www.flickr.com/photos/chrisyarzab/5777829523/in/photostream/
 * https://unsplash.com/photos/SpVHcbuKi6E
+* http://fr.freepik.com/vecteurs-libre/fruit-icon-collection_838780.htm
 

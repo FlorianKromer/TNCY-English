@@ -21,7 +21,7 @@
 {% block javascripts %}
 
 {{ parent() }}
-<script>
+<script type="text/javascript">
 	var wordList = {{wordList|json_encode(constant('JSON_PRETTY_PRINT'))|raw}};
 	$("#done").click( function()
            {

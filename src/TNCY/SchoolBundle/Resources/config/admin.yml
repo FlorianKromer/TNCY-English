@@ -72,3 +72,16 @@ services:
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
             - [ setSecurityContext , [@security.context]]
+
+    sonata.admin.song:
+        class: TNCY\SchoolBundle\Admin\ExSongAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Song" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\Song
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+            - [ setSecurityContext , [@security.context]]
+            - [ setContainer, [@service_container]]

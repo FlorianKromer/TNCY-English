@@ -37,3 +37,7 @@ services:
         tags:
             - { name: knp_menu.menu, alias: profile } # The alias is what is used to retrieve the menu
 
+    tncy_school.musixmatchapi:
+        class: TNCY\SchoolBundle\Service\MusixmatchApi
+        calls:
+            - [ setContainer, [@service_container]]

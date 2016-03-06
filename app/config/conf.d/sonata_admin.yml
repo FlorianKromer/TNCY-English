@@ -40,6 +40,12 @@ sonata_admin:
                     - sonata.admin.school
                     - sonata.admin.lesson
             sonata.admin.group.content:
+                label:           Exercice
+                label_catalogue: TNCYSchoolBundle
+                icon:            '<i class="fa fa-file-word-o "></i>'
+                items:
+                    - sonata.admin.song
+            sonata.admin.group.exercice:
                 label:           Blog
                 label_catalogue: TNCYSchoolBundle
                 icon:            '<i class="fa fa-th"></i>'

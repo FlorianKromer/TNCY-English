@@ -21,20 +21,20 @@ class Memory
      */
     private $id;
 
-    /**
+     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="topic", type="string", length=255)
      */
-    private $name;
+    private $topic;
 
-    /**
+
+ 	/**
      * @var string
      *
-     * @ORM\Column(name="img", type="text")
+     * @ORM\Column(name="description", type="string", length=255)
      */
-    private $img;
-
+    private $description;
 
 
     /**
@@ -48,50 +48,50 @@ class Memory
     }
 
     /**
-     * Set name
+     * Set topic
      *
-     * @param string $name
+     * @param string $topic
      *
      * @return Memory
      */
-    public function setName($name)
+    public function setTopic($topic)
     {
-        $this->name = $name;
+        $this->topic = $topic;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get topic
      *
      * @return string
      */
-    public function getName()
+    public function getTopic()
     {
-        return $this->name;
+        return $this->topic;
     }
 
     /**
-     * Set img
+     * Set description
      *
-     * @param string $img
+     * @param string $description
      *
      * @return Memory
      */
-    public function setImg($img)
+    public function setDescription($description)
     {
-        $this->img = $img;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get img
+     * Get description
      *
      * @return string
      */
-    public function getImg()
+    public function getDescription()
     {
-        return $this->img;
+        return $this->description;
     }
 }

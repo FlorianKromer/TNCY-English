@@ -5,12 +5,12 @@ namespace TNCY\SchoolBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Memory
+ * MemoryItem
  *
- * @ORM\Table(name="ex_memory")
+ * @ORM\Table(name="ex_memory_item")
  * @ORM\Entity
  */
-class Memory
+class MemoryItem
 {
     /**
      * @var integer
@@ -21,21 +21,25 @@ class Memory
      */
     private $id;
 
-     /**
+    /**
      * @var string
      *
-     * @ORM\Column(name="topic", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $topic;
+    private $name;
 
-
- 	/**
+    /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="img", type="text")
      */
-    private $description;
+    private $img;
 
+    /**
+   * @ORM\ManyToOne(targetEntity="Memory")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    protected $topic;
 
     /**
      * Get id
@@ -48,50 +52,50 @@ class Memory
     }
 
     /**
-     * Set topic
+     * Set name
      *
-     * @param string $topic
+     * @param string $name
      *
      * @return Memory
      */
-    public function setTopic($topic)
+    public function setName($name)
     {
-        $this->topic = $topic;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get topic
+     * Get name
      *
      * @return string
      */
-    public function getTopic()
+    public function getName()
     {
-        return $this->topic;
+        return $this->name;
     }
 
     /**
-     * Set description
+     * Set img
      *
-     * @param string $description
+     * @param string $img
      *
      * @return Memory
      */
-    public function setDescription($description)
+    public function setImg($img)
     {
-        $this->description = $description;
+        $this->img = $img;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get img
      *
      * @return string
      */
-    public function getDescription()
+    public function getImg()
     {
-        return $this->description;
+        return $this->img;
     }
 }
