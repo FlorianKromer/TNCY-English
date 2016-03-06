@@ -158,4 +158,5 @@ class VocWord
     {
         return $this->vocTopic;
     }
+
 }

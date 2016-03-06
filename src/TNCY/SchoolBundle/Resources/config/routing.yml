@@ -38,6 +38,9 @@ tncy_school_song:
     path:     /exercice/song
     defaults: { _controller: TNCYSchoolBundle:Exercice:song }
 
+tncy_school_vocabulary:
+    path:     /exercice/vocabulary
+    defaults: { _controller: TNCYSchoolBundle:Exercice:vocabulary }
 
 #profile
 tncy_school_profile:
