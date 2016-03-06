@@ -91,9 +91,5 @@ class ExerciceController extends Controller
         else {
             return null;
         }
-
-    }
-
-
-    
+    } 
 }
