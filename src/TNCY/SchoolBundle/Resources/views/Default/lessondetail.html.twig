@@ -1,0 +1,19 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block container %}
+
+
+<main class="container">
+	<div class="jumbotron">
+		<div class="container">
+			<p>{{lesson.content|raw}}
+		</div>
+	</div>
+</main> <!-- /container -->       
+
+{% endblock %}
+{% block javascripts %}
+
+{{ parent() }}
+
+{% endblock %}
