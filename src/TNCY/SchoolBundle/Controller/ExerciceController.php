@@ -3,6 +3,7 @@
 namespace TNCY\SchoolBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use TNCY\SchoolBundle\Form\VocabularyType;
 use TNCY\SchoolBundle\Entity\Memory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -66,13 +67,30 @@ class ExerciceController extends Controller
 			return $this->render('TNCYSchoolBundle:Exercice:song.html.twig',array('lyrics'=>$lyrics,'soundCloundTrackEmbed'=>$soundCloundTrackEmbed));    	}
     	else{
     		//à voir si validation php ou javascript
-    	}
-
-
-
-    	
+    	}   	
     }
 
+    public function vocabularyAction(Request $request)
+    {
 
-    
+        if ($request->getMethod() == 'GET') {
+            $repository = $this
+                ->getDoctrine()
+                ->getManager()
+                ->getRepository('TNCYSchoolBundle:VocWord');
+
+            $vocs = $repository->findAll();
+            
+            $wordList = [];
+
+            foreach ($vocs as $voc) {
+                $wordList[$voc->getTranslated()] = $voc->getOriginal();
+            }
+
+            return $this->render('TNCYSchoolBundle:Exercice:vocabulary.html.twig',array('wordList'=>$wordList));
+        }
+        else {
+            return null;
+        }
+    } 
 }

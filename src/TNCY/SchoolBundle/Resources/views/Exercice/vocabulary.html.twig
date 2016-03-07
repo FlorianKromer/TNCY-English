@@ -1,0 +1,46 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block container %}
+
+
+<main class="container">
+	<div class="jumbotron">
+		<div class="container">
+			<ul id="answers">
+				{% for original, translated in wordList %}
+					<li id="li-{{original}}">{{original}} : <input id="input-{{original}}" class="input" placeholder="Traduction"></li>		
+				{% endfor %}
+			</ul>
+			<div id="nbAnswers"></div>
+			<div id="done" type="submit" class="btn btn-primary">Validate</div>
+		</div>
+	</div>
+</main> <!-- /container -->       
+
+{% endblock %}
+{% block javascripts %}
+
+{{ parent() }}
+<script type="text/javascript">
+	var wordList = {{wordList|json_encode(constant('JSON_PRETTY_PRINT'))|raw}};
+	$("#done").click( function()
+           {
+           		var nbErrors = 0;
+           		var size = 0;
+           		Object.keys(wordList).forEach(function (original) {
+           			size++;
+   					var inputValue = $("#input-" +original).val();
+   					if (inputValue.trim() != wordList[original]) {
+   						nbErrors++;
+   						$("#input-"+original).css('background-color', 'red')
+   					}else {
+   						$("#input-"+original).css('background-color', 'green')
+   					}
+				});
+				$("#nbAnswers").text(nbErrors + " errors in " + size);
+           	}
+      );
+</script>
+
+
+{% endblock %}

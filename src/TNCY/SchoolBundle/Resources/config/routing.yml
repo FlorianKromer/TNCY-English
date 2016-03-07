@@ -18,6 +18,9 @@ tncy_school_lessons:
     path:     /lessons
     defaults: { _controller: TNCYSchoolBundle:Default:lessons }
 
+tncy_school_lessondetail:
+    path:     /lesson/{id}
+    defaults: { _controller: TNCYSchoolBundle:Default:detailLesson }
 
 tncy_school_dashboard:
     path:     /dashboard
@@ -38,6 +41,9 @@ tncy_school_song:
     path:     /exercice/song
     defaults: { _controller: TNCYSchoolBundle:Exercice:song }
 
+tncy_school_vocabulary:
+    path:     /exercice/vocabulary
+    defaults: { _controller: TNCYSchoolBundle:Exercice:vocabulary }
 
 #profile
 tncy_school_profile:
