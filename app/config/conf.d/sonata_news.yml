@@ -12,25 +12,25 @@ sonata_news:
             template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
 
     class:
-        post:       Application\Sonata\NewsBundle\Entity\Post
-        comment:    Application\Sonata\NewsBundle\Entity\Comment
-        media:      Application\Sonata\MediaBundle\Entity\Media
-        user:       Application\Sonata\UserBundle\Entity\User
+        post:       "Application\\Sonata\\NewsBundle\\Entity\\Post"
+        comment:    "Application\\Sonata\\NewsBundle\\Entity\\Comment"
+        media:      "Application\\Sonata\\MediaBundle\\Entity\\Media"
+        user:       "Application\\Sonata\\UserBundle\\Entity\\User"
 
     admin:
         post:
-            class:       Sonata\NewsBundle\Admin\PostAdmin
+            class:       "Sonata\\NewsBundle\\Admin\\PostAdmin"
             controller:  SonataAdminBundle:CRUD
             translation: SonataNewsBundle
         comment:
-            class:       Sonata\NewsBundle\Admin\CommentAdmin
+            class:       "Sonata\\NewsBundle\\Admin\\CommentAdmin"
             controller:  SonataNewsBundle:CommentAdmin
             translation: SonataNewsBundle
         # collection:
-        #     class:       Sonata\NewsBundle\Admin\CollectionAdmin
+        #     class:       Sonata\\NewsBundle\\Admin\\CollectionAdmin
         #     controller:  SonataAdminBundle:CRUD
         #     translation: SonataNewsBundle
         # tag:
-        #     class:       Sonata\NewsBundle\Admin\TagAdmin
+        #     class:       Sonata\\NewsBundle\\Admin\\TagAdmin
         #     controller:  SonataAdminBundle:CRUD
         #     translation: SonataNewsBundle

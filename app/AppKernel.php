@@ -44,7 +44,7 @@ class AppKernel extends Kernel
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-
+            
             //Seo
             new Sonata\SeoBundle\SonataSeoBundle(),
 

@@ -1,14 +1,14 @@
 parameters:
-    sonata.user.form.type.security_roles.class: Sonata\UserBundle\Form\Type\SecurityRolesType
+    sonata.user.form.type.security_roles.class: "Sonata\\UserBundle\\Form\\Type\\SecurityRolesType"
 
-    sonata.user.profile.form.type.class:            Sonata\UserBundle\Form\Type\ProfileType
-    sonata.user.profile.form.handler.default.class: Sonata\UserBundle\Form\Handler\ProfileFormHandler
+    sonata.user.profile.form.type.class:            "Sonata\\UserBundle\\Form\\Type\\ProfileType"
+    sonata.user.profile.form.handler.default.class: "Sonata\\UserBundle\\Form\\Handler\\ProfileFormHandler"
 
-    sonata.user.admin.user.class:              Sonata\UserBundle\Admin\Entity\UserAdmin
+    sonata.user.admin.user.class:              "Sonata\\UserBundle\\Admin\\Entity\\UserAdmin"
     sonata.user.admin.user.controller:         SonataAdminBundle:CRUD
     sonata.user.admin.user.translation_domain: SonataUserBundle
 
-    sonata.user.admin.group.class:              Sonata\UserBundle\Admin\Entity\GroupAdmin
+    sonata.user.admin.group.class:              "Sonata\\UserBundle\\Admin\\Entity\\GroupAdmin"
     sonata.user.admin.group.controller:         SonataAdminBundle:CRUD
     sonata.user.admin.group.translation_domain: %sonata.user.admin.user.translation_domain%
 
@@ -33,23 +33,23 @@ sonata_user:
             - { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
 
     class:                  # Entity Classes
-        user:               Application\Sonata\UserBundle\Entity\User
-        group:              Application\Sonata\UserBundle\Entity\Group
-
+        user:               "Application\\Sonata\\UserBundle\\Entity\\User"
+        group:              "Application\\Sonata\\UserBundle\\Entity\\Group"
+        
     admin:                  # Admin Classes
         user:
-            class:          Application\Sonata\UserBundle\Admin\Model\UserAdmin
+            class:          "Application\\Sonata\\UserBundle\\Admin\\Model\\UserAdmin"
             controller:     SonataAdminBundle:CRUD
             translation:    SonataUserBundle
 
 fos_user:
     db_driver:      orm
     firewall_name:  main
-    user_class:     Application\Sonata\UserBundle\Entity\User
+    user_class:     "Application\\Sonata\\UserBundle\\Entity\\User"
 
 
     group:
-        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_class:   "Application\\Sonata\\UserBundle\\Entity\\Group"
         group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
 
     service:

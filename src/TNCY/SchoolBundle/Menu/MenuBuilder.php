@@ -5,6 +5,7 @@ use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 class MenuBuilder
 {

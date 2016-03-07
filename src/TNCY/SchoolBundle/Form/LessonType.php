@@ -4,7 +4,7 @@ namespace TNCY\SchoolBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use TNCY\SchoolBundle\Entity\Lesson;
 
 class LessonType extends AbstractType
@@ -23,14 +23,14 @@ class LessonType extends AbstractType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'TNCY\SchoolBundle\Entity\Lesson'
         ));
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'Lesson';
     }

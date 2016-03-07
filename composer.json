@@ -4,19 +4,20 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "php": ">=5.3.9",
+        "php": ">=5.4",
         "symfony/symfony": "2.8.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/orm": "^2.4.8",
+        "doctrine/doctrine-bundle": "~1.4",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
-        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "^2.3",
         "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0.12",
-        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/distribution-bundle": "~4.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "sonata-project/core-bundle": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
@@ -26,7 +27,7 @@
         "sonata-project/seo-bundle": "dev-master",
         "sonata-project/classification-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
-        "sonata-project/intl-bundle": "dev-master",
+        "sonata-project/intl-bundle": "^2.2",
         "sonata-project/news-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
         "sonata-project/formatter-bundle": "dev-master",
@@ -42,24 +43,23 @@
         "facebook/php-sdk-v4" : "4.0.*",
         "knplabs/knp-paginator-bundle": "^2.5",
         "friendsofsymfony/rest-bundle": "^1.7",
-        "nelmio/api-doc-bundle": "^2.11"
+        "nelmio/api-doc-bundle": "^2.11",
+        "symfony/polyfill-iconv": "^1.1"
 
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~2.7",
         "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
-        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -67,11 +67,14 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "5.4"
+        }
     },
     "extra": {
         "symfony-app-dir": "app",
@@ -81,7 +84,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.6-dev"
+            "dev-master": "2.8-dev"
         }
     }
 }

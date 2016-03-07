@@ -1,85 +1,85 @@
 services:
     sonata.admin.schoolclass:
-        class: TNCY\SchoolBundle\Admin\SchoolClassAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\SchoolClassAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "School", label: "SchoolClass" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\SchoolClass
+            - "TNCY\\SchoolBundle\\Entity\\SchoolClass"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
     # sonata.admin.subject:
-    #     class: TNCY\SchoolBundle\Admin\SubjectAdmin
+    #     class: TNCY\\SchoolBundle\\Admin\\SubjectAdmin
     #     tags:
     #         - { name: sonata.admin, manager_type: orm, group: "School", label: "Subject" }
     #     arguments:
     #         - ~
-    #         - TNCY\SchoolBundle\Entity\Subject
+    #         - TNCY\\SchoolBundle\\Entity\\Subject
     #         - ~
     #     calls:
     #         - [ setTranslationDomain, [TNCYSchoolBundle]]
     # sonata.admin.schoolresult:
-    #     class: TNCY\SchoolBundle\Admin\SchoolResultAdmin
+    #     class: TNCY\\SchoolBundle\\Admin\\SchoolResultAdmin
     #     tags:
     #         - { name: sonata.admin, manager_type: orm, group: "School", label: "SchoolResult" }
     #     arguments:
     #         - ~
-    #         - TNCY\SchoolBundle\Entity\SchoolResult
+    #         - TNCY\\SchoolBundle\\Entity\\SchoolResult
     #         - ~
     #     calls:
     #         - [ setTranslationDomain, [TNCYSchoolBundle]]
 
     sonata.user.admin.student:
-        class: TNCY\SchoolBundle\Admin\StudentAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\StudentAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "School", label: "Student" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\Student
+            - "TNCY\\SchoolBundle\\Entity\\Student"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
     sonata.user.admin.teacher:
-        class: TNCY\SchoolBundle\Admin\TeacherAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\TeacherAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "School", label: "Teacher" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\Teacher
+            - "TNCY\\SchoolBundle\\Entity\\Teacher"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
     sonata.admin.school:
-        class: TNCY\SchoolBundle\Admin\SchoolAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\SchoolAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "School", label: "School" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\School
+            - "TNCY\\SchoolBundle\\Entity\\School"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
 
     sonata.admin.lesson:
-        class: TNCY\SchoolBundle\Admin\LessonAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\LessonAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "School", label: "Lesson" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\Lesson
+            - "TNCY\\SchoolBundle\\Entity\\Lesson"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
             - [ setSecurityContext , [@security.context]]
 
     sonata.admin.song:
-        class: TNCY\SchoolBundle\Admin\ExSongAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\ExSongAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Song" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\Song
+            - "TNCY\\SchoolBundle\\Entity\\Song"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
@@ -87,23 +87,23 @@ services:
             - [ setContainer, [@service_container]]
 
     sonata.admin.memory:
-        class: TNCY\SchoolBundle\Admin\ExMemoryAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\ExMemoryAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Memory" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\Memory
+            - "TNCY\\SchoolBundle\\Entity\\Memory"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
 
     sonata.admin.memoryitem:
-        class: TNCY\SchoolBundle\Admin\ExMemoryItemAdmin
+        class: "TNCY\\SchoolBundle\\Admin\\ExMemoryItemAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "MemoryItem" }
         arguments:
             - ~
-            - TNCY\SchoolBundle\Entity\MemoryItem
+            - "TNCY\\SchoolBundle\\Entity\\MemoryItem"
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
