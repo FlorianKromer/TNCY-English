@@ -7,8 +7,8 @@
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "2.6.*",
+        "php": ">=5.3.9",
+        "symfony/symfony": "2.8.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
@@ -21,7 +21,7 @@
         "sonata-project/core-bundle": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
-        "sonata-project/datagrid-bundle" : "~2.2@dev",
+        "sonata-project/datagrid-bundle" : "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/seo-bundle": "dev-master",
         "sonata-project/classification-bundle": "dev-master",
@@ -29,10 +29,10 @@
         "sonata-project/intl-bundle": "dev-master",
         "sonata-project/news-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
+        "sonata-project/formatter-bundle": "dev-master",
         "jms/i18n-routing-bundle": "dev-master",
         "jms/translation-bundle": "dev-master",
         "jms/di-extra-bundle": "dev-master",
-        "sonata-project/formatter-bundle": "dev-master",
         "jms/serializer-bundle": "0.13.*",
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "knplabs/knp-menu": "~2.0",
@@ -40,7 +40,9 @@
         "willdurand/faker-bundle": "@stable",
         "hwi/oauth-bundle": "0.4.*@dev",
         "facebook/php-sdk-v4" : "4.0.*",
-        "knplabs/knp-paginator-bundle": "^2.5"
+        "knplabs/knp-paginator-bundle": "^2.5",
+        "friendsofsymfony/rest-bundle": "^1.7",
+        "nelmio/api-doc-bundle": "^2.11"
 
     },
     "require-dev": {
