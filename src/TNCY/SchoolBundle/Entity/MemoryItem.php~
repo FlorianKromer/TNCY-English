@@ -36,9 +36,9 @@ class MemoryItem
     private $img;
 
     /**
-   * @ORM\ManyToOne(targetEntity="Memory")
-   * @ORM\JoinColumn(nullable=true)
-   */
+    * @ORM\ManyToOne(targetEntity="Memory",inversedBy="items",cascade={"persist"})
+    * @ORM\JoinColumn(name="memory_id", referencedColumnName="id",nullable=true)
+    */
     protected $topic;
 
     /**
@@ -97,5 +97,29 @@ class MemoryItem
     public function getImg()
     {
         return $this->img;
+    }
+
+    /**
+     * Set topic
+     *
+     * @param \TNCY\SchoolBundle\Entity\Memory $topic
+     *
+     * @return MemoryItem
+     */
+    public function setTopic(\TNCY\SchoolBundle\Entity\Memory $topic = null)
+    {
+        $this->topic = $topic;
+
+        return $this;
+    }
+
+    /**
+     * Get topic
+     *
+     * @return \TNCY\SchoolBundle\Entity\Memory
+     */
+    public function getTopic()
+    {
+        return $this->topic;
     }
 }

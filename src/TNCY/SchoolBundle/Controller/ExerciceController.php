@@ -22,10 +22,11 @@ class ExerciceController extends Controller
 		->getManager()
 		->getRepository('TNCYSchoolBundle:Memory')
 		;
-
-		$listMemory = $repository->findAll();
-
-		$serializedEntity = $this->container->get('serializer')->serialize($listMemory, 'json');
+        $listMemory = $repository->findAll();
+        $random = array_rand($listMemory, 1);
+        $memory = $listMemory[$random];
+        // var_dump($memory->getItems()[0]);
+		$serializedEntity = $this->container->get('serializer')->serialize($memory->getItems(), 'json');
 		return new JsonResponse(json_decode($serializedEntity));
     }
 

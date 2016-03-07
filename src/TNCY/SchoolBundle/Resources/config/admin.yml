@@ -85,3 +85,25 @@ services:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
             - [ setSecurityContext , [@security.context]]
             - [ setContainer, [@service_container]]
+
+    sonata.admin.memory:
+        class: TNCY\SchoolBundle\Admin\ExMemoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Memory" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\Memory
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+
+    sonata.admin.memoryitem:
+        class: TNCY\SchoolBundle\Admin\ExMemoryItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "MemoryItem" }
+        arguments:
+            - ~
+            - TNCY\SchoolBundle\Entity\MemoryItem
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]

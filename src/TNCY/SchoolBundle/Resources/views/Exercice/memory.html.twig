@@ -1,5 +1,5 @@
 {% extends 'TNCYSchoolBundle::layout.html.twig' %}
-{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block title %}{{ "Memory"| trans}}  {{ parent() }}  {% endblock %}
 {% block container %}
 
 
@@ -14,7 +14,7 @@
 {% endblock %}
 {% block javascripts %}
 <script>
-    var assetsBaseDir = "{{ asset('bundles/tncyschool/img/memory') }}"
+    var assetsBaseDir = "{{ asset('uploads/memory') }}"
 </script>
 <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 

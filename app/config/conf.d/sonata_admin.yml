@@ -45,6 +45,8 @@ sonata_admin:
                 icon:            '<i class="fa fa-file-word-o "></i>'
                 items:
                     - sonata.admin.song
+                    - sonata.admin.memory
+                    - sonata.admin.memoryitem
             sonata.admin.group.exercice:
                 label:           Blog
                 label_catalogue: TNCYSchoolBundle

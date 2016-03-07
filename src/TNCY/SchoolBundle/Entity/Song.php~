@@ -78,6 +78,13 @@ class Song
     */
     private $author;
 
+
+    function __construct($foo = null) {
+        $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
+    }
+
+
     function __toString()
     {
         return $this->name.' by '.$this->artist;
