@@ -47,6 +47,12 @@ class Memory
         $this->items = new \Doctrine\Common\Collections\ArrayCollection();
     }
      
+
+    function __toString()
+    {
+        return $this->topic;
+    }
+
     /**
      * Get id
      *
@@ -116,6 +122,7 @@ class Memory
     public function addItem(\TNCY\SchoolBundle\Entity\MemoryItem $item)
     {
         $this->items[] = $item;
+        $item->setTopic($this);
 
         return $this;
     }

@@ -40,7 +40,7 @@ class MemoryItem
 
     /**
     * @ORM\ManyToOne(targetEntity="Memory",inversedBy="items",cascade={"persist"})
-    * @ORM\JoinColumn(name="memory_id", referencedColumnName="id",nullable=true)
+    * @ORM\JoinColumn(name="memory_id", referencedColumnName="id",nullable=false)
     */
     protected $topic;
 
@@ -176,7 +176,6 @@ class MemoryItem
     public function setTopic(\TNCY\SchoolBundle\Entity\Memory $topic = null)
     {
         $this->topic = $topic;
-
         return $this;
     }
 

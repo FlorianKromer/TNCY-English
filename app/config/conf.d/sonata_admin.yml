@@ -46,7 +46,7 @@ sonata_admin:
                 items:
                     - sonata.admin.song
                     - sonata.admin.memory
-                    - sonata.admin.memoryitem
+                    #- sonata.admin.memoryitem
             sonata.admin.group.exercice:
                 label:           Blog
                 label_catalogue: TNCYSchoolBundle

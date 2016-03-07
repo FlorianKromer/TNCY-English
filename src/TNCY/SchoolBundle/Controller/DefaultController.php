@@ -137,6 +137,9 @@ class DefaultController extends Controller
         ;
 
         $lesson = $repository->find($id);
+        if (!$lesson) {
+            throw $this->createNotFoundException('The lesson does not exist');
+        }
         return $this->render('TNCYSchoolBundle:Default:lessondetail.html.twig',array('lesson' => $lesson));
     }
 }

@@ -1,19 +1,42 @@
 {% extends 'TNCYSchoolBundle::layout.html.twig' %}
-{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block title %}{{ lesson.name | trans}}  {{ parent() }}  {% endblock %}
 {% block container %}
 
 
 <main class="container">
-	<div class="jumbotron">
 		<div class="container">
-			<p>{{lesson.content|raw}}
+			<div class="row">
+				<div class="col-md-8 lesson">
+					<p>{{lesson.content|raw}}</p>
+				</div>
+				<div class="col-md-4 ">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Summary</h3>
+						</div>
+						<div class="panel-body" id="summary">
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
 </main> <!-- /container -->       
 
 {% endblock %}
 {% block javascripts %}
 
 {{ parent() }}
+<script type="text/javascript">
+	$( document ).ready(function(){
+		var text = '<ul class="list-group">';
+	  	jQuery.each( $(".lesson h2"), function( i, val ) {
+  			text += '<li class="list-group-item">'+$(this).text()+'</li>';
+	  	});
+	  	text += "</ul>";
+	  	$('#summary').append(text);
 
+
+	});
+</script>
 {% endblock %}

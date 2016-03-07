@@ -30,8 +30,35 @@ class ExMemoryAdmin extends Admin
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable' => 'position',
+                'by_reference' => true
             ))
         ;
+    }
+
+    public function prePersist($memory) {
+        // ($memory);
+        $this->updateItem($memory);
+    }
+
+    public function preUpdate($memory) {
+        $this->updateItem($memory);
+    }
+
+    public function postPersist($memory) {
+        // ($memory);
+        $this->updateItem($memory);
+    }
+
+    public function postUpdate($memory) {
+        $this->updateItem($memory);
+    }
+
+
+    protected function updateItem($memory)
+    {
+        foreach ($memory->getItems() as $key => $value) {
+            $value->setTopic($memory);
+        }
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

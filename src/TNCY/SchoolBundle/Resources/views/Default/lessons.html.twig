@@ -35,7 +35,7 @@
                                         <figcaption>
                                             <h2>{{ lesson.name }}</h2>
                                             <p>Mis à jour le {{ lesson.createdAt | date('Y-m-d') }}</p>
-                                            <a href="#">Voir</a>
+                                            <a href="{{path("tncy_school_lessondetail",{"id" : lesson.id})}}">Voir</a>
                                         </figcaption>           
                                     </figure>
                                 </div>
