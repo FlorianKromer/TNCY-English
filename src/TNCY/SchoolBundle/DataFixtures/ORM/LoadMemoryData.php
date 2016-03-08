@@ -24,6 +24,8 @@ class LoadMemoryData extends AbstractFixture implements OrderedFixtureInterface
         $memory = new Memory();
         $memory->setTopic("fruits");
         $memory->setDescription("discover our fruits");
+        $author = $this->getReference('user.super_admin');
+        $memory->setAuthor($author);
         $manager->persist($memory);
         $manager->flush();
         foreach ($names as $key => $value) {

@@ -39,6 +39,7 @@ sonata_admin:
                     # - sonata.admin.schoolresult
                     - sonata.admin.school
                     - sonata.admin.lesson
+                    - sonata.admin.homework
             sonata.admin.group.content:
                 label:           Exercice
                 label_catalogue: TNCYSchoolBundle

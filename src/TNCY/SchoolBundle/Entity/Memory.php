@@ -3,23 +3,14 @@
 namespace TNCY\SchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use TNCY\SchoolBundle\Entity\ExerciceAbstract ;
 /**
  * Memory
  *
- * @ORM\Table(name="ex_memory")
  * @ORM\Entity
  */
-class Memory
+class Memory extends ExerciceAbstract
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
      /**
      * @var string
@@ -42,8 +33,11 @@ class Memory
      */
     private $items;
 
+    
+
     public function __construct()
     {
+        parent::__construct();
         $this->items = new \Doctrine\Common\Collections\ArrayCollection();
     }
      
@@ -145,5 +139,77 @@ class Memory
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Memory
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Memory
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Application\Sonata\UserBundle\Entity\User $author
+     *
+     * @return Memory
+     */
+    public function setAuthor(\Application\Sonata\UserBundle\Entity\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Application\Sonata\UserBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

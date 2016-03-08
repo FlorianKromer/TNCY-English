@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use TNCY\SchoolBundle\Entity\Song;
 
@@ -82,7 +82,7 @@ class ExSongAdmin extends Admin
 
     public function prePersist($lesson)
     {
-        $lesson->setAuthor($this->securityContext->getToken()->getUser());
+        $lesson->setAuthor($this->securityToken->getToken()->getUser());
         $lesson->setCreatedAt(new \DateTime());
         $lesson->setUpdatedAt(new \DateTime());
 
@@ -90,22 +90,22 @@ class ExSongAdmin extends Admin
 
     public function preUpdate($lesson)
     {
-        $lesson->setAuthor($this->securityContext->getToken()->getUser());
+        $lesson->setAuthor($this->securityToken->getToken()->getUser());
         $lesson->setUpdatedAt(new \DateTime());
     }
 
 
-    public function setSecurityContext(SecurityContextInterface  $securityContext)
+    public function setSecurityToken(TokenStorage  $securityToken)
     {
-        $this->securityContext = $securityContext;
+        $this->securityToken = $securityToken;
     }
 
     /**
      * @return UserManagerInterface
      */
-    public function getSecurityContext()
+    public function getSecurityToken()
     {
-        return $this->securityContext;
+        return $this->securityToken;
     }
 
     public function setContainer (\Symfony\Component\DependencyInjection\ContainerInterface $container) {
