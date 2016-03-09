@@ -92,5 +92,26 @@ class ExerciceController extends Controller
         else {
             return null;
         }
-    } 
+    }
+
+    public function matchAction(Request $request)
+    {
+        $repository = $this
+                ->getDoctrine()
+                ->getManager()
+                ->getRepository('TNCYSchoolBundle:MatchWord');
+
+        $phrases = $repository->findAll();
+
+        $start = [];
+        $end = [];
+        $correc = [];
+        foreach ($phrases as $phrase) {
+            $start[] = $phrase->getStart();
+            $end[] = $phrase->getEnd();
+            $correc[$phrase->getStart()] = $phrase->getEnd();
+        }
+        shuffle($end);
+        return $this->render('TNCYSchoolBundle:Exercice:match.html.twig',array('start'=>$start, 'end' => $end, 'correc' => $correc));        
+    }
 }

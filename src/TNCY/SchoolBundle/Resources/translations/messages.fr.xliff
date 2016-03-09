@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-03-07T22:59:01Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2016-03-08T10:36:32Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -8,7 +8,7 @@
     <body>
       <trans-unit id="da39a3ee5e6b4b0d3255bfef95601890afd80709" resname="">
         <source></source>
-        <target state="new"></target>
+        <target></target>
         <jms:reference-file line="62">SchoolBundle/Menu/MenuBuilder.php</jms:reference-file>
         <jms:reference-file line="72">SchoolBundle/Menu/MenuBuilder.php</jms:reference-file>
       </trans-unit>
@@ -24,7 +24,7 @@
       </trans-unit>
       <trans-unit id="2d3ad1756a210c3ecab852144ac9d98890b977fa" resname="Affinity">
         <source>Affinity</source>
-        <target state="new">Affinity</target>
+        <target>Affinity</target>
         <jms:reference-file line="34">SchoolBundle/Admin/SchoolResultAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="db72994d25c539ce86b8c96edb9849b2ab51d607" resname="Aide/FAQ">
@@ -34,7 +34,7 @@
       </trans-unit>
       <trans-unit id="92a4d0534d2d6179a8ec53cb2b3dc5b0abe58949" resname="Ajoute des amis pour faire la course avec eux !">
         <source>Ajoute des amis pour faire la course avec eux !</source>
-        <target state="new">Ajoute des amis pour faire la course avec eux !</target>
+        <target>Ajoute des amis pour faire la course avec eux !</target>
         <jms:reference-file line="45">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a1e8899999ec7dc561b42b4f15f1517dd039e02a" resname="Ajouter au profil linkedin">

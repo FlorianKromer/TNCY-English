@@ -1,0 +1,105 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+{% block title %}{{ "Dashboard"| trans}}  {{ parent() }}  {% endblock %}
+{% block container %}
+
+ <style>
+    .item-left {
+        display: inline-block;
+        height:auto; width: 20%;
+        border: 1px solid blue;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-bottom: 2%;
+    }
+
+    .item-right {
+        display: inline-block;
+        height:auto; width: 20%;
+        border: 1px solid blue;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-left: 50%;
+        margin-bottom: 2%;
+    }
+</style>
+
+<main class="container">
+	<div class="jumbotron">
+		<div class="diagramContainer">
+            {% for s in start %}	
+    			<div id="start-{{loop.index-1}}" class="item-left">{{s}}</div>
+    			<div id="end-{{loop.index-1}}" class="item-right">{{end[loop.index-1]}}</div>
+            {% endfor %}
+		</div>
+        <div id="done" type="submit" class="btn btn-primary">{{ "Validate"|trans}}</div>
+	</div>
+</main> <!-- /container -->       
+
+{% endblock %}
+{% block javascripts %}
+
+{{ parent() }}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src="https://jsplumbtoolkit.com/lib/jsPlumb-2.0.7-min.js"></script>
+ 
+<script>
+    var correct = {{correc|json_encode(constant('JSON_PRETTY_PRINT'))|raw}};
+
+    jsPlumb.ready(function() {
+        jsPlumb.setContainer("diagramContainer");
+        
+        $(window).resize(function(){
+            jsPlumb.repaintEverything();
+        });
+
+        var common = {
+          isSource:true,
+          isTarget:true,
+          connector: ["Straight"]
+        };
+
+        jQuery.each( $(".item-left"), function( i ) {
+            jsPlumb.addEndpoint("start-" + i, {
+                anchor : "Right" 
+            }, common);
+
+            jsPlumb.addEndpoint("end-" + i, {
+               anchor : "Left" 
+            }, common);
+        });
+
+
+        $("#done").click( function()
+           {
+
+                var nbErrors = 0;
+                var size = 0;
+                 
+                $.each(jsPlumb.getConnections(), function (idx, connection) {
+                    var source = $(connection.source).text();
+                    var target = $(connection.target).text();
+                    var color = "";
+                    if (correct[source] != target){
+                        color = "red"
+                    } else {
+                        color = "green"
+                    }
+                    connection.endpoints[0].setStyle({
+                        fillStyle:color
+                    });
+                    connection.endpoints[1].setStyle({
+                        fillStyle:color
+                    });
+                    connection.setPaintStyle({
+                        strokeStyle:color, 
+                        lineWidth: 4
+                    });
+                });
+            }
+      );     
+    });
+</script> 
+
+{% endblock %}

@@ -45,6 +45,10 @@ tncy_school_vocabulary:
     path:     /exercice/vocabulary
     defaults: { _controller: TNCYSchoolBundle:Exercice:vocabulary }
 
+tncy_school_match:
+    path:     /exercice/match
+    defaults: { _controller: TNCYSchoolBundle:Exercice:match }
+
 #profile
 tncy_school_profile:
     path:     /user/{id}
