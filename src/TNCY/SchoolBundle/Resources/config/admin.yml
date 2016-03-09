@@ -71,7 +71,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
-            - [ setSecurityContext , [@security.context]]
+            - [ setSecurityToken , [@security.token_storage]]
 
     sonata.admin.song:
         class: "TNCY\\SchoolBundle\\Admin\\ExSongAdmin"
@@ -83,7 +83,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
-            - [ setSecurityContext , [@security.context]]
+            - [ setSecurityToken , [@security.token_storage]]
             - [ setContainer, [@service_container]]
 
     sonata.admin.memory:
@@ -107,3 +107,16 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
+
+    sonata.admin.homework:
+        class: "TNCY\\SchoolBundle\\Admin\\HomeworkAdmin"
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "School", label: "Homework" }
+        arguments:
+            - ~
+            - "TNCY\\SchoolBundle\\Entity\\Homework"
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+            - [ setSecurityToken , [@security.token_storage]]
+

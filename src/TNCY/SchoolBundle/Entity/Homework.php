@@ -5,12 +5,12 @@ namespace TNCY\SchoolBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Lesson
+ * Homework
  *
- * @ORM\Table(name="lesson")
+ * @ORM\Table(name="homework")
  * @ORM\Entity
  */
-class Lesson
+class Homework
 {
 
 
@@ -39,18 +39,29 @@ class Lesson
     private $content;
 
     /**
-     * @var string
+    * @ORM\ManyToMany(targetEntity="SchoolClass", cascade={"persist"})
+    */
+    protected $schoolClasses;
+
+
+    /**
+    * @ORM\ManyToMany(targetEntity="ExerciceAbstract", cascade={"persist"})
+    */
+    protected $exercices;
+
+    /**
+     * @var datetime
      *
-     * @ORM\Column(name="summary", type="string", length=255)
+     * @ORM\Column(name="due_date", type="datetime")
      */
-    private $summary;
+    private $due_date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="draft", type="boolean",nullable=true)
+     * @ORM\Column(name="topic", type="string", length=255)
      */
-    private $draft;
+    // private $topic;
 
     /**
      * @var datetime
@@ -66,25 +77,20 @@ class Lesson
      */
     private $updated_at;
 
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="topic", type="string", length=255)
-     */
-    private $topic;
-
     /**
     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
     * @ORM\JoinColumn(nullable=false)
     */
     private $author;
 
-    public static  $CONST_TOPIC = array('GRAMMAR'=>'GRAMMAR','ORTHOGRAPH'=>'ORTHOGRAPH','VOCABULARY'=>'VOCABULARY','CONJUGATION'=>'CONJUGATION');
+    // public static  $CONST_TOPIC = array('GRAMMAR'=>'GRAMMAR','ORTHOGRAPH'=>'ORTHOGRAPH','VOCABULARY'=>'VOCABULARY','CONJUGATION'=>'CONJUGATION');
 
     function __construct($foo = null) {
         $this->created_at = new \DateTime();
         $this->updated_at = new \DateTime();
+        $this->due_date = new \DateTime();
+        $this->schoolClasses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->exercices = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -92,6 +98,7 @@ class Lesson
     {
         return $this->name;
     }
+
 
 
     /**
@@ -109,7 +116,7 @@ class Lesson
      *
      * @param string $name
      *
-     * @return Lesson
+     * @return Homework
      */
     public function setName($name)
     {
@@ -133,7 +140,7 @@ class Lesson
      *
      * @param string $content
      *
-     * @return Lesson
+     * @return Homework
      */
     public function setContent($content)
     {
@@ -153,99 +160,27 @@ class Lesson
     }
 
     /**
-     * Set draft
+     * Set dueDate
      *
-     * @param boolean $draft
+     * @param \DateTime $dueDate
      *
-     * @return Lesson
+     * @return Homework
      */
-    public function setDraft($draft)
+    public function setDueDate($dueDate)
     {
-        $this->draft = $draft;
+        $this->due_date = $dueDate;
 
         return $this;
     }
 
     /**
-     * Get draft
-     *
-     * @return boolean
-     */
-    public function getDraft()
-    {
-        return $this->draft;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Lesson
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
+     * Get dueDate
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getDueDate()
     {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Lesson
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * Set author
-     *
-     * @param \Application\Sonata\UserBundle\Entity\User $author
-     *
-     * @return Lesson
-     */
-    public function setAuthor(\Application\Sonata\UserBundle\Entity\User $author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \Application\Sonata\UserBundle\Entity\User
-     */
-    public function getAuthor()
-    {
-        return $this->author;
+        return $this->due_date;
     }
 
     /**
@@ -253,7 +188,7 @@ class Lesson
      *
      * @param string $topic
      *
-     * @return Lesson
+     * @return Homework
      */
     public function setTopic($topic)
     {
@@ -273,26 +208,142 @@ class Lesson
     }
 
     /**
-     * Set summary
+     * Set createdAt
      *
-     * @param string $summary
+     * @param \DateTime $createdAt
      *
-     * @return Lesson
+     * @return Homework
      */
-    public function setSummary($summary)
+    public function setCreatedAt($createdAt)
     {
-        $this->summary = $summary;
+        $this->created_at = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get summary
+     * Get createdAt
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getSummary()
+    public function getCreatedAt()
     {
-        return $this->summary;
+        return $this->created_at;
+    }
+
+    /**
+     * Add schoolClass
+     *
+     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolClass
+     *
+     * @return Homework
+     */
+    public function addSchoolClass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolClass)
+    {
+        $this->schoolClasses[] = $schoolClass;
+
+        return $this;
+    }
+
+    /**
+     * Remove schoolClass
+     *
+     * @param \TNCY\SchoolBundle\Entity\SchoolClass $schoolClass
+     */
+    public function removeSchoolClass(\TNCY\SchoolBundle\Entity\SchoolClass $schoolClass)
+    {
+        $this->schoolClasses->removeElement($schoolClass);
+    }
+
+    /**
+     * Get schoolClasses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSchoolClasses()
+    {
+        return $this->schoolClasses;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Application\Sonata\UserBundle\Entity\User $author
+     *
+     * @return Homework
+     */
+    public function setAuthor(\Application\Sonata\UserBundle\Entity\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Application\Sonata\UserBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Homework
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Add exercice
+     *
+     * @param \TNCY\SchoolBundle\Entity\ExerciceAbstract $exercice
+     *
+     * @return Homework
+     */
+    public function addExercice(\TNCY\SchoolBundle\Entity\ExerciceAbstract $exercice)
+    {
+        $this->exercices[] = $exercice;
+
+        return $this;
+    }
+
+    /**
+     * Remove exercice
+     *
+     * @param \TNCY\SchoolBundle\Entity\ExerciceAbstract $exercice
+     */
+    public function removeExercice(\TNCY\SchoolBundle\Entity\ExerciceAbstract $exercice)
+    {
+        $this->exercices->removeElement($exercice);
+    }
+
+    /**
+     * Get exercices
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExercices()
+    {
+        return $this->exercices;
     }
 }

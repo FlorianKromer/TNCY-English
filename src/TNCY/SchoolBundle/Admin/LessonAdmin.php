@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use TNCY\SchoolBundle\Entity\Lesson;
 
 class LessonAdmin extends Admin
@@ -69,7 +69,7 @@ class LessonAdmin extends Admin
     }
 
 
-    public function setSecurityContext(SecurityContextInterface  $securityContext)
+    public function setSecurityToken(TokenStorage  $securityContext)
     {
         $this->securityContext = $securityContext;
     }
@@ -77,7 +77,7 @@ class LessonAdmin extends Admin
     /**
      * @return UserManagerInterface
      */
-    public function getSecurityContext()
+    public function getSecurityToken()
     {
         return $this->securityContext;
     }

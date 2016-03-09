@@ -3,85 +3,56 @@
 namespace TNCY\SchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use TNCY\SchoolBundle\Entity\ExerciceAbstract ;
 
 /**
- * Contact
- *
- * @ORM\Table(name="song")
+ * Song
  * @ORM\Entity
  */
-class Song
+class Song extends ExerciceAbstract
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="artist", type="string", length=255)
      */
-    private $artist;
+    protected $artist;
 
     /**
      * @var string
      *
      * @ORM\Column(name="soundCloundTrackEmbed", type="text")
      */
-    private $soundCloundTrackEmbed;
+    protected $soundCloundTrackEmbed;
 
     /**
      * @var array
      *
      * @ORM\Column(name="gaps", type="array", length=255)
      */
-    private $gaps;
+    protected $gaps;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lyrics", type="text")
      */
-    private $lyrics;
+    protected $lyrics;
 
 
-
-    /**
-     * @var datetime
-     *
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    private $created_at;
-
-    /**
-     * @var datetime
-     *
-     * @ORM\Column(name="updated_at", type="datetime")
-     */
-    private $updated_at;
-    
-    /**
-    * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
-    * @ORM\JoinColumn(nullable=false)
-    */
-    private $author;
 
 
     function __construct($foo = null) {
-        $this->created_at = new \DateTime();
-        $this->updated_at = new \DateTime();
+        parent::__construct();
     }
 
 
@@ -90,15 +61,6 @@ class Song
         return $this->name.' by '.$this->artist;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -197,6 +159,30 @@ class Song
     }
 
     /**
+     * Set lyrics
+     *
+     * @param string $lyrics
+     *
+     * @return Song
+     */
+    public function setLyrics($lyrics)
+    {
+        $this->lyrics = $lyrics;
+
+        return $this;
+    }
+
+    /**
+     * Get lyrics
+     *
+     * @return string
+     */
+    public function getLyrics()
+    {
+        return $this->lyrics;
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -266,29 +252,5 @@ class Song
     public function getAuthor()
     {
         return $this->author;
-    }
-
-    /**
-     * Set lyrics
-     *
-     * @param string $lyrics
-     *
-     * @return Song
-     */
-    public function setLyrics($lyrics)
-    {
-        $this->lyrics = $lyrics;
-
-        return $this;
-    }
-
-    /**
-     * Get lyrics
-     *
-     * @return string
-     */
-    public function getLyrics()
-    {
-        return $this->lyrics;
     }
 }
