@@ -38,9 +38,24 @@ class MenuBuilder
 
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-left menu__list'));
-        $menu->addChild('Accueil', array('route' => 'tncy_school_index'));
-        $menu->addChild('News', array('route' => 'sonata_news_archive'));
+        //$menu->addChild('Accueil', array('route' => 'tncy_school_index'));
+        //$menu->addChild('News', array('route' => 'sonata_news_archive'));
+        $menu->addChild('Language', array('label' => 'Exercices'))
+                    ->setAttribute('dropdown', true);
+        $menu['Language']->addChild('J\'apprends l\'anglais niveau 1', array('route' => 'tncy_school_about'))
+                    ->setAttribute('class', 'dropdown-header');
+        $menu['Language']->addChild('Exercice: Song', array('route' => 'tncy_school_song'))
+                    ->setAttribute('icon', 'fa fa-plus');
+        $menu['Language']->addChild('Exercice: Memory', array('route' => 'tncy_school_memory'))
+                    ->setAttribute('icon', 'fa fa-plus');
+        $menu['Language']->addChild('Exercice: vocabulary', array('route' => 'tncy_school_vocabulary'))
+                    ->setAttribute('icon', 'fa fa-plus');
+        $menu['Language']->addChild('Exercice: match', array('route' => 'tncy_school_match'))
+                    ->setAttribute('icon', 'fa fa-plus');
         $menu->addChild('Leçons', array('route' => 'tncy_school_lessons'));
+        if($this->securityContext->isGranted('ROLE_ADMIN')){
+            $menu->addChild('Administration', array('route' => 'sonata_admin_dashboard'));
+        }  
         $menu->addChild('Contact', array('route' => 'tncy_school_contact'));
 
 
@@ -59,31 +74,25 @@ class MenuBuilder
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-right'));
 
-        $menu->addChild('Language', array('label' => ''))
-                    ->setAttribute('dropdown', true)
-                    ->setAttribute('icon', 'fa fa-globe');
-        $menu['Language']->addChild('J\'apprends l\'anglais niveau 1', array('route' => 'tncy_school_about'))
-                    ->setAttribute('class', 'dropdown-header');
-        $menu['Language']->addChild('Exercice: Song', array('route' => 'tncy_school_song'))
-                    ->setAttribute('icon', 'fa fa-plus');
-        $menu['Language']->addChild('Exercice: Memory', array('route' => 'tncy_school_memory'))
-                    ->setAttribute('icon', 'fa fa-plus');
 
-        $menu->addChild('User', array('label' => ''))
-                    ->setAttribute('dropdown', true)
-                    ->setAttribute('icon', 'fa fa-user');
-        $menu['User']->addChild('Dashboard', array('route' => 'tncy_school_dashboard'))
-                    ->setAttribute('icon', 'fa fa-user');
-        $menu['User']->addChild('Réglage', array('route' => 'tncy_school_about'))
-                    ->setAttribute('icon', 'fa fa-cog');
-        $menu['User']->addChild('Aide', array('route' => 'tncy_school_about'))
-                    ->setAttribute('icon', 'fa fa-question-circle');
-        $menu['User']->addChild('Raccourcis clavier', array('route' => 'tncy_school_about'))
+
+        $menu->addChild('Dashboard', array('route' => 'tncy_school_dashboard'));
+          
+
+        // $menu['User']->addChild('Aide', array('route' => 'tncy_school_about'))
+        //             ->setAttribute('icon', 'fa fa-question-circle');
+        // $menu['User']->addChild('Raccourcis clavier', array('route' => 'tncy_school_about'))
+        //             ->setAttribute('icon', 'fa fa-keyboard-o');
+        if($this->securityContext->isGranted('IS_AUTHENTICATED_FULLY')){
+
+            $menu->addChild($user->getUsername(), ['route' => 'tncy_school_profile','routeParameters' => array('id' => $user->getId())])
+                    ->setAttribute('icon', 'fa fa-user')
+                    ->setAttribute('dropdown', true);
+            $menu[$user->getUsername()]->addChild('Déconnexion', array('route' => 'sonata_user_security_logout'))
                     ->setAttribute('icon', 'fa fa-keyboard-o');
-        if($this->securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
-            $menu['User']->addChild($user->getUsername(), ['route' => 'tncy_school_profile','routeParameters' => array('id' => $user->getId())]);
+        }
         else
-            $menu['User']->addChild('Connexion', array('route' => 'sonata_user_security_login'))
+            $menu->addChild('Connexion', array('route' => 'sonata_user_security_login'))
                     ->setAttribute('icon','fa fa-sign-in');
 
         return $menu;

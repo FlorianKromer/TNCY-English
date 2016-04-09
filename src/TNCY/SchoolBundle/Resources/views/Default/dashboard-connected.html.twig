@@ -5,13 +5,55 @@
 <main role="main" class="main profile">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-md-offset-4">
+            <div class="col-md-12 ">
                 <h1 class="page-header">Dashboard</h1>
             </div>
         </div>
-        <!-- sidebar -->
+        <div class="row">
+        <!-- dashboard -->
+        <div class="col-md-8">
+
+            <h2 class="">My Homework</h2>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>due date</th>
+                                <th>exercices</th>
+                                <th>result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>07/04/2016</td>
+                                <td>memory</td>
+                                <td>done</td>
+                            </tr>
+                            <tr>
+                                <td>07/04/2016</td>
+                                <td>song</td>
+                                <td>7/10</td>
+                            </tr>
+                            <tr>
+                                <td>07/04/2016</td>
+                                <td>match</td>
+                                <td>2/10</td>
+                            </tr>
+                            <tr>
+                                <td>01/04/2016</td>
+                                <td>match</td>
+                                <td>2/10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+                <!-- sidebar -->
         <aside class="col-md-4">
-            <div class="panel panel-default">
+<!--             <div class="panel panel-default">
                 <div class="panel-body">
                     <h4>{{ "Maîtrise de l'anglais" | trans }}</h4>
                     <a href="" class="btn btn-success  btn-fab">7%</a>
@@ -51,12 +93,12 @@
                     <button type="button" class="btn btn-raised btn-info">{{ "Chercher"| trans }}</button>
                 </div>
             </div>
-
+ -->
 
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class=" box-social-buttons">
-                        <h4>{{ "Suivre Duolingo"|trans}}</h4>
+                        <h4>{{ "Suivre EnjoyLearning"|trans}}</h4>
                         <div class=" list-social-buttons">
                             <a target="_blank" href="http://twitter.com/duolingo" class="btn  btn-sm btn-twitter">Twitter </a>
                             <a target="_blank" href="http://facebook.com/duolingo" class="btn   btn-sm btn-fb">Facebook </a>
@@ -66,72 +108,8 @@
                 </div>
             </div>
         </aside>
-        <!-- dashboard -->
-        <div class="col-md-8">
+                </div>
 
-            <div class="row ">
-                <div class="col-xs-6 col-sm-3 ">
-                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>{{ "Vocabulaire"|trans}}</h4>
-                    <span class="text-muted">2/10</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>{{ "Grammaire"|trans}}</h4>
-                    <span class="text-muted">5/10</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>{{ "Orthographe"|trans}}</h4>
-                    <span class="text-muted">2/10</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="http://lorempixel.com/200/200/" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>{{ "Culture"|trans}}</h4>
-                    <span class="text-muted">0/10</span>
-                </div>
-            </div>
-
-            <h2 class="">Section title</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-height-indicator"></div>
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="http://lorempixel.com/200/200/" alt="Loading image...">
-                                <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <footer class="card-footer">
-                                <button class="btn btn-flat">Share</button>
-                                <button class="btn btn-flat btn-warning">Learn More</button>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-height-indicator"></div>
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="http://lorempixel.com/200/200/" alt="Loading image...">
-                                <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            <footer class="card-footer">
-                                <button class="btn btn-flat">Share</button>
-                                <button class="btn btn-flat btn-warning">Learn More</button>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 

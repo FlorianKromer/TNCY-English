@@ -41,3 +41,4 @@ services:
         class: "TNCY\\SchoolBundle\\Service\\MusixmatchApi"
         calls:
             - [ setContainer, [@service_container]]
+    

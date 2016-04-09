@@ -35,15 +35,40 @@ class SchoolClass extends BaseGroup
    */
     protected $school;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="schoolClass")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $students;
 
     public function __construct()
     {
         $this->subjects = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->students = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * @param mixed $subjects
+     */
+    public function setStudents($students)
+    {
+        $this->students = $students;
     }
 
     /**

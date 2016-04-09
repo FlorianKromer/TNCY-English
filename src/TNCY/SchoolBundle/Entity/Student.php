@@ -36,8 +36,9 @@ class Student extends BaseUser
 
 
     /**
-   * @ORM\ManyToOne(targetEntity="SchoolClass")
+   * @ORM\ManyToOne(targetEntity="SchoolClass", inversedBy="students")
    * @ORM\JoinColumn(nullable=true)
+   * 
    */
     protected $schoolClass;
 

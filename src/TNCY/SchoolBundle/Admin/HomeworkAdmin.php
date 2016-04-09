@@ -13,10 +13,17 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use TNCY\SchoolBundle\Entity\Homework;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Bundle\TwigBundle\TwigEngine;
 
 class HomeworkAdmin extends Admin
 {
-        public $supportsPreviewMode = true;
+    public $supportsPreviewMode = true;
+
+
+    protected $twig;
+    protected $securityToken;
+    protected $mailer;
+
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -86,6 +93,53 @@ class HomeworkAdmin extends Admin
     }
 
 
+    public function postPersist($homework) {
+        // when a group get new homework they receive a email
+        foreach ($homework->getSchoolClasses() as $classes) {
+            $recipents = array();
+            foreach ($classes->getStudents() as $student) {
+                 $recipents[$student->getEmail()] = $student->getFirstName().' '.$student->getLastName();
+            }
+            $message = \Swift_Message::newInstance()
+                ->setSubject('New Homeworks')
+                ->setFrom('send@example.com')
+                ->setTo($recipents)
+                ->setBody(
+                    $this->twig->render(
+                        'TNCYSchoolBundle:Emails:homework.html.twig',
+                        array('user' => $student,'homework'=>$homework)
+                    ),
+                    'text/html'
+                )
+            ;
+            $this->mailer->send($message);
+        }
+    }
+
+    public function postUpdate($homework) {
+        // when a group get new homework they receive a email
+        foreach ($homework->getSchoolClasses() as $classes) {
+            $recipents = array();
+            foreach ($classes->getStudents() as $student) {
+                 $recipents[$student->getEmail()] = $student->getFirstName().' '.$student->getLastName();
+            }
+            $message = \Swift_Message::newInstance()
+                ->setSubject('New Homeworks')
+                ->setFrom('send@example.com')
+                ->setTo($recipents)
+                ->setBody(
+                    $this->twig->render(
+                        'TNCYSchoolBundle:Emails:homework.html.twig',
+                        array('user' => $student,'homework'=>$homework)
+                    ),
+                    'text/html'
+                )
+            ;
+            $this->mailer->send($message);
+        }
+
+    }
+
     public function setSecurityToken(TokenStorage  $securityToken)
     {
         $this->securityToken = $securityToken;
@@ -97,5 +151,31 @@ class HomeworkAdmin extends Admin
     public function getSecurityToken()
     {
         return $this->securityToken;
+    }
+
+    public function setTwig(TwigEngine  $twig)
+    {
+        $this->twig = $twig;
+    }
+
+    /**
+     * @return UserManagerInterface
+     */
+    public function getTwig()
+    {
+        return $this->twig;
+    }
+
+    public function setMailer($mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
+    /**
+     * @return UserManagerInterface
+     */
+    public function getMailer()
+    {
+        return $this->mailer;
     }
 }

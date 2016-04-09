@@ -89,8 +89,9 @@ Browse Happy prompt
 }
 
 
-@primary: #008fd5;
-@secondary: #fb7941;
+@primary: #7d3577;
+@secondary: #ee8936;
+@third: #efebeb;
 
 // .repo .btn {
 //     padding-right: 20px;
@@ -101,35 +102,18 @@ body  {
     padding-top: 65px;
     background-color: #fff;
 }
-.box-social-buttons {
-    .btn-twitter {
-        color:#1caff6;
 
-        &:hover {
-            background:#1caff6 !important;
-            color:#fff;
-            border-color:#1caff6
-        }
-    }
-    .btn-facebook {
-        color:#3b579d;
-        &:hover {
-            background:#3b579d !important;
-            border-color:#3b579d;
-            color:#fff
-        }
-    }
-    .btn-google {
-        color:#db4633;
-        &:hover {
-            background:#db4633 !important;
-            border-color:#db4633;
-            color:#fff
-        }
-    }
-
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Roboto Slab', serif;
 }
 
+
+.navbar, .navbar.navbar-default {
+    background-color: @primary;
+      font-family: 'Roboto Slab', serif;
+
+}
 
 .homepage{
     background: #fff;
@@ -141,6 +125,9 @@ body  {
             &.btn-raised:hover:not(.btn-link){
                 background-color: fade(@secondary, 60%);
             }
+        }
+        p{
+            font-size: 1.5em;
         }
     }
     .homepage__img{
@@ -154,10 +141,14 @@ body  {
             color: #fff;
             padding: 8em 0 5em 0;
         }
+        p{
+            font-size: 1.5em;
+        }
 
     }
     .homepage_working{
         padding: 4em 0 2em 0;
+
     }
 }
 .contact{
@@ -191,16 +182,43 @@ body  {
 footer{
     padding: 2em 0 2em 0;
 
-    background-color: @primary;
+    background-color: @third;
     a{      
 
-        color: #fff;
+        color: @primary;
         &:hover{
             color: @secondary;
         }
     }
 }
+.box-social-buttons {
+    .btn-twitter {
+        color:#1caff6;
 
+        &:hover {
+            background:#1caff6 !important;
+            color:#fff;
+            border-color:#1caff6
+        }
+    }
+    .btn-facebook {
+        color:#3b579d;
+        &:hover {
+            background:#3b579d !important;
+            border-color:#3b579d;
+            color:#fff
+        }
+    }
+    .btn-google {
+        color:#db4633;
+        &:hover {
+            background:#db4633 !important;
+            border-color:#db4633;
+            color:#fff
+        }
+    }
+
+}
 .has-error{
     color: @red;
 }
