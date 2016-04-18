@@ -1,0 +1,35 @@
+{% extends 'TNCYSchoolBundle::layout.html.twig' %}
+{% block title %}{{ "About us"| trans}}  {{ parent() }}  {% endblock %}
+{% block container %}
+
+
+<main class="container">
+	<div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Our Team</h2>
+            </div>
+            <div class="col-lg-6 col-sm-6 text-center">
+                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+                <h3>Pierre Haller
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+            <div class="col-lg-6 col-sm-6 text-center">
+                <img class="img-circle img-responsive img-center" src="{{ asset('bundles/tncyschool/img/flo.jpg') }}" alt="Florian Kromer">
+                <h3>Florian Kromer
+                    <small>Web developper</small>
+                </h3>
+                <p>Computer's science lover • Study at  TelecomNancy • Work at Euro Information Developpements • EnjoyLearning CEO</p>
+            </div>
+            
+        </div>
+</main> <!-- /container -->       
+
+{% endblock %}
+{% block javascripts %}
+
+
+{{ parent() }}
+
+{% endblock %}

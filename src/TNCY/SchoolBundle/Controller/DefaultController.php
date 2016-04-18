@@ -69,7 +69,7 @@ class DefaultController extends Controller
 
     public function aboutAction()
     {
-        return $this->render('TNCYSchoolBundle:Default:index.html.twig');
+        return $this->render('TNCYSchoolBundle:Default:about-us.html.twig');
     }
 
     public function dashboardAction()
@@ -102,28 +102,28 @@ class DefaultController extends Controller
                     );
 
                 $em    = $this->get('doctrine.orm.entity_manager');
-                $dql   = "SELECT l FROM TNCYSchoolBundle:Lesson l WHERE name LIKE :name AND topic=:topic";
+                $dql   = "SELECT l FROM TNCYSchoolBundle:Lesson l WHERE name LIKE :name AND topic=:topic ORDER BY l.created_a desc";
                 $query = $em->createQuery($dql)->setParameters($parameters);
 
                 $paginator  = $this->get('knp_paginator');
                 $pagination = $paginator->paginate(
                     $query, /* query NOT result */
                     $request->query->getInt('page', 1)/*page number*/,
-                    10/*limit per page*/
+                    9/*limit per page*/
                     );
 
                 return $this->render('TNCYSchoolBundle:Default:lessons.html.twig',array('form' => $form->createView(),'pagination' => $pagination));
             }
         }
         $em    = $this->get('doctrine.orm.entity_manager');
-        $dql   = "SELECT l FROM TNCYSchoolBundle:Lesson l ";
+        $dql   = "SELECT l FROM TNCYSchoolBundle:Lesson l ORDER BY l.created_at desc";
         $query = $em->createQuery($dql);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
-            10/*limit per page*/
+            9/*limit per page*/
             );
 
         return $this->render('TNCYSchoolBundle:Default:lessons.html.twig',array('form' => $form->createView(),'pagination' => $pagination));

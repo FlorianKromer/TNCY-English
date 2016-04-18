@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-03-08T10:36:32Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2016-04-18T20:49:24Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -54,12 +54,12 @@
       </trans-unit>
       <trans-unit id="6c3f3d3203630ce74ffd9609307833fc4f052892" resname="Artist">
         <source>Artist</source>
-        <target state="new">Artist</target>
+        <target>Artiste</target>
         <jms:reference-file line="24">SchoolBundle/Admin/ExSongAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="15f86c051ecf0b64e5f8cdc8c689552f42595942" resname="Average">
         <source>Average</source>
-        <target state="new">Average</target>
+        <target>Moyenne</target>
         <jms:reference-file line="35">SchoolBundle/Admin/SchoolResultAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0b9d2b2362bc33581ba11fddcb0cf0590ebd3a7a" resname="Blog">
@@ -79,12 +79,12 @@
       </trans-unit>
       <trans-unit id="2cfe3ba0f675821869b08bc5f38e3fedb8a716c1" resname="Choose an subject">
         <source>Choose an subject</source>
-        <target state="new">Choose an subject</target>
+        <target>Choisir un sujet</target>
         <jms:reference-file line="29">SchoolBundle/Admin/SchoolClassAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="4271627f4f0bef6104a95cca7bb21cda4d74503e" resname="City">
         <source>City</source>
-        <target state="new">City</target>
+        <target>Ville</target>
         <jms:reference-file line="26">SchoolBundle/Admin/SchoolAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="9d18412ed9d9fc21c9782d93f8ce11632b5bab68" resname="Comment cela fonctionne">
@@ -116,7 +116,7 @@
       </trans-unit>
       <trans-unit id="d87f47b47e4d5794d53fe0734c49417bd046cde0" resname="Dashboard">
         <source>Dashboard</source>
-        <target state="new">Dashboard</target>
+        <target>Tableau de bord</target>
         <jms:reference-file line="2">views/Default/dashboard-connected.html.twig</jms:reference-file>
         <jms:reference-file line="2">views/Default/dashboard.html.twig</jms:reference-file>
         <jms:reference-file line="2">views/Exercice/vocabulary.html.twig</jms:reference-file>
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit id="23d33e22acfcb9ecddb4a85f10607dc4ff49e23c" resname="Draft">
         <source>Draft</source>
-        <target state="new">Draft</target>
+        <target>Brouillon</target>
         <jms:reference-file line="20">SchoolBundle/Admin/LessonAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="92610c03a8dee5e48a2ddcf743902336d7533615" resname="Durant les leçons, la fonction de reconnaissance vocale de EnjoyLearning vous permet d’améliorer votre prononciation. Le parfait outil pour apprendre et progresser rapidement.">
@@ -182,7 +182,7 @@
       </trans-unit>
       <trans-unit id="776e5a6677271b39f07ace22fd689745eb3c01ff" resname="Exercice Song">
         <source>Exercice Song</source>
-        <target state="new">Exercice Song</target>
+        <target>Exercice Chanson</target>
         <jms:reference-file line="2">views/Exercice/song.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a44b726fb363eae25a60c7f7b5e66ecbcaf34958" resname="Fais la compétition avec tes amis">
@@ -232,7 +232,7 @@
       </trans-unit>
       <trans-unit id="8670cb1f9e9406f8b7b5dbf6764000d0e9536e75" resname="Lyrics">
         <source>Lyrics</source>
-        <target state="new">Lyrics</target>
+        <target>Paroles</target>
         <jms:reference-file line="27">SchoolBundle/Admin/ExSongAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="71b81f73327be716ad4f5bb13059526117f00bb7" resname="Maîtrise de l'anglais">
@@ -262,7 +262,7 @@
       </trans-unit>
       <trans-unit id="709a23220f2c3d64d1e1d6d18c4d5280f8d82fca" resname="Name">
         <source>Name</source>
-        <target state="new">Name</target>
+        <target>Nom</target>
         <jms:reference-file line="13">SchoolBundle/Admin/ExMemoryItemAdmin.php</jms:reference-file>
         <jms:reference-file line="23">SchoolBundle/Admin/ExSongAdmin.php</jms:reference-file>
         <jms:reference-file line="18">SchoolBundle/Admin/LessonAdmin.php</jms:reference-file>
@@ -336,7 +336,7 @@
       </trans-unit>
       <trans-unit id="d3f69e11ffccd30e3f9b98730f5a795deb061460" resname="Suivre Duolingo">
         <source>Suivre Duolingo</source>
-        <target state="new">Suivre Duolingo</target>
+        <target>Suivre Enjoylearning</target>
         <jms:reference-file line="59">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d7742281333f757fe1bd09f8584773fe22b56cbd" resname="Sujet">

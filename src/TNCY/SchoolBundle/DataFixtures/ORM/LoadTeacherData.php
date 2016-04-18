@@ -51,7 +51,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
                 $user->setEmail($email[$i]);
                 $user->setFirstname($prenom[$i]);
                 $user->setLastname($nom[$i]);
-                // $user->setRoles(array('ROLE_SONATA_USER_ADMIN_TEACHER_STAFF'));
+                $user->setRoles(array('ROLE_SONATA_USER_ADMIN_TEACHER_STAFF'));
                 $user->addGroup($this->getReference('schoolClass.T'));
                 $user->setEnabled(true);
                 $encoder = $factory->getEncoder($user);

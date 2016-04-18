@@ -53,7 +53,7 @@ class MenuBuilder
         $menu['Language']->addChild('Exercice: match', array('route' => 'tncy_school_match'))
                     ->setAttribute('icon', 'fa fa-plus');
         $menu->addChild('Leçons', array('route' => 'tncy_school_lessons'));
-        if($this->securityContext->isGranted('ROLE_ADMIN')){
+        if($this->securityContext->isGranted('ROLE_ADMIN') || $this->securityContext->isGranted('ROLE_SONATA_USER_ADMIN_TEACHER_STAFF')){
             $menu->addChild('Administration', array('route' => 'sonata_admin_dashboard'));
         }  
         $menu->addChild('Contact', array('route' => 'tncy_school_contact'));
