@@ -108,6 +108,28 @@ services:
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
 
+    sonata.admin.match:
+        class: "TNCY\\SchoolBundle\\Admin\\ExMatchAdmin"
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Match" }
+        arguments:
+            - ~
+            - "TNCY\\SchoolBundle\\Entity\\MatchWord"
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+
+    sonata.admin.vocword:
+        class: "TNCY\\SchoolBundle\\Admin\\ExVocWordAdmin"
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "VocWord" }
+        arguments:
+            - ~
+            - "TNCY\\SchoolBundle\\Entity\\VocWord"
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+
     sonata.admin.homework:
         class: "TNCY\\SchoolBundle\\Admin\\HomeworkAdmin"
         tags:
