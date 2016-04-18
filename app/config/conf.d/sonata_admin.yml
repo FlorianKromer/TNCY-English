@@ -47,6 +47,8 @@ sonata_admin:
                 items:
                     - sonata.admin.song
                     - sonata.admin.memory
+                    - sonata.admin.match
+                    - sonata.admin.vocword
                     #- sonata.admin.memoryitem
             sonata.admin.group.exercice:
                 label:           Blog
