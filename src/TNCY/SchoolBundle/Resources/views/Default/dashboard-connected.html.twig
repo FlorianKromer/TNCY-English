@@ -26,26 +26,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                        {% for item in exercices %}
                             <tr>
-                                <td>07/04/2016</td>
-                                <td>memory</td>
-                                <td>done</td>
+                                <td><a href="#">{{item.homework.dueDate|date('Y-m-d')}}</a></td>
+                                <td>{{item.homework.name}}</td>
+                                <td>{{item.result}}</td>
                             </tr>
-                            <tr>
-                                <td>07/04/2016</td>
-                                <td>song</td>
-                                <td>7/10</td>
-                            </tr>
-                            <tr>
-                                <td>07/04/2016</td>
-                                <td>match</td>
-                                <td>2/10</td>
-                            </tr>
-                            <tr>
-                                <td>01/04/2016</td>
-                                <td>match</td>
-                                <td>2/10</td>
-                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

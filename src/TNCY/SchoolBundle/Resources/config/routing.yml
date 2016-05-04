@@ -49,6 +49,12 @@ tncy_school_match:
     path:     /exercice/match
     defaults: { _controller: TNCYSchoolBundle:Exercice:match }
 
+tncy_school_exercice_result:
+    path: /exercice/result
+    defaults: { _controller: TNCYSchoolBundle:Exercice:result }
+    options:
+        expose: true
+
 #profile
 tncy_school_profile:
     path:     /user/{id}

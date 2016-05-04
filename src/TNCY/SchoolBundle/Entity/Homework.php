@@ -3,12 +3,14 @@
 namespace TNCY\SchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use TNCY\SchoolBundle\Entity\ExerciceResult as ExerciceResult;
 
 /**
  * Homework
  *
  * @ORM\Table(name="homework")
  * @ORM\Entity
+ *  @ORM\HasLifecycleCallbacks()
  */
 class Homework
 {
@@ -100,6 +102,26 @@ class Homework
     }
 
 
+    /**
+     * @ORM\PostPersist
+     */
+    public function createExerciceResult($args)
+    {
+        $em = $args->getEntityManager();
+        foreach ($this->schoolClasses as $classes) {
+            foreach ($classes->getStudents() as  $student) {
+                foreach ($this->exercices as $exo) {
+                    $r = new ExerciceResult();
+                    $r->setStudent($student);
+                    $r->setHomework($this);
+                    $r->setExercice($exo);
+                    $em->persist($r);
+
+                }
+            }
+        }
+        $em->flush();
+    }
 
     /**
      * Get id

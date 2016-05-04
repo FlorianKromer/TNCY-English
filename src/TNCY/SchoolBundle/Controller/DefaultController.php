@@ -81,7 +81,19 @@ class DefaultController extends Controller
             return $this->render('TNCYSchoolBundle:Default:dashboard.html.twig');
         }
         else{
-            return $this->render('TNCYSchoolBundle:Default:dashboard-connected.html.twig');
+            $query = $this->getDoctrine()
+            ->getManager()
+            ->createQueryBuilder()
+            ->select( 'exerciceResult')
+            ->from('TNCYSchoolBundle:ExerciceResult', 'exerciceResult')
+            ->leftJoin('TNCYSchoolBundle:Homework', 'homework', 'WITH', 'exerciceResult.homework = homework')
+            ->where('exerciceResult.student = :stu')
+            ->setParameter('stu', $user)
+            ->getQuery();
+            $exercices = $query->getResult();
+
+
+            return $this->render('TNCYSchoolBundle:Default:dashboard-connected.html.twig',array('exercices' => $exercices));
         }
     }
 

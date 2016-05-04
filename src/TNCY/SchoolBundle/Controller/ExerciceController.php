@@ -16,6 +16,32 @@ class ExerciceController extends Controller
         return $this->render('TNCYSchoolBundle:Exercice:memory.html.twig');
     }
 
+    public function resultAction(Request $request)
+    {
+        $id ="";
+        $result="";
+        if ('POST' === $request->getMethod())
+        {
+            $form->bind($request); //Symfony 2.1.x
+
+            $id = $form->get('id')->getData();
+            $result = $form->get('result')->getData();
+        }
+
+        $repository = $this
+        ->getDoctrine()
+        ->getManager()
+        ->getRepository('TNCYSchoolBundle:ExerciceResult')
+        ;
+        $exResult = $repository->find($id);
+        if ($exResult != null) {
+            $exResult->setResult($result);
+            $this->getDoctrine()->getManager()->persist($r);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+    }
+
     public function memoryDataAction()
     {
 		$repository = $this
@@ -63,8 +89,10 @@ class ExerciceController extends Controller
                 $soundCloundTrackEmbed = "";
             }
 
-
-			return $this->render('TNCYSchoolBundle:Exercice:song.html.twig',array('lyrics'=>$lyrics,'soundCloundTrackEmbed'=>$soundCloundTrackEmbed));    	}
+            $exerciceId = $request->query->get('exerciceId');
+            
+			return $this->render('TNCYSchoolBundle:Exercice:song.html.twig',array('lyrics'=>$lyrics,'soundCloundTrackEmbed'=>$soundCloundTrackEmbed,'exerciceId'=>$exerciceId));
+      	}
     	else{
     		//à voir si validation php ou javascript
     	}   	

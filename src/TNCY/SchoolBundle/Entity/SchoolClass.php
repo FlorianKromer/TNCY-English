@@ -158,4 +158,28 @@ class SchoolClass extends BaseGroup
     {
         return $this->code;
     }
+
+    /**
+     * Add student
+     *
+     * @param \TNCY\SchoolBundle\Entity\Student $student
+     *
+     * @return SchoolClass
+     */
+    public function addStudent(\TNCY\SchoolBundle\Entity\Student $student)
+    {
+        $this->students[] = $student;
+
+        return $this;
+    }
+
+    /**
+     * Remove student
+     *
+     * @param \TNCY\SchoolBundle\Entity\Student $student
+     */
+    public function removeStudent(\TNCY\SchoolBundle\Entity\Student $student)
+    {
+        $this->students->removeElement($student);
+    }
 }

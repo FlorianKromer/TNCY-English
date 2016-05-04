@@ -10,7 +10,7 @@
 
 			{{soundCloundTrackEmbed | raw}}
 
-			<form action="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" method="POST" id="lyricsForm">
+			<form action="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" method="POST" id="lyricsForm" data-exercice="{{exerciceId}}">
 				
 			<p>{{lyrics | raw}}</p>
 			
@@ -44,6 +44,16 @@ $( document ).ready(function(){
 		 	}	 
 		 
 		});
+
+		///send result to bdd
+		$.ajax({
+		  type: "POST",
+		  url: Routing.generate('tncy_school_exercice_result'),
+		  data: { id: $("#lyricsForm").data('exercice'), result: countError+"/20" },
+		  success: success,
+		  dataType: 'json'
+		});
+		
 	});
  });
 </script>
