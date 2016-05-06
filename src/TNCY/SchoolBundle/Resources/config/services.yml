@@ -41,4 +41,12 @@ services:
         class: "TNCY\\SchoolBundle\\Service\\MusixmatchApi"
         calls:
             - [ setContainer, [@service_container]]
-    
+
+    tncy_school.block.service.homework:
+        class: "TNCY\\SchoolBundle\\Block\\HomeworkBlockService"
+        arguments:
+            - sonata.block.text
+            - "@templating"
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - { name: sonata.block }

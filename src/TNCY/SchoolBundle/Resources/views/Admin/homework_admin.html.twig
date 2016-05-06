@@ -1,0 +1,12 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+ 
+{% block form %}
+
+<div class="col-md-6">
+	{{ block('parentForm') }}
+</div>
+<div class="col-md-6">
+
+    {{ sonata_block_render({ 'type': 'tncy_school.block.service.homework' }, { 'homeworkId': object}) }}
+</div>
+{% endblock %}

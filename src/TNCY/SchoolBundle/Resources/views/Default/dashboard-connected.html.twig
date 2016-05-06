@@ -28,7 +28,7 @@
                         <tbody>
                         {% for item in exercices %}
                             <tr>
-                                <td>{{item.homework.dueDate|date('Y-m-d')}}</td>
+                                <td><p data-placement="top" title="{{item.content}}">{{item.homework.dueDate|date('Y-m-d')}}</p></td>
                                 <td><a href="{{path('tncy_school_find_exercice', {'id':item.id}) }}">{{item.homework.name}} ({{item.exercice.getShortName}})</a></td>
                                 <td>{{item.result}}</td>
                             </tr>
@@ -40,47 +40,7 @@
         </div>
                 <!-- sidebar -->
         <aside class="col-md-4">
-<!--             <div class="panel panel-default">
-                <div class="panel-body">
-                    <h4>{{ "Maîtrise de l'anglais" | trans }}</h4>
-                    <a href="" class="btn btn-success  btn-fab">7%</a>
-                    <button type="button" class="btn btn-lg btn-block btn-raised btn-primary">{{ "Certifie tes connaissances" | trans }}</button>
-                    <button type="button" class="btn btn-lg btn-block btn-raised btn-info">{{ "Ajouter au profil linkedin" | trans }}</button>
-                </div>
-            </div>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h4>{{ "Objectif quotidien"| trans }}</h4>
-                    <p>
-                        {{ "Fixe-toi un objectif quotidien en termes de XP pour t'aider à rester motivé."| trans }}
-                    </p>
-                    <canvas id="myChart" width="300" height="250"></canvas>
-
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h4>{{ "Fais la compétition avec tes amis"| trans }}</h4>
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-picture">
-                                <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
-                            </div>
-                            <div class="row-content">
-                                <h4 class="list-group-item-heading">{{ "Hey toto "| trans }}</h4>
-
-                                <p class="list-group-item-text">{{ "Ajoute des amis pour faire la course avec eux !"| trans }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-lg btn-block btn-raised btn-primary">{{ "Trouver des amis sur Facebook"| trans }}</button>
-                    <button type="button" class="btn btn-raised btn-info">{{ "Inviter des amis"| trans }}</button>
-                    <button type="button" class="btn btn-raised btn-info">{{ "Chercher"| trans }}</button>
-                </div>
-            </div>
- -->
 
             <div class="panel panel-default">
                 <div class="panel-body">

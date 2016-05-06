@@ -143,4 +143,5 @@ services:
             - [ setSecurityToken , [@security.token_storage]]
             - [ setTwig , [@templating]]
             - [ setMailer , [@mailer]]
+            - [ setTemplate, [edit, TNCYSchoolBundle:Admin:homework_admin.html.twig]]
 

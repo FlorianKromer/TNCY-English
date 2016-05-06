@@ -462,7 +462,7 @@ Memory.prototype._renderTiles = function() {
 		$.ajax({
 		  type: "POST",
 		  url: Routing.generate('tncy_school_exercice_result'),
-		  data: { id: $("#my-memory-game").data('exerciceresult'), result: this.numMoves +" moves" },
+		  data: { id: $("#my-memory-game").data('exerciceresult'), result: ""+ this.numMoves +" moves" },
 		  dataType: 'json'
 		});
 	} else {

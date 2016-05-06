@@ -1,0 +1,84 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+ <style type="text/css">
+table {
+        width: 100%;
+    }
+
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 30px;
+
+    /*text-align: left;*/
+}
+
+tbody {
+    height: 42em;
+    overflow-y: auto;
+}
+
+thead {
+    /* fallback */
+}
+
+
+tbody td, thead th {
+    width: 25.2%;
+    float: left;
+}
+</style>   
+<div class="box box-primary">
+    <div class="box-header">
+        <h4 class="box-title">
+            Results
+        </h4>
+    </div>
+    <div class="box-body">
+        {{ settings.content|raw }}
+        {{ results |length}}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>exercice</th>
+                    <th>student</th>
+                    <th>result</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for ex in results %}
+                <tr>
+                    <td>{{ex.exercice}}</td>
+                    <td>{{ex.student}}</td>
+                    <td>{{ex.result}}</td>
+                </tr>
+        {% endfor %}
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
