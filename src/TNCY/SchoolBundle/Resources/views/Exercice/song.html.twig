@@ -10,7 +10,7 @@
 
 			{{soundCloundTrackEmbed | raw}}
 
-			<form action="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" method="POST" id="lyricsForm" data-exercice="{{exerciceId}}">
+			<form action="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" method="POST" id="lyricsForm" data-exerciceresult="{{idExerciceResult}}">
 				
 			<p>{{lyrics | raw}}</p>
 			
@@ -32,6 +32,7 @@ $( document ).ready(function(){
 	$("#lyricsForm").submit(function( event ) {
 		event.preventDefault();
 		var countError = 0;
+		var total = 0;
 	  	jQuery.each( $("input"), function( i, val ) {
 		 	if ($(this).data("answer").toLowerCase() != $(this).val().toLowerCase()) {
 		 		countError ++;
@@ -42,15 +43,14 @@ $( document ).ready(function(){
 	 		  	$("<span />", { text: this.value, "class":"has-success" }).insertAfter(this);
 				$(this).hide();
 		 	}	 
-		 
+		 total++;
 		});
 
-		///send result to bdd
+		//send result to bdd
 		$.ajax({
 		  type: "POST",
 		  url: Routing.generate('tncy_school_exercice_result'),
-		  data: { id: $("#lyricsForm").data('exercice'), result: countError+"/20" },
-		  success: success,
+		  data: { id: $("#lyricsForm").data('exerciceresult'), result: total-countError+"/"+total },
 		  dataType: 'json'
 		});
 		

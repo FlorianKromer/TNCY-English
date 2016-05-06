@@ -28,26 +28,30 @@ tncy_school_dashboard:
 
 #exercice
 tncy_school_memory:
-    path:     /exercice/memory
-    defaults: { _controller: TNCYSchoolBundle:Exercice:memory }
+    path:     /exercice/memory/{idExercice}/{idExerciceResult}
+    defaults: { _controller: TNCYSchoolBundle:Exercice:memory, idExercice : 1, idExerciceResult : 0 }
 
 tncy_school_memory_data:
-    pattern: /exercice/memory-data
-    defaults: { _controller: TNCYSchoolBundle:Exercice:memoryData }
+    pattern: /exercice/memory-data/{id}
+    defaults: { _controller: TNCYSchoolBundle:Exercice:memoryData, id : 1}
     options:
         expose: true
 
 tncy_school_song:
-    path:     /exercice/song
-    defaults: { _controller: TNCYSchoolBundle:Exercice:song }
+    path:     /exercice/song/{idExercice}/{idExerciceResult}
+    defaults: { _controller: TNCYSchoolBundle:Exercice:song, idExercice : 1, idExerciceResult : 0 }
 
 tncy_school_vocabulary:
-    path:     /exercice/vocabulary
-    defaults: { _controller: TNCYSchoolBundle:Exercice:vocabulary }
+    path:     /exercice/vocabulary/{idExercice}/{idExerciceResult}
+    defaults: { _controller: TNCYSchoolBundle:Exercice:vocabulary, idExercice : 1, idExerciceResult : 0 }
 
 tncy_school_match:
-    path:     /exercice/match
-    defaults: { _controller: TNCYSchoolBundle:Exercice:match }
+    path:     /exercice/match/{idExercice}/{idExerciceResult}
+    defaults: { _controller: TNCYSchoolBundle:Exercice:match, idExercice : 1, idExerciceResult : 0 }
+
+tncy_school_find_exercice:
+    path:     /exercice/find/{id}
+    defaults: { _controller: TNCYSchoolBundle:Exercice:find, id : 1 }
 
 tncy_school_exercice_result:
     path: /exercice/result

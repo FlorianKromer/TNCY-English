@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-04-18T20:49:24Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2016-05-06T11:16:25Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="da39a3ee5e6b4b0d3255bfef95601890afd80709" resname="">
-        <source></source>
-        <target></target>
-        <jms:reference-file line="62">SchoolBundle/Menu/MenuBuilder.php</jms:reference-file>
-        <jms:reference-file line="72">SchoolBundle/Menu/MenuBuilder.php</jms:reference-file>
+      <trans-unit id="3ffb811f9be63cf3e71f2e2b71599ba2b7721405" resname="About us">
+        <source>About us</source>
+        <target state="new">About us</target>
+        <jms:reference-file line="2">views/Default/about-us.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a8ff8fd207898612a41280ecd69fb6c8d6f6ad11" resname="Accueil">
         <source>Accueil</source>
@@ -35,12 +34,12 @@
       <trans-unit id="92a4d0534d2d6179a8ec53cb2b3dc5b0abe58949" resname="Ajoute des amis pour faire la course avec eux !">
         <source>Ajoute des amis pour faire la course avec eux !</source>
         <target>Ajoute des amis pour faire la course avec eux !</target>
-        <jms:reference-file line="45">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="74">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a1e8899999ec7dc561b42b4f15f1517dd039e02a" resname="Ajouter au profil linkedin">
         <source>Ajouter au profil linkedin</source>
         <target state="new">Ajouter au profil linkedin</target>
-        <jms:reference-file line="19">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="48">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3d50fe16b645869aa04da6915f4799429c5fa700" resname="Apprendre avec EnjoyLearning">
         <source>Apprendre avec EnjoyLearning</source>
@@ -70,12 +69,12 @@
       <trans-unit id="dae6a9ff0aada03dc0471d377d4adf6b6257c45f" resname="Certifie tes connaissances">
         <source>Certifie tes connaissances</source>
         <target state="new">Certifie tes connaissances</target>
-        <jms:reference-file line="18">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="47">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="dcaef5e63af73ecdc461619402f8d13754ec5718" resname="Chercher">
         <source>Chercher</source>
         <target state="new">Chercher</target>
-        <jms:reference-file line="51">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="80">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2cfe3ba0f675821869b08bc5f38e3fedb8a716c1" resname="Choose an subject">
         <source>Choose an subject</source>
@@ -86,6 +85,11 @@
         <source>City</source>
         <target>Ville</target>
         <jms:reference-file line="26">SchoolBundle/Admin/SchoolAdmin.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="24437cc0d050476265278fcda0df68b5ec006a6b" resname="Cliquer ici pour accéder à votre dashboard">
+        <source>Cliquer ici pour accéder à votre dashboard</source>
+        <target state="new">Cliquer ici pour accéder à votre dashboard</target>
+        <jms:reference-file line="52">views/Emails/homework.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9d18412ed9d9fc21c9782d93f8ce11632b5bab68" resname="Comment cela fonctionne">
         <source>Comment cela fonctionne</source>
@@ -104,22 +108,28 @@
         <jms:reference-file line="12">views/Default/contact.html.twig</jms:reference-file>
         <jms:reference-file line="3">views/Default/news.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="4f9be057f0ea5d2ba72fd2c810e8d7b9aa98b469" resname="Content">
+        <source>Content</source>
+        <target state="new">Content</target>
+        <jms:reference-file line="34">SchoolBundle/Admin/HomeworkAdmin.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="f3cb82af6c8203bfe6b4911b7e0e8385964509bf" resname="Contenu">
         <source>Contenu</source>
         <target state="new">Contenu</target>
         <jms:reference-file line="27">SchoolBundle/Admin/LessonAdmin.php</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="1db19285e43759d1b33c6464741a97e495e7a1ea" resname="Culture">
-        <source>Culture</source>
-        <target state="new">Culture</target>
-        <jms:reference-file line="90">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d87f47b47e4d5794d53fe0734c49417bd046cde0" resname="Dashboard">
         <source>Dashboard</source>
         <target>Tableau de bord</target>
         <jms:reference-file line="2">views/Default/dashboard-connected.html.twig</jms:reference-file>
         <jms:reference-file line="2">views/Default/dashboard.html.twig</jms:reference-file>
+        <jms:reference-file line="2">views/Exercice/match.html.twig</jms:reference-file>
         <jms:reference-file line="2">views/Exercice/vocabulary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f27f847801af728e56c7c533762c8baf24a2d531" resname="De nouveaux devoirs vous ont été assigné">
+        <source>De nouveaux devoirs vous ont été assigné</source>
+        <target state="new">De nouveaux devoirs vous ont été assigné</target>
+        <jms:reference-file line="47">views/Emails/homework.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="55f8ebc805e65b5b71ddafdae390e3be2bcd69af" resname="Description">
         <source>Description</source>
@@ -130,6 +140,11 @@
         <source>Draft</source>
         <target>Brouillon</target>
         <jms:reference-file line="20">SchoolBundle/Admin/LessonAdmin.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4c1aeebc433bcb8eb4b05434619ea3136b785ea8" resname="Due date">
+        <source>Due date</source>
+        <target state="new">Due date</target>
+        <jms:reference-file line="36">SchoolBundle/Admin/HomeworkAdmin.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="92610c03a8dee5e48a2ddcf743902336d7533615" resname="Durant les leçons, la fonction de reconnaissance vocale de EnjoyLearning vous permet d’améliorer votre prononciation. Le parfait outil pour apprendre et progresser rapidement.">
         <source>Durant les leçons, la fonction de reconnaissance vocale de EnjoyLearning vous permet d’améliorer votre prononciation. Le parfait outil pour apprendre et progresser rapidement.</source>
@@ -185,30 +200,30 @@
         <target>Exercice Chanson</target>
         <jms:reference-file line="2">views/Exercice/song.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="5589e74bbd59d14c8d6306e9b048b9475ff7ac8a" resname="Exercices">
+        <source>Exercices</source>
+        <target state="new">Exercices</target>
+        <jms:reference-file line="43">SchoolBundle/Menu/MenuBuilder.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="a44b726fb363eae25a60c7f7b5e66ecbcaf34958" resname="Fais la compétition avec tes amis">
         <source>Fais la compétition avec tes amis</source>
         <target state="new">Fais la compétition avec tes amis</target>
-        <jms:reference-file line="36">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="65">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="199ef65e5d481d6cae840ced86f9d635406d6c2b" resname="Fixe-toi un objectif quotidien en termes de XP pour t'aider à rester motivé.">
         <source>Fixe-toi un objectif quotidien en termes de XP pour t'aider à rester motivé.</source>
         <target state="new">Fixe-toi un objectif quotidien en termes de XP pour t'aider à rester motivé.</target>
-        <jms:reference-file line="27">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="56">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="df441d1b3d61af59df3049832259ac9c603d5752" resname="Formulaire de recherche de leçon">
         <source>Formulaire de recherche de leçon</source>
         <target state="new">Formulaire de recherche de leçon</target>
         <jms:reference-file line="59">views/Default/lessons.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="895ff17632e84708467458e1db0c75a294890d37" resname="Grammaire">
-        <source>Grammaire</source>
-        <target state="new">Grammaire</target>
-        <jms:reference-file line="80">views/Default/dashboard-connected.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="8c44f666c3b6c60b254dda92aa37233065526ed1" resname="Hey toto ">
         <source>Hey toto </source>
         <target state="new">Hey toto </target>
-        <jms:reference-file line="43">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="72">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="50e19fda0d5b4b74a4a1a1d584e56578693a4ea4" resname="Image">
         <source>Image</source>
@@ -218,7 +233,7 @@
       <trans-unit id="64f7fe40688f44ed29f150ea5e15e821179ce6d2" resname="Inviter des amis">
         <source>Inviter des amis</source>
         <target state="new">Inviter des amis</target>
-        <jms:reference-file line="50">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="79">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d336400c98ea1ae90eba1ede3edcd36a174cdc72" resname="Les dernieres leçons">
         <source>Les dernieres leçons</source>
@@ -238,7 +253,7 @@
       <trans-unit id="71b81f73327be716ad4f5bb13059526117f00bb7" resname="Maîtrise de l'anglais">
         <source>Maîtrise de l'anglais</source>
         <target state="new">Maîtrise de l'anglais</target>
-        <jms:reference-file line="16">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="45">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="89c8a2851d1755cf87365b4a7c55e5551cf878c6" resname="Memory">
         <source>Memory</source>
@@ -265,6 +280,7 @@
         <target>Nom</target>
         <jms:reference-file line="13">SchoolBundle/Admin/ExMemoryItemAdmin.php</jms:reference-file>
         <jms:reference-file line="23">SchoolBundle/Admin/ExSongAdmin.php</jms:reference-file>
+        <jms:reference-file line="31">SchoolBundle/Admin/HomeworkAdmin.php</jms:reference-file>
         <jms:reference-file line="18">SchoolBundle/Admin/LessonAdmin.php</jms:reference-file>
         <jms:reference-file line="21">SchoolBundle/Admin/SchoolAdmin.php</jms:reference-file>
       </trans-unit>
@@ -283,12 +299,7 @@
       <trans-unit id="7d9167123fccc9feaa95ee849c92ee4eb503faec" resname="Objectif quotidien">
         <source>Objectif quotidien</source>
         <target state="new">Objectif quotidien</target>
-        <jms:reference-file line="25">views/Default/dashboard-connected.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="1539beead6457b4421e5ebb2cb7ddc660dae1e4e" resname="Orthographe">
-        <source>Orthographe</source>
-        <target state="new">Orthographe</target>
-        <jms:reference-file line="85">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="54">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="03765bf1187b17a6c6bb63b8833277a11cd43faf" resname="Parler une autre langue élargit vos possibilités. &lt;br&gt;&#10;                Apprendre une nouvelle langue avec &lt;strong&gt;EnjoyLearning&lt;/strong&gt; &lt;br&gt;&#10;                est simple, interactif et efficace.">
         <source><![CDATA[Parler une autre langue élargit vos possibilités. <br>
@@ -334,10 +345,10 @@
         <target state="new">Song iframe embed</target>
         <jms:reference-file line="26">SchoolBundle/Admin/ExSongAdmin.php</jms:reference-file>
       </trans-unit>
-      <trans-unit id="d3f69e11ffccd30e3f9b98730f5a795deb061460" resname="Suivre Duolingo">
-        <source>Suivre Duolingo</source>
-        <target>Suivre Enjoylearning</target>
-        <jms:reference-file line="59">views/Default/dashboard-connected.html.twig</jms:reference-file>
+      <trans-unit id="de60fa22912d821a6c4b988e6be4bea623dd325d" resname="Suivre EnjoyLearning">
+        <source>Suivre EnjoyLearning</source>
+        <target state="new">Suivre EnjoyLearning</target>
+        <jms:reference-file line="88">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="d7742281333f757fe1bd09f8584773fe22b56cbd" resname="Sujet">
         <source>Sujet</source>
@@ -368,18 +379,14 @@
       <trans-unit id="033ae6b4bcca35f9070db6cfb4e941a2d5a27609" resname="Trouver des amis sur Facebook">
         <source>Trouver des amis sur Facebook</source>
         <target state="new">Trouver des amis sur Facebook</target>
-        <jms:reference-file line="49">views/Default/dashboard-connected.html.twig</jms:reference-file>
+        <jms:reference-file line="78">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6752f198b56479cfb32b98d51047e89e96433119" resname="Validate">
         <source>Validate</source>
         <target state="new">Validate</target>
+        <jms:reference-file line="34">views/Exercice/match.html.twig</jms:reference-file>
         <jms:reference-file line="17">views/Exercice/song.html.twig</jms:reference-file>
         <jms:reference-file line="15">views/Exercice/vocabulary.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="f48b7e41eb9a7a3b81b01d1f898a9359ef9d6d2d" resname="Vocabulaire">
-        <source>Vocabulaire</source>
-        <target state="new">Vocabulaire</target>
-        <jms:reference-file line="75">views/Default/dashboard-connected.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="63551ae9f0c4f124e18eb64bba42f6ac7a217a2b" resname="Voir plus">
         <source>Voir plus</source>

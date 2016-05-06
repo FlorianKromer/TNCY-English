@@ -64,7 +64,9 @@
 
   Memory.prototype.options = {
 	wrapperID : "my-memory-game",
-  	cards :  	$.getJSON(Routing.generate('tncy_school_memory_data'), function(response){
+  	cards :  	$.getJSON(Routing.generate('tncy_school_memory_data',{
+        id: $("#my-memory-game").data('exercice'),
+     	}),  function(response){
 		var items = [];
 		$.each( response, function( key, val ) {
 			items.push( val);
@@ -456,6 +458,13 @@ Memory.prototype._renderTiles = function() {
 	  document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
 		self.resetGame();
 	  });
+	  		//send result to bdd
+		$.ajax({
+		  type: "POST",
+		  url: Routing.generate('tncy_school_exercice_result'),
+		  data: { id: $("#my-memory-game").data('exerciceresult'), result: this.numMoves +" moves" },
+		  dataType: 'json'
+		});
 	} else {
 	  // run callback
 	  this.options.onGameEnd();

@@ -28,8 +28,8 @@
                         <tbody>
                         {% for item in exercices %}
                             <tr>
-                                <td><a href="#">{{item.homework.dueDate|date('Y-m-d')}}</a></td>
-                                <td>{{item.homework.name}}</td>
+                                <td>{{item.homework.dueDate|date('Y-m-d')}}</td>
+                                <td><a href="{{path('tncy_school_find_exercice', {'id':item.id}) }}">{{item.homework.name}} ({{item.exercice.getShortName}})</a></td>
                                 <td>{{item.result}}</td>
                             </tr>
                         {% endfor %}
@@ -87,9 +87,8 @@
                     <div class=" box-social-buttons">
                         <h4>{{ "Suivre EnjoyLearning"|trans}}</h4>
                         <div class=" list-social-buttons">
-                            <a target="_blank" href="http://twitter.com/duolingo" class="btn  btn-sm btn-twitter">Twitter </a>
-                            <a target="_blank" href="http://facebook.com/duolingo" class="btn   btn-sm btn-fb">Facebook </a>
-                            <a target="_blank" href="http://plus.google.com/+duolingo" class="btn  btn-sm btn-google">Google+ </a>
+                            <a target="_blank" href="https://twitter.com/LearningEnjoy" class="btn  btn-sm btn-twitter">Twitter </a>
+                            <a target="_blank" href="https://www.facebook.com/English.EnjoyLearning" class="btn   btn-sm btn-fb">Facebook </a>
                         </div>
                     </div>      
                 </div>

@@ -22,7 +22,7 @@ abstract class ExerciceAbstract
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var datetime
@@ -49,6 +49,7 @@ abstract class ExerciceAbstract
         $this->updated_at = new \DateTime();
     }
 
+
     /**
      * Get id
      *
@@ -71,6 +72,11 @@ abstract class ExerciceAbstract
         $this->created_at = $createdAt;
 
         return $this;
+    }
+
+    public function getShortName(){
+        $function = new \ReflectionClass($this);
+        return $function->getShortName();
     }
 
     /**
