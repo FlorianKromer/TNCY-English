@@ -4,6 +4,7 @@ namespace TNCY\SchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use TNCY\SchoolBundle\Entity\ExerciceAbstract ;
+
 /**
  * Memory
  *

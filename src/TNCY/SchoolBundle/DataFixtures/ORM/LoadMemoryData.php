@@ -36,6 +36,9 @@ class LoadMemoryData extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($memoryItem);
             $manager->flush();
         }
+
+        $this->addReference('ex.memory', $memory);
+
     }
     public function getOrder()
     {

@@ -42,9 +42,14 @@ class ExerciceResult
     /**
      * @var string
      *
-     * @ORM\Column(name="result", type="string", length=255)
+     * @ORM\Column(name="result", type="string", length=255,nullable=true)
      */
     private $result;
+
+    function __construct()
+    {
+        // $this->result = "";
+    }
 
     /**
      * Get id

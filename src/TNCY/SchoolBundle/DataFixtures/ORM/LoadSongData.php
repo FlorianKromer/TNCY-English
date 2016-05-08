@@ -46,6 +46,7 @@ for everything that I've done\n
         $manager->persist($song);
         $manager->flush();
 
+        $this->addReference('ex.song', $song);
 
     }
 

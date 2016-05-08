@@ -23,14 +23,14 @@ class Homework
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    protected $name;
 
 
     /**
@@ -38,7 +38,7 @@ class Homework
      *
      * @ORM\Column(name="content", type="text")
      */
-    private $content;
+    protected $content;
 
     /**
     * @ORM\ManyToMany(targetEntity="SchoolClass", cascade={"persist"})
@@ -56,7 +56,7 @@ class Homework
      *
      * @ORM\Column(name="due_date", type="datetime")
      */
-    private $due_date;
+    protected $due_date;
 
     /**
      * @var string
@@ -70,20 +70,20 @@ class Homework
      *
      * @ORM\Column(name="created_at", type="datetime")
      */
-    private $created_at;
+    protected $created_at;
 
     /**
      * @var datetime
      *
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    private $updated_at;
+    protected $updated_at;
 
     /**
     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $author;
+    protected $author;
 
     // public static  $CONST_TOPIC = array('GRAMMAR'=>'GRAMMAR','ORTHOGRAPH'=>'ORTHOGRAPH','VOCABULARY'=>'VOCABULARY','CONJUGATION'=>'CONJUGATION');
 

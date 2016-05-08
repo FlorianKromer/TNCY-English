@@ -12,31 +12,37 @@ class LoadMatchWord extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $topic = new VocTopic();
-        $topic->setName('à table');
+        $topic->setName('Smart Idioms');
 
         $manager->persist($topic);
         $manager->flush();
 
 
-        $this->loadCooking($manager, $topic);
+        $this->loadIdioms($manager, $topic);
     }
 
 
-    public function loadCooking($manager, $topic)
+    public function loadIdioms($manager, $topic)
     {
         $word = new MatchWord();
-        $word->setStart('Le porc est dans');
-        $word->setEnd('la porcherie');
+        $word->setStart('A penny for');
+        $word->setEnd('your thoughts');
         $word->setVocTopic($topic);
-
         $manager->persist($word);
         $manager->flush();
 
         $word = new MatchWord();
-        $word->setStart('I have to');
-        $word->setEnd('wash my hands');
+        $word->setStart('Actions speak ');
+        $word->setEnd('louder than words');
         $word->setVocTopic($topic);
+        $manager->persist($word);
+        $manager->flush();
 
+
+        $word = new MatchWord();
+        $word->setStart('Costs an arm');
+        $word->setEnd('and a leg');
+        $word->setVocTopic($topic);
         $manager->persist($word);
         $manager->flush();
     }

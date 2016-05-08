@@ -28,7 +28,7 @@
                         <tbody>
                         {% for item in exercices %}
                             <tr>
-                                <td><p data-placement="top" title="{{item.content}}">{{item.homework.dueDate|date('Y-m-d')}}</p></td>
+                                <td><p data-placement="top" data-toggle="tooltip" title="{{item.homework.content}}">{{item.homework.dueDate|date('Y-m-d')}}</p></td>
                                 <td><a href="{{path('tncy_school_find_exercice', {'id':item.id}) }}">{{item.homework.name}} ({{item.exercice.getShortName}})</a></td>
                                 <td>{{item.result}}</td>
                             </tr>
@@ -63,5 +63,9 @@
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
-
+<script type="text/javascript">
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 {% endblock %}
