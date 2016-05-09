@@ -201,7 +201,7 @@
       </trans-unit>
       <trans-unit id="5589e74bbd59d14c8d6306e9b048b9475ff7ac8a" resname="Exercices">
         <source>Exercices</source>
-        <target state="new">Exercices</target>
+        <target state="new">Exercises</target>
         <jms:reference-file line="43">SchoolBundle/Menu/MenuBuilder.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="a44b726fb363eae25a60c7f7b5e66ecbcaf34958" resname="Fais la compétition avec tes amis">
