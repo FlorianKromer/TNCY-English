@@ -42,15 +42,13 @@ class MenuBuilder
         //$menu->addChild('News', array('route' => 'sonata_news_archive'));
         $menu->addChild('Language', array('label' => 'Exercices'))
                     ->setAttribute('dropdown', true);
-        $menu['Language']->addChild('J\'apprends l\'anglais niveau 1', array('route' => 'tncy_school_about'))
-                    ->setAttribute('class', 'dropdown-header');
-        $menu['Language']->addChild('Exercice: Song', array('route' => 'tncy_school_song'))
+        $menu['Language']->addChild('Exercise: Song', array('route' => 'tncy_school_song'))
                     ->setAttribute('icon', 'fa fa-plus');
-        $menu['Language']->addChild('Exercice: Memory', array('route' => 'tncy_school_memory'))
+        $menu['Language']->addChild('Exercise: Memory', array('route' => 'tncy_school_memory'))
                     ->setAttribute('icon', 'fa fa-plus');
-        $menu['Language']->addChild('Exercice: vocabulary', array('route' => 'tncy_school_vocabulary'))
+        $menu['Language']->addChild('Exercise: vocabulary', array('route' => 'tncy_school_vocabulary'))
                     ->setAttribute('icon', 'fa fa-plus');
-        $menu['Language']->addChild('Exercice: match', array('route' => 'tncy_school_match'))
+        $menu['Language']->addChild('Exercise: match', array('route' => 'tncy_school_match'))
                     ->setAttribute('icon', 'fa fa-plus');
         $menu->addChild('Leçons', array('route' => 'tncy_school_lessons'));
         if($this->securityContext->isGranted('ROLE_ADMIN') || $this->securityContext->isGranted('ROLE_SONATA_USER_ADMIN_TEACHER_STAFF')){
@@ -76,7 +74,6 @@ class MenuBuilder
 
 
 
-        $menu->addChild('Dashboard', array('route' => 'tncy_school_dashboard'));
           
 
         // $menu['User']->addChild('Aide', array('route' => 'tncy_school_about'))
@@ -85,6 +82,7 @@ class MenuBuilder
         //             ->setAttribute('icon', 'fa fa-keyboard-o');
         if($this->securityContext->isGranted('IS_AUTHENTICATED_FULLY')){
 
+            $menu->addChild('Dashboard', array('route' => 'tncy_school_dashboard'));
             $menu->addChild($user->getUsername(), ['route' => 'tncy_school_profile','routeParameters' => array('id' => $user->getId())])
                     ->setAttribute('icon', 'fa fa-user')
                     ->setAttribute('dropdown', true);

@@ -87,9 +87,6 @@ sonata_admin:
                     content: >
                         <h2>Welcome to the EnjoyLearning Administration</h2>
                         <p>Here you can manage student, create homework or invent new exercices</p>
-            -
-                position: right
-                type: tncy_school.block.service.homework
 
 
 

@@ -35,17 +35,17 @@ security:
 
         # This firewall is used to handle the public login area
         # This part is handled by the FOS User Bundle
-        old-main:
-            pattern:             .*
-            context:             user
-            form_login:
-                provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                failure_path:   null
-            logout:             true
-            anonymous:          true
+        # old-main:
+        #     pattern:             .*
+        #     context:             user
+        #     form_login:
+        #         provider:       fos_userbundle
+        #         login_path:     /login
+        #         use_forward:    false
+        #         check_path:     /login_check
+        #         failure_path:   null
+        #     logout:             true
+        #     anonymous:          true
 
         main:
             pattern:    ^/
@@ -60,8 +60,8 @@ security:
             oauth:
                 resource_owners:
                     # github:             "/login/check-github"
-                    google:             "/login/check-google"
-                    facebook:           "/login/check-facebook"
+                    google:             /login/check-google
+                    facebook:           /login/check-facebook
                     # twitter:           "/login/check-twitter"
                 login_path:        /login
                 failure_path:      /login

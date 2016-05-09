@@ -1,4 +1,6 @@
 {% extends 'HWIOAuthBundle::layout.html.twig' %}
+{% block title %}{{ "Connexion"| trans}} {{ parent() }}  {% endblock %}
+
 {% block hwi_oauth_content %}
     {% block fos_user_content %}
         <div class="row">
@@ -19,10 +21,10 @@
 
                 <div class="panel ">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Inscription</h3>
+                    <h3 class="panel-title">{{ "Inscription"| trans}}</h3>
                 </div>
                 <div class="panel-body">
-                    Pour se connecter avec les réseaux sociaux:
+                    {{ "Pour créer un compte avec les réseaux sociaux:"| trans}}
                     <div class="box-social-buttons">
 
                         {% if error is defined and error %}
@@ -36,7 +38,7 @@
                         </div>
 
                     </div>
-                    <p>Si vous n'êtes pas encore inscrit : <br>
+                    <p> {{ "Si vous n'êtes pas encore inscrit :"| trans}}<br>
                         <a href="{{ path('fos_user_registration_register') }}" class="btn btn-default">S'inscrire</a>
 
                     </p>

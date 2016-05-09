@@ -2414,10 +2414,6 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   margin: 10px auto;
 }
 @media (min-width: 992px) {
-  #posts .post,
-  #posts .quote {
-    height: 340px;
-  }
   #posts .post.featured,
   #posts .post.big {
     height: auto;
@@ -2432,7 +2428,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   margin-top: 0;
 }
 #posts .post .caption {
-  padding: 20px 24px;
+  padding: 20px 24px 0 24px;
 }
 .post .post-thumb {
   height: 80px;
@@ -5855,9 +5851,6 @@ h6,
 #map {
   min-height: 45em;
   max-height: 100%;
-}
-.news {
-  background-color: #9e9e9e;
 }
 .img-center {
   margin: 0 auto;
