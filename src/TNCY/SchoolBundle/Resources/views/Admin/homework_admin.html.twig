@@ -6,7 +6,8 @@
 	{{ block('parentForm') }}
 </div>
 <div class="col-md-6">
-
+	{% if admin.id(object) is not null  %}
     {{ sonata_block_render({ 'type': 'tncy_school.block.service.homework' }, { 'homeworkId': object}) }}
+	{% endif %}
 </div>
 {% endblock %}
