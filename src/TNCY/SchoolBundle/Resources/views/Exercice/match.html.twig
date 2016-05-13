@@ -25,7 +25,7 @@
 
 <main class="container">
 	<div class="jumbotron">
-		<div class="diagramContainer">
+		<div class="diagramContainer" data-exerciceresult="{{idExerciceResult}}">
             {% for s in start %}	
     			<div id="start-{{loop.index-1}}" class="item-left">{{s}}</div>
     			<div id="end-{{loop.index-1}}" class="item-right">{{end[loop.index-1]}}</div>
@@ -74,18 +74,20 @@
         $("#done").click( function()
            {
 
-                var nbErrors = 0;
-                var size = 0;
+                var countError = 0;
+                var total = 0;
                  
                 $.each(jsPlumb.getConnections(), function (idx, connection) {
                     var source = $(connection.source).text();
                     var target = $(connection.target).text();
                     var color = "";
                     if (correct[source] != target){
-                        color = "red"
+                        color = "red";
+                        countError++;
                     } else {
-                        color = "green"
+                        color = "green";
                     }
+                    total++;
                     connection.endpoints[0].setStyle({
                         fillStyle:color
                     });
@@ -96,6 +98,14 @@
                         strokeStyle:color, 
                         lineWidth: 4
                     });
+                });
+
+                //send result to bdd
+                $.ajax({
+                  type: "POST",
+                  url: Routing.generate('tncy_school_exercice_result'),
+                  data: { id: $(".diagramContainer").data('exerciceresult'), result: total-countError+"/"+total },
+                  dataType: 'json'
                 });
             }
       );     

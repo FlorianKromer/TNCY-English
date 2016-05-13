@@ -49,7 +49,7 @@ class HomeworkBlockService extends BaseBlockService
             ->setParameter('h', $blockContext->getSettings()['homeworkId'])
             ->getQuery();
             $results = $query->getResult();
-
+            
         return $this->renderResponse($blockContext->getTemplate(), array(
             'block'     => $blockContext->getBlock(),
             'settings'  => $blockContext->getSettings(),

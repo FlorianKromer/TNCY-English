@@ -58,7 +58,7 @@ class Song extends ExerciceAbstract
 
     function __toString()
     {
-        return $this->name.' by '.$this->artist;
+        return $this->name.' by '.$this->artist." (song)" ;
     }
 
 

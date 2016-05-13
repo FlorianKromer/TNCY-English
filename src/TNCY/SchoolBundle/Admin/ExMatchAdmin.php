@@ -13,26 +13,45 @@ class ExMatchAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
 
-        $formMapper->add('start', 'text')
-                   ->add('end', 'text')
-                   ->add('vocTopic', 'sonata_type_model', array(
-                    'class' => 'TNCY\SchoolBundle\Entity\VocTopic',
-                    'property' => 'name',
-        ))
-    ;;
+        $formMapper->add('items', 'sonata_type_collection', array(
+                'type_options' => array(
+                    // Prevents the "Delete" option from being displayed
+                    'delete' => false,
+                    'delete_options' => array(
+                        // You may otherwise choose to put the field but hide it
+                        'type'         => 'hidden',
+                        // In that case, you need to fill in the options as well
+                        'type_options' => array(
+                            'mapped'   => false,
+                            'required' => false,
+                        )
+                    )
+                )
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'position',
+                'by_reference' => true
+            ))
+            ->add('vocTopic', 'sonata_type_model', array(
+                'required' => true,
+                 'class' => 'TNCY\SchoolBundle\Entity\VocTopic',
+                 'multiple' => false,
+                 'btn_add' =>false,
+                 ), array())
+            ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('start')
-                       ->add('end');
+        $datagridMapper->add('vocTopic');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('start')
-                   ->addIdentifier('end')
-                   ->addIdentifier('topic');
+        $listMapper->addIdentifier('id')
+                   ->add('vocTopic')
+                   ->add('items');
                    ;
     }
 }

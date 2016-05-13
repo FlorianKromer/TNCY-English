@@ -38,11 +38,17 @@ class MatchWord
     private $end;
 
     /**
-   * @ORM\ManyToOne(targetEntity="VocTopic")
-   * @ORM\JoinColumn(nullable=true)
-   */
-    protected $vocTopic;
+    * @ORM\ManyToOne(targetEntity="ExerciceMatch",inversedBy="items",cascade={"persist"})
+    * @ORM\JoinColumn(name="match_id", referencedColumnName="id",nullable=true)
+    */
+    protected $exercice;
 
+
+
+    public function __toString()
+    {
+        return $this->start."->" . $this->end;
+    }
 
 
     /**
@@ -103,28 +109,29 @@ class MatchWord
         return $this->end;
     }
 
+
+
     /**
-     * Set vocTopic
+     * Set exercice
      *
-     * @param \TNCY\SchoolBundle\Entity\VocTopic $vocTopic
+     * @param \TNCY\SchoolBundle\Entity\ExerciceMatch $exercice
      *
      * @return MatchWord
      */
-    public function setVocTopic(\TNCY\SchoolBundle\Entity\VocTopic $vocTopic = null)
+    public function setExercice(\TNCY\SchoolBundle\Entity\ExerciceMatch $exercice = null)
     {
-        $this->vocTopic = $vocTopic;
+        $this->exercice = $exercice;
 
         return $this;
     }
 
     /**
-     * Get vocTopic
+     * Get exercice
      *
-     * @return \TNCY\SchoolBundle\Entity\VocTopic
+     * @return \TNCY\SchoolBundle\Entity\ExerciceMatch
      */
-    public function getVocTopic()
+    public function getExercice()
     {
-        return $this->vocTopic;
+        return $this->exercice;
     }
-
 }

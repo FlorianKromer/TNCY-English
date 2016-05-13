@@ -85,6 +85,16 @@ services:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
             - [ setSecurityToken , [@security.token_storage]]
             - [ setContainer, [@service_container]]
+    sonata.admin.topic:
+        class: "TNCY\\SchoolBundle\\Admin\\VocTopicAdmin"
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "VocTopic" }
+        arguments:
+            - ~
+            - "TNCY\\SchoolBundle\\Entity\\VocTopic"
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
 
     sonata.admin.memory:
         class: "TNCY\\SchoolBundle\\Admin\\ExMemoryAdmin"
@@ -108,8 +118,8 @@ services:
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
 
-    sonata.admin.match:
-        class: "TNCY\\SchoolBundle\\Admin\\ExMatchAdmin"
+    sonata.admin.matchword:
+        class: "TNCY\\SchoolBundle\\Admin\\ExMatchWordAdmin"
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Match" }
         arguments:
@@ -119,6 +129,17 @@ services:
         calls:
             - [ setTranslationDomain, [TNCYSchoolBundle]]
 
+    sonata.admin.match:
+        class: "TNCY\\SchoolBundle\\Admin\\ExMatchAdmin"
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Exercice", label: "Match" }
+        arguments:
+            - ~
+            - "TNCY\\SchoolBundle\\Entity\\ExerciceMatch"
+            - ~
+        calls:
+            - [ setTranslationDomain, [TNCYSchoolBundle]]
+            
     sonata.admin.vocword:
         class: "TNCY\\SchoolBundle\\Admin\\ExVocWordAdmin"
         tags:

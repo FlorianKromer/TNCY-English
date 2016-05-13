@@ -45,7 +45,7 @@ class Memory extends ExerciceAbstract
 
     function __toString()
     {
-        return $this->topic;
+        return $this->topic." (memory)";
     }
 
     /**

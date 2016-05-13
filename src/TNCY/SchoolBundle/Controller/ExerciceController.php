@@ -64,6 +64,9 @@ class ExerciceController extends Controller
                 case 'TNCY\SchoolBundle\Entity\Song':
                     return $this->redirectToRoute('tncy_school_song', array('idExerciceResult'=>$exResult->getId(),'idExercice'=>$exResult->getExercice()->getId()));
                     break;
+                case 'TNCY\SchoolBundle\Entity\ExerciceMatch':
+                    return $this->redirectToRoute('tncy_school_match', array('idExerciceResult'=>$exResult->getId(),'idExercice'=>$exResult->getExercice()->getId()));
+                    break;
                 default:
                     # code...
                     break;
@@ -164,15 +167,17 @@ class ExerciceController extends Controller
         }
     }
 
-    public function matchAction(Request $request)
+    public function matchAction(Request $request,$idExercice,$idExerciceResult)
     {
         $repository = $this
                 ->getDoctrine()
                 ->getManager()
                 ->getRepository('TNCYSchoolBundle:MatchWord');
 
-        $phrases = $repository->findAll();
-
+        $phrases = $repository->find($idExercice);
+        if(! isset($phrases)){
+            $phrases = $repository->findAll();
+        }
         $start = [];
         $end = [];
         $correc = [];
@@ -182,6 +187,6 @@ class ExerciceController extends Controller
             $correc[$phrase->getStart()] = $phrase->getEnd();
         }
         shuffle($end);
-        return $this->render('TNCYSchoolBundle:Exercice:match.html.twig',array('start'=>$start, 'end' => $end, 'correc' => $correc));        
+        return $this->render('TNCYSchoolBundle:Exercice:match.html.twig',array('start'=>$start, 'end' => $end, 'correc' => $correc,'idExerciceResult'=>$idExerciceResult));        
     }
 }

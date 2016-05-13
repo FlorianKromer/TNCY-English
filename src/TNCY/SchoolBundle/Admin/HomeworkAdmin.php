@@ -107,7 +107,7 @@ class HomeworkAdmin extends Admin
                 ->setBody(
                     $this->twig->render(
                         'TNCYSchoolBundle:Emails:homework.html.twig',
-                        array('user' => $student,'homework'=>$homework)
+                        array('user' => 'Florian','homework'=>$homework)
                     ),
                     'text/html'
                 )
