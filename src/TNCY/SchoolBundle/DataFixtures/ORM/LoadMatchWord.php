@@ -25,7 +25,7 @@ class LoadMatchWord extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
 
         $ex = new ExerciceMatch();
-        $ex->setExercice($topic);
+        $ex->setTopic($topic);
         $author = $this->getReference('user.super_admin');
         $ex->setAuthor($author);
         $manager->persist($ex);
