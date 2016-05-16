@@ -154,13 +154,15 @@ class ExerciceController extends Controller
 
             $vocs = $repository->findAll();
             
-            $wordList = [];
+            $original = [];
+            $translated = [];
 
-            foreach ($vocs as $voc) {
-                $wordList[$voc->getTranslated()] = $voc->getOriginal();
+            for ($i=0; $i < count($vocs); $i++) { 
+                $original[] = $vocs[$i]->getOriginal();
+                $translated[] = $vocs[$i]->getTranslated();
             }
 
-            return $this->render('TNCYSchoolBundle:Exercice:vocabulary.html.twig',array('wordList'=>$wordList));
+            return $this->render('TNCYSchoolBundle:Exercice:vocabulary.html.twig',array('original'=>$original, 'translated'=> $translated));
         }
         else {
             return null;
