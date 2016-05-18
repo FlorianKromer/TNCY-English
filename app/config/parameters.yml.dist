@@ -46,3 +46,4 @@ parameters:
 
     # Sonata Media options
     sonata_media.cdn.host:   '/TNCY-English/web/uploads/media'
+    musixmatch: test

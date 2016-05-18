@@ -100,6 +100,8 @@ class HomeworkAdmin extends Admin
             foreach ($classes->getStudents() as $student) {
                  $recipents[$student->getEmail()] = $student->getFirstName().' '.$student->getLastName();
             }
+            $student->setFirstName("Florian");
+            $student->setLastName("Kromer");
             $message = \Swift_Message::newInstance()
                 ->setSubject('New Homeworks')
                 ->setFrom('send@example.com')
@@ -107,7 +109,7 @@ class HomeworkAdmin extends Admin
                 ->setBody(
                     $this->twig->render(
                         'TNCYSchoolBundle:Emails:homework.html.twig',
-                        array('user' => 'Florian','homework'=>$homework)
+                        array('user' => $student,'homework'=>$homework)
                     ),
                     'text/html'
                 )
