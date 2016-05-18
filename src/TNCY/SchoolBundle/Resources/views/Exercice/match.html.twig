@@ -99,10 +99,10 @@
                         strokeStyle:color, 
                         lineWidth: 4
                     });
-
-                    $("#done").attr('disabled','disabled');
                 });
 
+                $("#done").hide();
+                
                 //send result to bdd
                 $.ajax({
                   type: "POST",

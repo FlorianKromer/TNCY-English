@@ -14,7 +14,7 @@
 				
 			<p>{{lyrics | raw}}</p>
 			
-			<button type="submit" class="btn btn-primary">{{ "Validate"|trans}}</button>
+			<button id="done" type="submit" class="btn btn-primary">{{ "Validate"|trans}}</button>
 			</form>
 
 		</div>
@@ -29,6 +29,10 @@
 
 <script type="text/javascript">
 $( document ).ready(function(){
+	$("#done").click( function() {
+		$("#done").hide();
+	});
+
 	$("#lyricsForm").submit(function( event ) {
 		event.preventDefault();
 		var countError = 0;
