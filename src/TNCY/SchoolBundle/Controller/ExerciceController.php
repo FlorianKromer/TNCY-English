@@ -176,7 +176,6 @@ class ExerciceController extends Controller
                 ->getManager()
                 ->getRepository('TNCYSchoolBundle:MatchWord');
 
-        $phrases = $repository->find($idExercice);
         if(! isset($phrases)){
             $phrases = $repository->findAll();
         }

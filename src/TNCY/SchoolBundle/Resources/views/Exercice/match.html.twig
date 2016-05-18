@@ -88,6 +88,7 @@
                         color = "green";
                     }
                     total++;
+                    connection.detachable = false;
                     connection.endpoints[0].setStyle({
                         fillStyle:color
                     });
@@ -98,6 +99,8 @@
                         strokeStyle:color, 
                         lineWidth: 4
                     });
+
+                    $("#done").attr('disabled','disabled');
                 });
 
                 //send result to bdd
